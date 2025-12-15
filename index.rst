@@ -10,10 +10,7 @@
    :maxdepth: 2
    :caption: 버트온(VirtOn) 매뉴얼
    :hidden:
-  ■ 개요 <main/01-intro>
-  ■ 설치 및 구성<main/02-install>
-  ■ 호스트 연결 및 구성<main/03-connect>
-  ■ UI 기능 요소<main/04-UI>
+
 
 
 .. toctree::
@@ -21,13 +18,6 @@
    :caption: Proxmox 매뉴얼
    :hidden:
 
-   ■ 개요 <guide/01-intro>
-   ■ Proxmox VE 설치 <guide/02-install>
-   ■ 운영 <guide/03-ops>
-   ■ GUI <guide/04-gui>
-   ■ Cluster<guide/05-cluster>
-   ■ Proxmox Cluster File System<guide/06-pmxcfs>
-   ■ 스토리지 유형<guide/07-storage>
    
    
 .. toctree::
