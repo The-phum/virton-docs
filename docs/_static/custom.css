@@ -192,7 +192,7 @@
 .prev-next-title {
   white-space: normal !important;
   overflow: visible !important;
-  margin-bottom: 0.25rem !important;   /* 라벨 ↔ 제목 갭 줄이기 */
+  margin-bottom: 0.2rem !important;   /* 라벨 ↔ 제목 갭 줄이기 */
   line-height: 1.2 !important;
 }
 
