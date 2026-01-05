@@ -349,3 +349,6 @@ footer a:focus svg {
   fill: var(--link-hover-color) !important;
   stroke: var(--link-hover-color) !important;
 }
+.prev-next-footer {
+  margin-top: 6rem;
+}
