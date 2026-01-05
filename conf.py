@@ -51,3 +51,7 @@ source_suffix = {
 import os   # 기존주석 해제
 import sys  # 기존주석 해제
 sys.path.insert(0, os.path.abspath('.')) # 기존주석 해제
+
+exclude_patterns = [
+    'README.md',
+]

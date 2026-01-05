@@ -3,14 +3,26 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-버트온 어드민 가이드
-==============================
+VirtOn 사용자 매뉴얼(User Manual)
+============================================================
 
 .. toctree::
    :maxdepth: 2
-   :caption: 버트온(VirtOn) 매뉴얼
+   :caption: 버트온 사용자 매뉴얼
    :hidden:
+   
+   main/1-introduction
+   main/2-dashboard
+   main/3-instances
+   main/4-cluster
+   main/5-ha
+   main/6-resources
+   main/7-network
+   main/8-notifications
+   main/9-settings
+   main/10-appendix
 
+   
 
 
 .. toctree::
