@@ -300,7 +300,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -316,6 +318,40 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> 내용 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ha"><strong>1. HA 상태 모니터링</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crm"><strong>1.1 CRM (마스터 노드) 상태</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lrm-ha"><strong>1.2 LRM (노드별 HA 상태)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lrm"><strong>1.3 LRM 상태 종류 및 의미</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>1.4 데이터 로딩 및 예외 처리</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>2. HA 리소스 목록</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>2.1 컬럼 설명</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type"><strong>2.2 리소스 타입 (Type)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>2.3 리소스 상태 (Type)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#max-restart"><strong>2.4 최대 재시작 (Max Restart)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#max-relocate"><strong>2.5 최대 재배치 (Max Relocate)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><strong>2.6 최대 재배치 (Max Relocate)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><strong>2.7 리소스 선택 및 관리</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ha-affinity-rules"><strong>3. HA 고급 설정 (Affinity Rules 설정)</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#node-affinity-rules"><strong>3.1 노드 친화성 규칙 (Node Affinity Rules)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">3.1.1 <strong>대상 리소스</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><strong>3.1.2 노드 목록 (가중치)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strict"><strong>3.1.3 정책 (Strict)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resource-affinity-rules"><strong>3.2 리소스 친화성 규칙 (Resource Affinity Rules)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><strong>3.2.1 대상 리소스</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#affinity"><strong>3.2.2 정책 (Affinity)</strong></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -327,6 +363,513 @@ document.write(`
                   
   <section id="ha-high-availability">
 <h1><strong>7. 고가용성 (HA - High Availability)</strong><a class="headerlink" href="#ha-high-availability" title="Link to this heading"><span>#</span></a></h1>
+<p>고가용성(High Availability, HA)은 시스템이나 서비스가 장애 상황에서도 중단 없이 지속적으로 운영될 수 있도록 하는 기능입니다. VirtOn은 Proxmox HA 구조를 기반으로 클러스터 내 노드와 리소스의 가용성을 관리합니다.</p>
+<p><img alt="ha 메인" src="../_images/HA_page_main.png" /></p>
+<p>VirtOn의 HA 페이지에서는 다음 기능을 제공합니다.</p>
+<ul class="simple">
+<li><p>HA 상태 모니터링</p></li>
+<li><p>HA 리소스 목록</p></li>
+<li><p>HA 고급 설정 (Affinity Rules)</p></li>
+</ul>
+<hr class="docutils" />
+<section id="ha">
+<h2><strong>1. HA 상태 모니터링</strong><a class="headerlink" href="#ha" title="Link to this heading"><span>#</span></a></h2>
+<p><img alt="ha 상태 섹션" src="../_images/HA_status.png" /></p>
+<p>HA 상태 모니터링 영역에서는 클러스터 내 각 노드의 <strong>HA 역할, 서비스 유형, 상태를 실시간으로 확인</strong>할 수 있습니다.<br />
+VirtOn은 Proxmox HA 정보를 기반으로 <strong>CRM(Cluster Resource Manager)</strong> 과 <strong>LRM(Local Resource Manager)</strong> 상태를 구분하여 표시합니다.</p>
+<hr class="docutils" />
+<section id="crm">
+<h3><strong>1.1 CRM (마스터 노드) 상태</strong><a class="headerlink" href="#crm" title="Link to this heading"><span>#</span></a></h3>
+<p>CRM은 클러스터 전체 HA 리소스를 제어하는 <strong>중앙 관리 노드</strong>입니다. 클러스터 내에는 <strong>하나의 CRM 마스터 노드만 존재</strong>합니다.</p>
+<p><strong>표시 항목</strong></p>
+<ul class="simple">
+<li><p><strong>노드</strong> : 현재 CRM 역할을 수행 중인 마스터 노드</p></li>
+<li><p><strong>역할</strong> : <code class="docutils literal notranslate"><span class="pre">CRM</span> <span class="pre">(마스터</span> <span class="pre">노드)</span></code></p></li>
+<li><p><strong>서비스</strong> : Control</p></li>
+<li><p><strong>상태 (쿼럼 상태)</strong></p>
+<ul>
+<li><p><strong>쿼럼 정상 (OK)</strong></p>
+<ul>
+<li><p>클러스터 다수결이 유지된 정상 상태</p></li>
+<li><p>초록색으로 표시</p></li>
+</ul>
+</li>
+<li><p><strong>실패 (No Quorum)</strong></p>
+<ul>
+<li><p>쿼럼이 상실된 상태</p></li>
+<li><p>빨간색으로 표시</p></li>
+<li><p>HA 제어 불가 상태</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="lrm-ha">
+<h3><strong>1.2 LRM (노드별 HA 상태)</strong><a class="headerlink" href="#lrm-ha" title="Link to this heading"><span>#</span></a></h3>
+<p>LRM(Local Resource Manager)은 각 노드에서 HA 리소스를 실제로 관리하는 구성 요소입니다.<br />
+클러스터에 포함된 <strong>모든 노드가 LRM 상태로 표시</strong>되며, 노드는 <strong>이름 기준(A–Z)</strong> 으로 정렬됩니다.</p>
+<p><strong>표시 항목</strong></p>
+<ul class="simple">
+<li><p><strong>노드</strong> : HA가 구성된 노드 이름</p></li>
+<li><p><strong>역할</strong> : LRM</p></li>
+<li><p><strong>서비스</strong> : 해당 노드의 HA 동작 모드</p></li>
+<li><p><strong>상태</strong> : 노드별 HA 상태</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="lrm">
+<h3><strong>1.3 LRM 상태 종류 및 의미</strong><a class="headerlink" href="#lrm" title="Link to this heading"><span>#</span></a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>상태</p></th>
+<th class="head"><p>내부 상태 값</p></th>
+<th class="head"><p>설명</p></th>
+<th class="head"><p>표시 색상</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>활성 (Active)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">active</span></code></p></td>
+<td><p>HA가 정상적으로 동작 중이며 리소스를 관리하는 상태</p></td>
+<td><p>초록색</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>유휴 (Idle)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">wait_for_agent_lock</span></code></p></td>
+<td><p>HA 리소스 잠금을 대기 중인 정상 대기 상태</p></td>
+<td><p>회색</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>잠금 유실 (Lost Lock)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">lost_agent_lock</span></code></p></td>
+<td><p>HA 에이전트 잠금이 유실된 비정상 상태</p></td>
+<td><p>빨간색</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>오류 (Error)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">error</span></code></p></td>
+<td><p>HA 처리 중 오류가 발생한 상태</p></td>
+<td><p>빨간색</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<div><p>⚠️ <strong>주의</strong><br />
+<code class="docutils literal notranslate"><span class="pre">Lost</span> <span class="pre">Lock</span></code> 상태는 단순 유휴 상태가 아니라 <strong>HA 동작 이상 상태</strong>이며,<br />
+리소스 장애 또는 네트워크/에이전트 문제를 점검해야 합니다.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="id1">
+<h3><strong>1.4 데이터 로딩 및 예외 처리</strong><a class="headerlink" href="#id1" title="Link to this heading"><span>#</span></a></h3>
+<ul class="simple">
+<li><p>HA 상태 정보는 Proxmox API를 통해 실시간으로 조회됩니다.</p></li>
+<li><p>상태 로딩 중에는 <strong>로딩 스피너</strong>가 표시됩니다.</p></li>
+<li><p>HA 상태 조회 중 오류가 발생할 경우:</p>
+<ul>
+<li><p>오류 메시지가 표시됩니다.</p></li>
+<li><p><strong>[다시 시도] 버튼</strong>을 통해 즉시 재조회할 수 있습니다.</p></li>
+</ul>
+</li>
+<li><p>HA 노드 정보가 없는 경우:</p>
+<ul>
+<li><p><strong>“등록된 노드 정보가 없습니다.”</strong> 안내 문구가 표시됩니다.</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+</section>
+</section>
+<section id="id2">
+<h2><strong>2. HA 리소스 목록</strong><a class="headerlink" href="#id2" title="Link to this heading"><span>#</span></a></h2>
+<p><img alt="ha 리소스 목록 섹션" src="../_images/HA_resource.png" /></p>
+<p>HA 리소스 목록 화면에서는 고가용성(HA)이 적용된 VM 및 컨테이너 리소스를 한눈에 확인하고 관리할 수 있습니다.<br />
+각 리소스는 장애 발생 시 자동 복구 및 재배치 대상이 됩니다.</p>
+<hr class="docutils" />
+<p><img alt="ha 리소스 목록 추가" src="../_images/HA_resource_add.png" /></p>
+<section id="id3">
+<h3><strong>2.1 컬럼 설명</strong><a class="headerlink" href="#id3" title="Link to this heading"><span>#</span></a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>항목</p></th>
+<th class="head"><p>설명</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>ID</strong></p></td>
+<td><p>Proxmox HA 리소스 ID (VM 또는 CT의 고유 ID)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>노드</strong></p></td>
+<td><p>현재 리소스가 실행 중인 물리 노드</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>타입</strong></p></td>
+<td><p>리소스 유형 (VM 또는 CT)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>이름</strong></p></td>
+<td><p>가상머신 또는 컨테이너 이름</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>상태</strong></p></td>
+<td><p>HA 리소스의 현재 동작 상태</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>최대 재시작</strong></p></td>
+<td><p>장애 발생 시 자동 재시도 횟수</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>최대 재배치</strong></p></td>
+<td><p>노드 장애 시 이동 가능한 최대 횟수</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Failback</strong></p></td>
+<td><p>장애 복구 후 원래 노드로 되돌릴지 여부</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="type">
+<h3><strong>2.2 리소스 타입 (Type)</strong><a class="headerlink" href="#type" title="Link to this heading"><span>#</span></a></h3>
+<p>HA 리소스는 다음 두 가지 타입을 가집니다.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>타입</p></th>
+<th class="head"><p>설명</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>VM</strong></p></td>
+<td><p>QEMU 기반 가상머신</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>CT</strong></p></td>
+<td><p>LXC 기반 컨테이너</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="id4">
+<h3><strong>2.3 리소스 상태 (Type)</strong><a class="headerlink" href="#id4" title="Link to this heading"><span>#</span></a></h3>
+<p>HA 리소스는 현재 상태에 따라 색상과 텍스트로 시각화됩니다.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>상태</p></th>
+<th class="head"><p>설명</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>실행 중 (Started)</strong></p></td>
+<td><p>정상적으로 실행 중인 상태</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>중지 (Stopped)</strong></p></td>
+<td><p>리소스가 중지된 상태</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>실행 요청 중 (Starting)</strong></p></td>
+<td><p>HA가 리소스 실행을 시도 중</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>정지 중 (Stopping)</strong></p></td>
+<td><p>리소스 종료 처리 중</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>대기 중 (Queued)</strong></p></td>
+<td><p>HA 큐에 등록되어 대기 중</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>마이그레이션 중 (Migrate)</strong></p></td>
+<td><p>다른 노드로 이동 중</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>복구 중 (Recovery)</strong></p></td>
+<td><p>장애 발생 후 복구 작업 진행 중</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Fence</strong></p></td>
+<td><p>노드 장애로 강제 차단 처리된 상태</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>비활성화 (Disabled)</strong></p></td>
+<td><p>HA 관리 대상에서 제외된 상태</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>무시됨 (Ignored)</strong></p></td>
+<td><p>HA 정책에 의해 일시적으로 무시됨</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul class="simple">
+<li><p>HA 리소스 생성 시, 4가지 상태 중 선택하여 사용한다. (기본값 Started)</p>
+<ul>
+<li><p><strong>실행 상태 (Started)</strong> : 정상적으로 실행하는 HA 리소스 생성</p></li>
+<li><p><strong>중지 (Stopped)</strong> : 중지된 상태의 HA 리소스 생성</p></li>
+<li><p><strong>무시됨 (Ignored)</strong> : HA 정책에 의해 일시적으로 무시하는 HA 리소스 생성</p></li>
+<li><p><strong>비활성화 (Disabled)</strong> : HA 관리 대상에서 제외된 HA 리소스 생성</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="max-restart">
+<h3><strong>2.4 최대 재시작 (Max Restart)</strong><a class="headerlink" href="#max-restart" title="Link to this heading"><span>#</span></a></h3>
+<p>리소스 실행 중 오류나 비정상 종료가 발생했을 때,<br />
+<strong>같은 노드에서 자동으로 다시 실행을 시도하는 최대 횟수</strong>입니다.</p>
+<p><strong>동작 예시</strong></p>
+<ul class="simple">
+<li><p>최대 재시작 = <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
+<li><p>VM이 비정상 종료됨</p></li>
+<li><p>HA가 동일 노드에서 1회 재시작 시도</p></li>
+<li><p>재시작 실패 시 다음 정책(재배치)로 진행</p></li>
+</ul>
+<p>💡 재시작 횟수가 초과되면 재배치 또는 Fence 정책이 적용됩니다.</p>
+</section>
+<hr class="docutils" />
+<section id="max-relocate">
+<h3><strong>2.5 최대 재배치 (Max Relocate)</strong><a class="headerlink" href="#max-relocate" title="Link to this heading"><span>#</span></a></h3>
+<p>재시작 실패 또는 노드 장애 발생 시,<br />
+<strong>다른 노드로 리소스를 이동할 수 있는 최대 횟수</strong>입니다.</p>
+<p><strong>동작 예시</strong></p>
+<ul class="simple">
+<li><p>최대 재배치 = <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
+<li><p>현재 노드 장애 발생</p></li>
+<li><p>다른 노드로 VM 이동</p></li>
+<li><p>재배치 횟수 초과 시 추가 이동 중단</p></li>
+</ul>
+<p>💡 클러스터 환경에서 과도한 이동을 방지하기 위한 보호 장치입니다.</p>
+</section>
+<hr class="docutils" />
+<section id="id5">
+<h3><strong>2.6 최대 재배치 (Max Relocate)</strong><a class="headerlink" href="#id5" title="Link to this heading"><span>#</span></a></h3>
+<p>장애가 발생했던 노드가 복구된 이후,<br />
+<strong>리소스를 원래 실행되던 노드로 되돌릴지 여부를 설정하는 옵션</strong>입니다.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>값</p></th>
+<th class="head"><p>설명</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>On</strong></p></td>
+<td><p>원래 노드가 복구되면 자동 복귀</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Off</strong></p></td>
+<td><p>현재 실행 중인 노드에 그대로 유지</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul class="simple">
+<li><p><strong>On</strong>: 노드 역할이 명확한 환경 (전용 워크로드)</p></li>
+<li><p><strong>Off</strong>: 안정성이 중요한 서비스 (불필요한 이동 방지)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="id6">
+<h3><strong>2.7 리소스 선택 및 관리</strong><a class="headerlink" href="#id6" title="Link to this heading"><span>#</span></a></h3>
+<ul class="simple">
+<li><p>목록에서 <strong>단일 리소스만 선택 가능</strong></p></li>
+<li><p>선택 시 다음 작업 가능</p>
+<ul>
+<li><p><strong>수정</strong> : 추가와 모달 항목 동일, 단 ID 변경은 금지</p></li>
+<li><p><strong>제거</strong> : 제거 모달창 출력</p></li>
+</ul>
+</li>
+<li><p>선택하지 않으면 관리 버튼은 비활성화됨</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+</section>
+<section id="ha-affinity-rules">
+<h2><strong>3. HA 고급 설정 (Affinity Rules 설정)</strong><a class="headerlink" href="#ha-affinity-rules" title="Link to this heading"><span>#</span></a></h2>
+<p><img alt="ha 리소스 고급 설정 섹션" src="../_images/HA_affinity.png" /></p>
+<p>HA 고급 설정에서는 <strong>Affinity Rules(친화성 규칙)</strong> 을 통해<br />
+HA 리소스의 실행 위치와 배치 정책을 세밀하게 제어할 수 있습니다.</p>
+<p>Affinity Rules는 크게 다음 두 가지로 구성됩니다.</p>
+<ul class="simple">
+<li><p><strong>노드 친화성 규칙 (Node Affinity Rules)</strong></p></li>
+<li><p><strong>리소스 친화성 규칙 (Resource Affinity Rules)</strong></p></li>
+</ul>
+<p>각 규칙은 HA 리소스의 배치 안정성과 장애 대응 전략에 직접적인 영향을 미칩니다.</p>
+<hr class="docutils" />
+<section id="node-affinity-rules">
+<h3><strong>3.1 노드 친화성 규칙 (Node Affinity Rules)</strong><a class="headerlink" href="#node-affinity-rules" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="노드 친화성 규칙 설정 섹션" src="../_images/HA_affinity_node.png" /></p>
+<p>노드 친화성 규칙은 <strong>특정 리소스를 어떤 노드에서 우선적으로 실행할지</strong>를 정의합니다.<br />
+가중치와 정책을 통해 실행 우선순위와 강제 여부를 설정할 수 있습니다.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>항목</p></th>
+<th class="head"><p>설명</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>규칙명</strong></p></td>
+<td><p>노드 친화성 규칙의 고유 이름</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>대상 리소스</strong></p></td>
+<td><p>규칙이 적용되는 VM 또는 CT</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>노드 목록 (가중치)</strong></p></td>
+<td><p>실행 대상 노드와 각 노드의 우선순위</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>정책 (Strict)</strong></p></td>
+<td><p>규칙 적용 강제 여부</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="id7">
+<h3>3.1.1 <strong>대상 리소스</strong><a class="headerlink" href="#id7" title="Link to this heading"><span>#</span></a></h3>
+<ul class="simple">
+<li><p>해당 규칙이 <strong>어떤 HA 리소스(VM/CT)에 적용되는지</strong>를 나타냅니다.</p></li>
+<li><p>하나 이상의 리소스를 지정할 수 있으며, 쉼표(<code class="docutils literal notranslate"><span class="pre">,</span></code>)로 구분됩니다.</p></li>
+<li><p>대상 리소스에 포함된 VM/CT는 해당 규칙의 영향을 받습니다.</p></li>
+</ul>
+<p><strong>운영 포인트</strong></p>
+<ul class="simple">
+<li><p>핵심 서비스 VM은 명확한 노드 친화성 규칙을 지정하는 것이 권장됩니다.</p></li>
+<li><p>테스트 또는 비중요 리소스는 규칙 적용을 최소화할 수 있습니다.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="id8">
+<h3><strong>3.1.2 노드 목록 (가중치)</strong><a class="headerlink" href="#id8" title="Link to this heading"><span>#</span></a></h3>
+<p>노드 목록은 <strong>리소스가 실행될 수 있는 노드와 그 우선순위</strong>를 정의합니다.</p>
+<p><strong>가중치 개념</strong></p>
+<ul class="simple">
+<li><p>가중치는 숫자로 표현됩니다.</p></li>
+<li><p><strong>값이 높을수록 우선 실행 대상</strong>이 됩니다.</p></li>
+<li><p>가중치가 동일한 경우, 노드 이름 기준으로 정렬됩니다.</p></li>
+<li><p>가중치가 <code class="docutils literal notranslate"><span class="pre">0</span></code>인 경우에도 명시적으로 표시됩니다.</p></li>
+</ul>
+<p><strong>동작 방식 예시</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>노드</p></th>
+<th class="head"><p>가중치</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>phum01</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p>phum03</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-even"><td><p>phum02</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">phum01</span></code> → 최우선 실행 노드</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">phum03</span></code> → 차순위 실행 노드</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">phum02</span></code> → 마지막 후보 노드</p></li>
+</ul>
+<p>💡 장애 발생 시, HA는 가중치가 높은 노드부터 실행을 시도합니다.</p>
+</section>
+<hr class="docutils" />
+<section id="strict">
+<h3><strong>3.1.3 정책 (Strict)</strong><a class="headerlink" href="#strict" title="Link to this heading"><span>#</span></a></h3>
+<p>정책은 노드 친화성 규칙을 <strong>강제로 적용할지 여부</strong>를 결정합니다.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>정책</p></th>
+<th class="head"><p>설명</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>엄격 (Strict)</strong></p></td>
+<td><p>지정된 노드에서만 실행 가능</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>선호 (Preferred)</strong></p></td>
+<td><p>가급적 지정 노드에서 실행하되, 불가 시 다른 노드 허용</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>엄격 (Strict)</strong></p>
+<ul class="simple">
+<li><p>지정된 노드 외에는 실행되지 않음</p></li>
+<li><p>모든 지정 노드가 불가능할 경우 리소스는 실행되지 않음</p></li>
+</ul>
+<p><strong>권장 사용 시나리오</strong></p>
+<ul class="simple">
+<li><p>라이선스 제약이 있는 VM</p></li>
+<li><p>특정 하드웨어 의존 서비스</p></li>
+<li><p>고정된 역할의 노드 구성</p></li>
+</ul>
+<p><strong>선호 (Preferred)</strong></p>
+<ul class="simple">
+<li><p>우선 노드를 기준으로 실행 시도</p></li>
+<li><p>모든 노드가 불가한 경우 다른 노드로 자동 실행</p></li>
+</ul>
+<p><strong>권장 사용 시나리오</strong></p>
+<ul class="simple">
+<li><p>일반 서비스 VM</p></li>
+<li><p>고가용성을 최우선으로 하는 환경</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="resource-affinity-rules">
+<h3><strong>3.2 리소스 친화성 규칙 (Resource Affinity Rules)</strong><a class="headerlink" href="#resource-affinity-rules" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="리소스 친화성 규칙 설정 섹션" src="../_images/HA_affinity_resource.png" /></p>
+<p>리소스 친화성 규칙은 <strong>리소스 간의 실행 관계</strong>를 정의합니다.<br />
+특정 리소스를 함께 실행하거나, 서로 분리하여 실행할 수 있습니다.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>항목</p></th>
+<th class="head"><p>설명</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>규칙명</strong></p></td>
+<td><p>리소스 친화성 규칙 이름</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>대상 리소스</strong></p></td>
+<td><p>규칙이 적용되는 VM/CT 그룹</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>정책 (Affinity)</strong></p></td>
+<td><p>리소스 간 실행 관계</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="id9">
+<h3><strong>3.2.1 대상 리소스</strong><a class="headerlink" href="#id9" title="Link to this heading"><span>#</span></a></h3>
+<ul class="simple">
+<li><p>규칙이 적용되는 <strong>여러 HA 리소스 그룹</strong>을 의미합니다.</p></li>
+<li><p>지정된 리소스들은 하나의 정책 단위로 동작합니다.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="affinity">
+<h3><strong>3.2.2 정책 (Affinity)</strong><a class="headerlink" href="#affinity" title="Link to this heading"><span>#</span></a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>정책</p></th>
+<th class="head"><p>설명</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>함께 실행 (Positive)</strong></p></td>
+<td><p>같은 노드에서 실행되도록 유도</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>분리 실행 (Negative)</strong></p></td>
+<td><p>서로 다른 노드에서 실행되도록 강제</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>함께 실행 (Positive)</strong></p>
+<ul class="simple">
+<li><p>네트워크 지연을 최소화해야 하는 서비스 구성에 적합</p></li>
+<li><p>예: Web 서버 + Cache 서버</p></li>
+</ul>
+<p><strong>분리 실행 (Negative)</strong></p>
+<ul class="simple">
+<li><p>장애 영향 범위를 줄이기 위한 구성</p></li>
+<li><p>예: Active/Standby, 이중화 서비스</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+</section>
 </section>
 
 
@@ -364,6 +907,47 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 내용
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ha"><strong>1. HA 상태 모니터링</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crm"><strong>1.1 CRM (마스터 노드) 상태</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lrm-ha"><strong>1.2 LRM (노드별 HA 상태)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lrm"><strong>1.3 LRM 상태 종류 및 의미</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>1.4 데이터 로딩 및 예외 처리</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>2. HA 리소스 목록</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>2.1 컬럼 설명</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type"><strong>2.2 리소스 타입 (Type)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>2.3 리소스 상태 (Type)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#max-restart"><strong>2.4 최대 재시작 (Max Restart)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#max-relocate"><strong>2.5 최대 재배치 (Max Relocate)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><strong>2.6 최대 재배치 (Max Relocate)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><strong>2.7 리소스 선택 및 관리</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ha-affinity-rules"><strong>3. HA 고급 설정 (Affinity Rules 설정)</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#node-affinity-rules"><strong>3.1 노드 친화성 규칙 (Node Affinity Rules)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">3.1.1 <strong>대상 리소스</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><strong>3.1.2 노드 목록 (가중치)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strict"><strong>3.1.3 정책 (Strict)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resource-affinity-rules"><strong>3.2 리소스 친화성 규칙 (Resource Affinity Rules)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><strong>3.2.1 대상 리소스</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#affinity"><strong>3.2.2 정책 (Affinity)</strong></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
