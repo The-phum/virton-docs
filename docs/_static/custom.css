@@ -192,8 +192,6 @@
 .prev-next-title {
   white-space: normal !important;
   overflow: visible !important;
-  margin-bottom: 0.2rem !important;   /* 라벨 ↔ 제목 갭 줄이기 */
-  line-height: 1.2 !important;
 }
 
 /* 위험: 전역 span/a에 display, width, writing-mode 등을 건드리는 규칙이 있으면 지우세요 */
@@ -350,7 +348,4 @@ footer a:hover svg,
 footer a:focus svg {
   fill: var(--link-hover-color) !important;
   stroke: var(--link-hover-color) !important;
-}
-.prev-next-footer {
-  margin-top: 6rem;
 }
