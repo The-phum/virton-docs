@@ -9,18 +9,21 @@ VirtOn 사용자 매뉴얼(User Manual)
 .. toctree::
    :maxdepth: 2
    :caption: 버트온 사용자 매뉴얼
-   :hidden:
-   
+
    main/1-introduction
-   main/2-dashboard
-   main/3-instances
-   main/4-cluster
-   main/5-ha
-   main/6-resources
-   main/7-network
-   main/8-notifications
-   main/9-settings
-   main/10-appendix
+   main/2-login
+   main/3-dashboard
+   main/4-instances
+   main/5-cluster
+   main/6-ceph
+   main/7-ha
+   main/8-template
+   main/9-resources
+   main/10-storage
+   main/11-network
+   main/12-notifications
+   main/13-settings
+   main/14-appendix
 
    
 
