@@ -38,10 +38,10 @@
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="_static/documentation_options.js?v=2dfc782e"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script src="_static/translations.js?v=afa94a99"></script>
+    <script src="_static/translations.js?v=e33e7ba0"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
     <link rel="icon" href="_static/favicon.png"/>
     <link rel="index" title="색인" href="genindex.html" />
@@ -169,13 +169,12 @@
 <li class="toctree-l1"><a class="reference internal" href="main/5-cluster.html"><strong>5. 클러스터 (Cluster)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="main/6-ceph.html"><strong>6. Ceph</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="main/7-ha.html"><strong>7. 고가용성 (HA - High Availability)</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="main/8-template.html"><strong>8. 템플릿 (template)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="main/8-template.html"><strong>8. 템플릿 (template)/마이그레이션 (migrate)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="main/9-resources.html"><strong>9. 리소스 (Resources)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="main/10-storage.html"><strong>10. 스토리지 (Storage)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="main/11-network.html"><strong>11. 네트워크 (Network)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="main/12-notifications.html"><strong>12. 알림 (Notifications)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="main/13-settings.html"><strong>13. 설정 (Settings)</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="main/14-appendix.html"><strong>14. 부록 (Appendix)</strong></a></li>
 </ul>
 
     </div>
@@ -353,7 +352,11 @@ document.write(`
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="main/4-instances.html"><strong>4. 인스턴스 (Instances)</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="main/5-cluster.html"><strong>5. 클러스터 (Cluster)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="main/5-cluster.html"><strong>5. 클러스터 (Cluster)</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="main/5-cluster.html#id1">5.1 클러스터 현황</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/5-cluster.html#id2">5.2 노드 관리</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="main/6-ceph.html"><strong>6. Ceph</strong></a><ul>
 <li class="toctree-l2"><a class="reference internal" href="main/6-ceph.html#ceph-health"><strong>1.1. Ceph Health 모니터링</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="main/6-ceph.html#id1"><strong>1.2. Ceph 상태 진단 내역 상세 모달 창</strong></a></li>
@@ -367,7 +370,15 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="main/7-ha.html#ha-affinity-rules"><strong>3. HA 고급 설정 (Affinity Rules 설정)</strong></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="main/8-template.html"><strong>8. 템플릿 (template)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="main/8-template.html"><strong>8. 템플릿 (template)/마이그레이션 (migrate)</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="main/8-template.html#id1">8.1 업로드</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/8-template.html#template">8.2 다운로드(Template)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/8-template.html#id2">8.3 템플릿 목록</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/8-template.html#clone">8.3.1 복제(Clone)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/8-template.html#convert-to-template">8.4 템플릿으로 변환(Convert to template)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/8-template.html#migrate">8.5 마이그레이션(Migrate)</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="main/9-resources.html"><strong>9. 리소스 (Resources)</strong></a><ul>
 <li class="toctree-l2"><a class="reference internal" href="main/9-resources.html#id1">1. 화면 구성 개요</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main/9-resources.html#id2">2. 상단 헤더 영역</a></li>
@@ -394,14 +405,26 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="main/10-storage.html#id6"><strong>1.5. 스토리지 삭제</strong></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="main/11-network.html"><strong>11. 네트워크 (Network)</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="main/12-notifications.html"><strong>12. 알림 (Notifications)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="main/11-network.html"><strong>11. 네트워크 (Network)</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="main/11-network.html#id1">11.1 네트워크 인터페이스 설정</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/11-network.html#id2">11.2 인터페이스 관리 - 새 인터페이스(네트워크) 생성</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/11-network.html#bridge">Bridge 타입</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/11-network.html#vlan">VLAN 타입</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/11-network.html#bond">Bond 타입</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/11-network.html#apply-configuration">11.2.1 변경 적용 - Apply Configuration <strong>[ 🔄 변경 적용 ]</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/11-network.html#edit">11.2.2 네트워크 수정 - Edit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/11-network.html#remove">11.2.3 네트워크 삭제 - Remove 🗑️</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="main/12-notifications.html"><strong>12. 알림 (Notifications)</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="main/12-notifications.html#id1">12.1 작업 로그 및 이력</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="main/13-settings.html"><strong>13. 설정 (Settings)</strong></a><ul>
 <li class="toctree-l2"><a class="reference internal" href="main/13-settings.html#proxmox-api">1. Proxmox API 연결 설정</a></li>
 <li class="toctree-l2"><a class="reference internal" href="main/13-settings.html#ip-ip-access-control">2. 관리자 IP 접근 제어 (IP Access Control)</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="main/14-appendix.html"><strong>14. 부록 (Appendix)</strong></a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">

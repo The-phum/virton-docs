@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>8. 템플릿 (template) &#8212; virton 1.1 문서</title>
+    <title>8. 템플릿 (template)/마이그레이션 (migrate) &#8212; virton 1.1 문서</title>
   
   
   
@@ -38,10 +38,10 @@
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../_static/documentation_options.js?v=2dfc782e"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script src="../_static/translations.js?v=afa94a99"></script>
+    <script src="../_static/translations.js?v=e33e7ba0"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'main/8-template';</script>
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="색인" href="../genindex.html" />
@@ -168,13 +168,12 @@
 <li class="toctree-l1"><a class="reference internal" href="5-cluster.html"><strong>5. 클러스터 (Cluster)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="6-ceph.html"><strong>6. Ceph</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="7-ha.html"><strong>7. 고가용성 (HA - High Availability)</strong></a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>8. 템플릿 (template)</strong></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>8. 템플릿 (template)/마이그레이션 (migrate)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="9-resources.html"><strong>9. 리소스 (Resources)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="10-storage.html"><strong>10. 스토리지 (Storage)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="11-network.html"><strong>11. 네트워크 (Network)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="12-notifications.html"><strong>12. 알림 (Notifications)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="13-settings.html"><strong>13. 설정 (Settings)</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="14-appendix.html"><strong>14. 부록 (Appendix)</strong></a></li>
 </ul>
 
     </div>
@@ -300,7 +299,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -311,11 +312,36 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>8. 템플릿 (template)</h1>
+    <h1>8. 템플릿 (template)/마이그레이션 (migrate)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> 내용 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">8.1 업로드</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lxc-iso">8.1.1 컨테이너 템플릿(LXC)/가상머신 이미지(ISO)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#template">8.2 다운로드(Template)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">8.3 템플릿 목록</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clone">8.3.1 복제(Clone)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-to-template">8.4 템플릿으로 변환(Convert to template)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">8.4.1 템플릿 변환 예시</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#migrate">8.5 마이그레이션(Migrate)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">8.5.1 가상머신/컨테이너 마이그레이션</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">8.5.2 가상머신/컨테이너 마이그레이션 진행 예시</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">8.5.3 템플릿 마이그레이션</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">8.5.4 템플릿 마이그레이션 진행 예시</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -325,8 +351,215 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="template">
-<h1><strong>8. 템플릿 (template)</strong><a class="headerlink" href="#template" title="Link to this heading"><span>#</span></a></h1>
+  <section id="template-migrate">
+<h1><strong>8. 템플릿 (template)/마이그레이션 (migrate)</strong><a class="headerlink" href="#template-migrate" title="Link to this heading"><span>#</span></a></h1>
+<p><strong>템플릿(Template)</strong> 기능은 미리 설정된 가상 머신(VM)이나 컨테이너(CT)를 ‘원본 이미지’로 고정하여, 동일한 환경을 신속하게 대량으로 배포하기 위한 핵심 도구입니다.</p>
+<p><img alt="템플릿 메인" src="../_images/template_main.png" /></p>
+<section id="id1">
+<h2>8.1 업로드<a class="headerlink" href="#id1" title="Link to this heading"><span>#</span></a></h2>
+<blockquote>
+<div><p>파일 업로드는 관리자의 <strong>로컬 PC</strong>에 이미 저장되어 있는 <strong>템플릿 파일</strong>(<code class="docutils literal notranslate"><span class="pre">.tar.gz</span></code>, <code class="docutils literal notranslate"><span class="pre">.tar.xz</span></code> 등) 이나 <strong>가상머신 이미지</strong>(<code class="docutils literal notranslate"><span class="pre">.iso</span></code>)를 선택하여 해당 서버의 스토리지로 전송합니다.</p>
+</div></blockquote>
+<section id="lxc-iso">
+<h3>8.1.1 컨테이너 템플릿(LXC)/가상머신 이미지(ISO)<a class="headerlink" href="#lxc-iso" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="템플릿 업로드" src="../_images/template_upload_lxc.png" /></p>
+<p><img alt="템플릿 업로드2" src="../_images/template_upload_type.png" /></p>
+<ol class="arabic simple">
+<li><p>컨텐츠 타입 선택 후 파일 선택 버튼 클릭 시 <strong>사용자의 로컬 PC의 파일 목록</strong>을 불러옵니다.</p></li>
+<li><p>업로드 할 파일 목록을 선택하면 <strong>파일명과 크기가 자동으로 할당</strong> 됩니다.</p></li>
+<li><p>해시 알고리즘의 기본값은 None 입니다.</p></li>
+</ol>
+<blockquote>
+<div><p>알고리즘 종류별 특징</p>
+</div></blockquote>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>알고리즘</strong></p></th>
+<th class="head"><p><strong>보안 강도</strong></p></th>
+<th class="head"><p><strong>특징 및 권장 사항</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>None</strong></p></td>
+<td><p>없음</p></td>
+<td><p>검증을 하지 않습니다. 전송 오류나 변조를 잡을 수 없어 위험합니다.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MD5</strong></p></td>
+<td><p>매우 낮음</p></td>
+<td><p>과거에 많이 쓰였으나 현재는 보안 취약점 때문에 <strong>권장하지 않습니다.</strong> 속도는 가장 빠릅니다.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>SHA-1</strong></p></td>
+<td><p>낮음</p></td>
+<td><p>MD5보다는 낫지만 역시 보안상의 이유로 현대적인 시스템에서는 점차 퇴출되는 추세입니다.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>SHA-224</strong></p></td>
+<td><p><strong>보통 (권장)</strong></p></td>
+<td><p><strong>국가용 보안요구사항</strong>에서 인정하는 최소 보안 강도(112bit 이상)의 시작점입니다2222.+2</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>SHA-256</strong></p></td>
+<td><p><strong>높음 (표준)</strong></p></td>
+<td><p>현재 업계 표준으로 가장 널리 사용됩니다. 보안성과 성능의 균형이 가장 좋습니다33.+1</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>SHA-512</strong></p></td>
+<td><p><strong>매우 높음</strong></p></td>
+<td><p>보안 강도가 가장 높지만 계산량이 많아 파일 용량이 클 경우 시간이 더 소요될 수 있습니다44.+1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="template">
+<h2>8.2 다운로드(Template)<a class="headerlink" href="#template" title="Link to this heading"><span>#</span></a></h2>
+<p><img alt="템플릿 다운로드1" src="../_images/template_download_main.png" /></p>
+<blockquote>
+<div><p>프록스목스에서 공식적으로 제공하는 **이미지 목록(Ubuntu, Debian, CentOS 등)**을 서버에서 직접 불러와 선택하여 다운로드합니다.</p>
+</div></blockquote>
+<p><img alt="템플릿 다운로드2" src="../_images/template_download.png" /></p>
+<ul class="simple">
+<li><p>다운로드할 템플릿 목록을 선택합니다.</p></li>
+</ul>
+<p><img alt="템플릿 다운로드3" src="../_images/template_download_storage.png" /></p>
+<p><img alt="템플릿 다운로드4" src="../_images/template_download_complate.png" /></p>
+<ul class="simple">
+<li><p>저장할 스토리지 선택 후 다운로드 시작 버튼 클릭 시 다운로드 시작 알림이 표시됩니다.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>8.3 템플릿 목록<a class="headerlink" href="#id2" title="Link to this heading"><span>#</span></a></h2>
+<p><img alt="템플릿 목록" src="../_images/template_content.png" /></p>
+<ul class="simple">
+<li><p>템플릿 목록은 <strong>가상머신</strong> 이나 <strong>컨테이너</strong>를 <strong>템플릿으로 변환</strong>한 목록들을 불러옵니다.</p></li>
+<li><p>이 템플릿들은 <strong>복제(Clone)</strong>, <strong>마이그레이션, 삭제할 수 있습니다.</strong></p></li>
+</ul>
+<aside>
+💡
+<p><strong>템플릿 마이그레이션</strong>은 특정 노드에 저장된 템플릿(VM 또는 CT 원본 이미지)을 <strong>클러스터 내 다른 노드로 이동시키는 기능</strong>을 의미합니다.</p>
+</aside>
+</section>
+<section id="clone">
+<h2>8.3.1 복제(Clone)<a class="headerlink" href="#clone" title="Link to this heading"><span>#</span></a></h2>
+<p><img alt="템플릿 클론1" src="../_images/template_clone_main.png" /></p>
+<ul class="simple">
+<li><p>해당 템플릿의 우측 작업 메뉴에서 복제 버튼을 클릭합니다.</p></li>
+</ul>
+<p><img alt="템플릿 클론2" src="../_images/template_clone_modal.png" /></p>
+<ul class="simple">
+<li><p>버튼 클릭 후 클론 설정 모달창이 표시됩니다.</p></li>
+</ul>
+<blockquote>
+<div><p><strong>타겟 노드:</strong> 구성되어있는 클러스터 내의 노드에서 클론이 가능합니다.
+<strong>VM ID:</strong> 자동으로 다음 ID가 할당되며, 설정 가능합니다.
+<strong>이름:</strong> 클론할 이름을 입력할 수 있으며, 한글은 입력이 제한됩니다.</p>
+</div></blockquote>
+<p><img alt="템플릿 클론3" src="../_images/template_clone_complate.png" /></p>
+<ul class="simple">
+<li><p>설정 입력 후 클론 버튼을 클릭하면 알림창과 함께 <strong>인스턴스 목록</strong>에 생성됩니다.</p></li>
+</ul>
+</section>
+<section id="convert-to-template">
+<h2>8.4 템플릿으로 변환(Convert to template)<a class="headerlink" href="#convert-to-template" title="Link to this heading"><span>#</span></a></h2>
+<p><img alt="템플릿으로 변환" src="../_images/template_converttotemplate.png" /></p>
+<ul class="simple">
+<li><p>템플릿 변환은 <strong>가상머신</strong> 또는 <strong>컨테이너</strong>를 템플릿으로 변환하는 기능이며, 인스턴스 목록에서 가능합니다.</p></li>
+</ul>
+<section id="id3">
+<h3>8.4.1 템플릿 변환 예시<a class="headerlink" href="#id3" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="템플릿으로 변환2" src="../_images/template_convert1.png" /></p>
+<ul class="simple">
+<li><p>템플릿으로 변환할 VM/CT 선택 후 변환합니다.</p></li>
+</ul>
+<p><img alt="템플릿으로 변환3" src="../_images/template_convert2.png" /></p>
+<p><img alt="템플릿으로 변환4" src="../_images/template_convert_status.png" /></p>
+<ul class="simple">
+<li><p>템플릿 변환 성공 확인 후 템플릿 에서 변환된 템플릿을 확인합니다.</p></li>
+</ul>
+</section>
+</section>
+<section id="migrate">
+<h2>8.5 마이그레이션(Migrate)<a class="headerlink" href="#migrate" title="Link to this heading"><span>#</span></a></h2>
+<p><img alt="마이그레이션" src="../_images/template_migrate_main1.png" /></p>
+<p><img alt="마이그레이션2" src="../_images/template_migrate_main2.png" /></p>
+<blockquote>
+<div><p><strong>마이그레이션</strong>은 인스턴스 목록과 템플릿에서 가능하며, <strong>구성되어 있는 클러스터 노드 내</strong>에서
+<strong>가상머신/컨테이너</strong> 또는 <strong>템플릿</strong>을 이전하는 기능입니다.
+<strong><code class="docutils literal notranslate"><span class="pre">⚠️참고:</span> <span class="pre">마이그레이션(버튼)은</span> <span class="pre">클러스터가</span> <span class="pre">구성되어</span> <span class="pre">있지</span> <span class="pre">않으면</span> <span class="pre">활성화가</span> <span class="pre">안됩니다.</span></code></strong></p>
+</div></blockquote>
+<section id="id4">
+<h3>8.5.1 가상머신/컨테이너 마이그레이션<a class="headerlink" href="#id4" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="마이그레이션" src="../_images/template_migrate_online.png" /></p>
+<p><img alt="마이그레이션2" src="../_images/template_migrate_offline.png" /></p>
+<blockquote>
+<div><p>VM/CT 마이그레이션 모드에는 2가지 있습니다.
+<strong>1. 온라인 마이그레이션:</strong> VM/CT 가 실행중일 때 마이그레이션 진행
+<strong>2. 오프라인 마이그레이션:</strong> VM/CT가 중지되어 있을 때 마이그레이션 진행</p>
+</div></blockquote>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>구분</strong></p></th>
+<th class="head"><p><strong>온라인 (Live) 마이그레이션</strong></p></th>
+<th class="head"><p><strong>오프라인 (Cold) 마이그레이션</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>상태</strong></p></td>
+<td><p>VM이 <strong>켜진 채로</strong> 이동</p></td>
+<td><p>VM을 <strong>끄고</strong> 이동</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>다운타임</strong></p></td>
+<td><p><strong>없음</strong> (사용자는 모름)</p></td>
+<td><p><strong>있음</strong> (이동하는 시간 동안 접속 불가)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>전송 데이터</strong></p></td>
+<td><p>메모리(RAM) 상태 + 디스크 변경분</p></td>
+<td><p>디스크 데이터 전체 + 설정 파일</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>주요 용도</strong></p></td>
+<td><p>서비스 중단 없이 서버 점검할 때</p></td>
+<td><p>안정적인 이동, 템플릿 이동, 오류 해결 시</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id5">
+<h3>8.5.2 가상머신/컨테이너 마이그레이션 진행 예시<a class="headerlink" href="#id5" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="마이그레이션1" src="../_images/template_migrate_node.png" /></p>
+<ol class="arabic simple">
+<li><p>마이그레이션을 진행할 VM/CT 선택 후 대상 노드를 선택합니다. <strong><code class="docutils literal notranslate"><span class="pre">노드1</span> <span class="pre">→</span> <span class="pre">노드2</span></code></strong></p></li>
+</ol>
+<p><img alt="마이그레이션2" src="../_images/template_migrate_ing.png" /></p>
+<ol class="arabic simple" start="2">
+<li><p>마이그레이션 버튼 클릭 시 해당 VM/CT 마이그레이션중 문구가 표시됩니다.</p></li>
+</ol>
+<p><img alt="마이그레이션3" src="../_images/template_migrate_status.png" /></p>
+<ol class="arabic simple" start="3">
+<li><p>잠시 후 마이그레이션이 정상적으로 완료됐는지 확인합니다.</p></li>
+</ol>
+</section>
+<section id="id6">
+<h3>8.5.3 템플릿 마이그레이션<a class="headerlink" href="#id6" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="템플릿 마이그레이션" src="../_images/template_temmigrate_main.png" /></p>
+<blockquote>
+<div><p>템플릿 마이그레이션은 <strong>오프라인 고정</strong>으로 진행됩니다.</p>
+</div></blockquote>
+</section>
+<section id="id7">
+<h3>8.5.4 템플릿 마이그레이션 진행 예시<a class="headerlink" href="#id7" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="템플릿 마이그레이션2" src="../_images/template_temmigrate_node.png" /></p>
+<ol class="arabic simple">
+<li><p>마이그레이션할 템플릿을 선택 후 대상 노드를 선택합니다. <strong><code class="docutils literal notranslate"><span class="pre">노드2</span> <span class="pre">→</span> <span class="pre">노드1</span></code></strong></p></li>
+</ol>
+<p><img alt="템플릿 마이그레이션3" src="../_images/template_temmigrate_ing.png" /></p>
+<ol class="arabic simple" start="2">
+<li><p>마이그레이션 버튼 클릭 시 해당 템플릿에 마이그레이션중 문구가 표시됩니다.</p></li>
+</ol>
+<p><img alt="템플릿 마이그레이션4" src="../_images/template_temmigrate_status.png" /></p>
+<ol class="arabic simple" start="3">
+<li><p>잠시 후 마이그레이션이 정상적으로 완료되었는지 확인합니다.</p></li>
+</ol>
+</section>
+</section>
 </section>
 
 
@@ -364,6 +597,38 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 내용
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">8.1 업로드</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lxc-iso">8.1.1 컨테이너 템플릿(LXC)/가상머신 이미지(ISO)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#template">8.2 다운로드(Template)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">8.3 템플릿 목록</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clone">8.3.1 복제(Clone)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-to-template">8.4 템플릿으로 변환(Convert to template)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">8.4.1 템플릿 변환 예시</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#migrate">8.5 마이그레이션(Migrate)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">8.5.1 가상머신/컨테이너 마이그레이션</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">8.5.2 가상머신/컨테이너 마이그레이션 진행 예시</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">8.5.3 템플릿 마이그레이션</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">8.5.4 템플릿 마이그레이션 진행 예시</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
