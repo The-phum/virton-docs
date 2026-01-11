@@ -38,10 +38,10 @@
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../_static/documentation_options.js?v=2dfc782e"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script src="../_static/translations.js?v=afa94a99"></script>
+    <script src="../_static/translations.js?v=e33e7ba0"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'main/5-cluster';</script>
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="색인" href="../genindex.html" />
@@ -168,13 +168,12 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>5. 클러스터 (Cluster)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="6-ceph.html"><strong>6. Ceph</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="7-ha.html"><strong>7. 고가용성 (HA - High Availability)</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="8-template.html"><strong>8. 템플릿 (template)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="8-template.html"><strong>8. 템플릿 (template)/마이그레이션 (migrate)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="9-resources.html"><strong>9. 리소스 (Resources)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="10-storage.html"><strong>10. 스토리지 (Storage)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="11-network.html"><strong>11. 네트워크 (Network)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="12-notifications.html"><strong>12. 알림 (Notifications)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="13-settings.html"><strong>13. 설정 (Settings)</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="14-appendix.html"><strong>14. 부록 (Appendix)</strong></a></li>
 </ul>
 
     </div>
@@ -300,7 +299,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -316,6 +317,20 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> 내용 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">5.1 클러스터 현황</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">5.2 노드 관리</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">5.2.1 클러스터가 구성이 안되어 있을 때</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">5.2.2 클러스터 생성</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">5.2.3 클러스터 조인</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -327,6 +342,74 @@ document.write(`
                   
   <section id="cluster">
 <h1><strong>5. 클러스터 (Cluster)</strong><a class="headerlink" href="#cluster" title="Link to this heading"><span>#</span></a></h1>
+<p>클러스터(Cluster)는 <strong>여러 대의 서버를 하나로 묶어 단일 시스템처럼 통합 관리하고 가용성을 극대화하는 환경</strong>입니다.</p>
+<p><img alt="클러스터 현황" src="../_images/cluster_status.png" /></p>
+<section id="id1">
+<h2>5.1 클러스터 현황<a class="headerlink" href="#id1" title="Link to this heading"><span>#</span></a></h2>
+<ul class="simple">
+<li><p>클러스터 이름 및 구성 노드 목록을 확인합니다.</p></li>
+<li><p>각 노드의 ID, 온라인 상태, IP 주소(LINK) 를 확인 할 수 있습니다.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>5.2 노드 관리<a class="headerlink" href="#id2" title="Link to this heading"><span>#</span></a></h2>
+<ul class="simple">
+<li><p>클러스터의 조인 정보 확인 (Join Information) 및 클러스터 생성/조인을 합니다.</p></li>
+</ul>
+<section id="id3">
+<h3>5.2.1 클러스터가 구성이 안되어 있을 때<a class="headerlink" href="#id3" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="클러스터 구성이 안되어 있을 때" src="../_images/cluster_x1.png" /></p>
+<p><img alt="클러스터 구성이 안되어 있을 때2" src="../_images/cluster_x2.png" /></p>
+<ul class="simple">
+<li><p>클러스터 구성이 안되어 있으면 <strong>클러스터 생성</strong> 섹션과 <strong>클러스터 가입</strong> 섹션이 표시됩니다.</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>5.2.2 클러스터 생성<a class="headerlink" href="#id4" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="클러스터 생성" src="../_images/cluster_create.png" /></p>
+<ul class="simple">
+<li><p>클러스터 이름: 클러스터의 이름을 입력하며, 한글 입력은 제한됩니다.</p></li>
+<li><p>클러스터 네트워크: 현재 서버의 기본 네트워크가 자동으로 할당되며, 추가 할 수 있습니다.</p></li>
+</ul>
+<p><img alt="클러스터 생성 완료" src="../_images/cluster_create_complete.png" /></p>
+<ul class="simple">
+<li><p>클러스터 생성 후 <strong>새로고침</strong> 하면 클러스터 구성 상태로 변경됩니다.
+<img alt="클러스터 구성 상태" src="../_images/cluster_composition.png" /></p></li>
+</ul>
+</section>
+<section id="id5">
+<h3>5.2.3 클러스터 조인<a class="headerlink" href="#id5" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="클러스터 조인" src="../_images/cluster_join.png" /></p>
+<ul class="simple">
+<li><p>Manual Join: <strong>수동으로</strong> 클러스터의 정보를 입력하여 Join을 진행합니다.</p></li>
+<li><p>Assisted Join: <strong>복사한 Join Information</strong> 정보를 붙여 넣으면 <strong>조인할 클러스터 정보(Peer Cluster)가 자동으로 할당</strong> 됩니다.</p></li>
+</ul>
+<p><img alt="클러스터 조인 정보" src="../_images/cluster_joininformation.png" /></p>
+<ul class="simple">
+<li><p>우측 상단의 <strong>Join Information 확인</strong> 버튼을 통해 생성된 클러스터의 정보를 확인 및 복사합니다.</p></li>
+</ul>
+<p><img alt="클러스터 AssistedJoin" src="../_images/cluster_assistedjoin.png" /></p>
+<ul class="simple">
+<li><p>Join Information을 복사하고 조인되는 클러스터에 접속 후 Join 정보를 입력합니다.</p></li>
+<li><p><strong>조인할 클러스터 정보(Peer Cluster)</strong> 와 <strong>조인되는 네트워크(현재 서버)</strong> 가 자동으로 할당 됩니다.</p></li>
+<li><p>Password 입력 후 Assisted Join 버튼을 누르고 <strong>새로고침</strong> 하면 클러스터가 구성된걸 확인할 수 있습니다</p></li>
+</ul>
+<blockquote>
+<div><p>⚠️ <strong>참고</strong><br />
+클러스터 <strong>생성 시 네트워크를 추가</strong> 했다면,<br />
+<strong>조인되는 노드의 네트워크도 Peer 클러스터와 동일한 수의 네트워크를 추가</strong> 해야 합니다.</p>
+</div></blockquote>
+<p><img alt="클러스터 조인 완료" src="../_images/cluster_join_complete.png" /></p>
+<ul class="simple">
+<li><p>비밀번호 입력 후 Join이 완료되면 성공 및 실패 알림이 표시됩니다.</p></li>
+<li><p><strong>새로고침</strong> 후 클러스터 구성 상태를 확인 하실 수 있습니다.</p></li>
+</ul>
+<p><img alt="클러스터 조인 완료2" src="../_images/cluster_join_complate2.png" /></p>
+<ul class="simple">
+<li><p>현재 접속 중인 서버는 <strong>로컬 노드</strong> 로 표시됩니다.</p></li>
+</ul>
+</section>
+</section>
 </section>
 
 
@@ -364,6 +447,27 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 내용
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">5.1 클러스터 현황</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">5.2 노드 관리</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">5.2.1 클러스터가 구성이 안되어 있을 때</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">5.2.2 클러스터 생성</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">5.2.3 클러스터 조인</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

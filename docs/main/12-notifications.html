@@ -38,10 +38,10 @@
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../_static/documentation_options.js?v=2dfc782e"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script src="../_static/translations.js?v=afa94a99"></script>
+    <script src="../_static/translations.js?v=e33e7ba0"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'main/12-notifications';</script>
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="색인" href="../genindex.html" />
@@ -174,7 +174,6 @@
 <li class="toctree-l1"><a class="reference internal" href="11-network.html"><strong>11. 네트워크 (Network)</strong></a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>12. 알림 (Notifications)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="13-settings.html"><strong>13. 설정 (Settings)</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="14-appendix.html"><strong>14. 부록 (Appendix)</strong></a></li>
 </ul>
 
     </div>
@@ -300,7 +299,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -316,6 +317,17 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> 내용 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">12.1 작업 로그 및 이력</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">12.2 로그 관리</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -327,6 +339,40 @@ document.write(`
                   
   <section id="notifications">
 <h1><strong>12. 알림 (Notifications)</strong><a class="headerlink" href="#notifications" title="Link to this heading"><span>#</span></a></h1>
+<p>알림 페이지에서 **작업(Tasks)**과 **로그(Cluster Log)**는 시스템에서 발생하는 모든 유효한 행위를 추적하고 기록하는 핵심 기능입니다.</p>
+<p><img alt="알림 메인" src="../_images/alert_main.png" /></p>
+<section id="id1">
+<h2>12.1 작업 로그 및 이력<a class="headerlink" href="#id1" title="Link to this heading"><span>#</span></a></h2>
+<p><img alt="알림 tasks" src="../_images/alert_tasks.png" /></p>
+<blockquote>
+<div><p><strong>Tasks</strong>는 서버에서 실행된 <strong>개별적인 작업(Process)의 상세 실행 기록</strong>을 보여줍니다. 가상 머신의 시작/종료, 백업, 스냅샷 생성 등 시간이 소요되는 모든 능동적인 행위가 여기에 기록됩니다.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>상세 상태 확인:</strong> 작업이 현재 진행 중(Running)인지, 성공(OK)했는지, 실패(Error)했는지를 실시간으로 추적합니다.</p></li>
+</ul>
+<p><img alt="알림 log" src="../_images/alert_log.png" /></p>
+<blockquote>
+<div><p><strong>Cluster Log</strong>는 개별 노드에서 발생하는 Tasks를 포함하여, <strong>클러스터 전체 시스템에서 발생하는 주요 이벤트</strong>를 시간순으로 요약해서 보여주는 통합 뷰어입니다.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>통합 모니터링:</strong> 여러 대의 노드가 묶인 환경에서 “누가, 언제, 어떤 노드에서, 무엇을 했는지” 한눈에 파악할 수 있게 해줍니다.</p></li>
+<li><p><strong>시스템 이벤트 기록:</strong> 사용자가 의도한 작업뿐만 아니라, 클러스터 쿼럼(Quorum) 변화, 노드 온라인/오프라인 상태 등 시스템 내부의 자동적인 변화도 기록됩니다.</p></li>
+</ul>
+<section id="id2">
+<h3>12.2 로그 관리<a class="headerlink" href="#id2" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="알림 탭" src="../_images/alert_guide.png" /></p>
+<ul class="simple">
+<li><p>각 알림은 최대 20개까지 보이며, 1분다마 실시간으로 업데이트 됩니다.</p></li>
+<li><p>또는, <strong>새로고침</strong> 으로 즉시 업데이트 할 수 있습니다.</p></li>
+</ul>
+<p><img alt="알림 메뉴" src="../_images/alert_top1.png" /></p>
+<p><img alt="알림 메뉴" src="../_images/alert_top2.png" /></p>
+<ul class="simple">
+<li><p>우측 상단 메뉴에 🔔 버튼 클릭 시 최근 알림창이 표시되며,
+<strong>모든 알림 보기</strong> 버튼 클릭 시 알림 페이지로 이동합니다.</p></li>
+</ul>
+</section>
+</section>
 </section>
 
 
@@ -364,6 +410,24 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 내용
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">12.1 작업 로그 및 이력</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">12.2 로그 관리</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
