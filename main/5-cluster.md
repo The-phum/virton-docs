@@ -47,7 +47,7 @@
 ![클러스터 AssistedJoin](../_static/images/main/cluster/cluster_assistedjoin.png)
 
 - Join Information을 복사하고 조인되는 클러스터에 접속 후 Join 정보를 입력합니다.
-- **조인할 클러스터 정보(Peer Cluster)**와 **조인되는 네트워크(현재 서버)**가 자동으로 할당 됩니다.
+- **조인할 클러스터 정보(Peer Cluster)** 와 **조인되는 네트워크(현재 서버)** 가 자동으로 할당 됩니다.
 - Password 입력 후 Assisted Join 버튼을 누르고 **새로고침** 하면 클러스터가 구성된걸 확인할 수 있습니다
 
 > ⚠️ **참고**  
