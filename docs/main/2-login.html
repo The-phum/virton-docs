@@ -163,6 +163,7 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>2. 로그인 (Login)</strong></a></li>
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="3-dashboard.html"><strong>3. 대시보드 (Dashboard)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="4-instances.html"><strong>4. 인스턴스 (Instances)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="5-cluster.html"><strong>5. 클러스터 (Cluster)</strong></a></li>
@@ -335,6 +336,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><strong>3.1. 로그인 관련 블랙리스트 &amp; 화이트리스트</strong></a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#proxmox-api"><strong>4. Proxmox API 설정</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><strong>4.1. 초기 연동 설정</strong></a></li>
+</ul>
+</li>
 </ul>
 
             </nav>
@@ -429,6 +434,32 @@ document.write(`
 </ul>
 </section>
 </section>
+<hr class="docutils" />
+<section id="proxmox-api">
+<h1><strong>4. Proxmox API 설정</strong><a class="headerlink" href="#proxmox-api" title="Link to this heading"><span>#</span></a></h1>
+<p>VirtOn 서비스는 Proxmox VE 서버를 제어하기 위해 API 연동이 필수적입니다. 관리자 계정의 비밀번호 변경이 완료되면, 자동으로 시스템 연동을 위한 초기 설정(Setup) 페이지로 이동합니다.</p>
+<section id="id7">
+<h2><strong>4.1. 초기 연동 설정</strong><a class="headerlink" href="#id7" title="Link to this heading"><span>#</span></a></h2>
+<p>이 설정은 최고 관리자(Super Admin) 또는 관리자(Admin) 권한을 가진 사용자만 최초 1회 수행하며, 설정된 정보는 데이터베이스에 암호화되어 저장됩니다.</p>
+<p><img alt="VirtOn Proxmox API 설정 메인" src="../_images/setup_main.png" /></p>
+<ul class="simple">
+<li><p><strong>설정 대상</strong> : 시스템을 처음 구축할 때 관리자(Admin 또는 SUPER ADMIN)가 단 한 번만 입력합니다. 일반 사용자(User)는 이 과정을 거치지 않고 바로 서비스를 이용할 수 있습니다.</p></li>
+<li><p><strong>API Token 방식</strong> : VirtOn은 보안을 위해 아이디/비밀번호가 아닌 API Token 방식을 사용합니다. Proxmox 콘솔에서 발급받은 토큰 정보를 입력해야 합니다.</p>
+<ul>
+<li><p><strong>호스트 (Host)</strong> : 연동할 Proxmox 서버의 IP 주소 또는 도메인입니다.</p></li>
+<li><p><strong>포트 (Port)</strong> : Proxmox API 포트 (기본값: 8006)를 입력합니다.</p></li>
+<li><p><strong>Token ID</strong> : 사용자명&#64;Realm!토큰이름 형식입니다. (예: root&#64;pam!virton)</p></li>
+<li><p><strong>Secret</strong> : 토큰 발급 시 생성된 UUID 형식의 비밀 키입니다. (저장 시 암호화됩니다.)</p></li>
+</ul>
+</li>
+</ul>
+<p><img alt="VirtOn Proxmox API 설정 성공" src="../_images/setup_success.png" /></p>
+<ul class="simple">
+<li><p><strong>설정 저장 및 자동 적용</strong> : 설정을 저장하면 연동 성공이 표시되고, 이후 로그인하는 모든 사용자는 별도의 IP나 토큰 입력 없이 자동으로 Proxmox에 연결되어 대시보드로 이동합니다.</p></li>
+<li><p><strong>설정 수정</strong> : 초기 설정 이후에 연결 정보를 변경하려면, 관리자 권한으로 로그인 후 [설정] &gt; [시스템 설정] 메뉴에서 수정할 수 있습니다.</p></li>
+</ul>
+</section>
+</section>
 
 
                 </article>
@@ -486,6 +517,10 @@ document.write(`
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><strong>3. 블랙리스트 &amp; 화이트리스트</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><strong>3.1. 로그인 관련 블랙리스트 &amp; 화이트리스트</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#proxmox-api"><strong>4. Proxmox API 설정</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><strong>4.1. 초기 연동 설정</strong></a></li>
 </ul>
 </li>
 </ul>

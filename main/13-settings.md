@@ -1,5 +1,7 @@
 # **13. 설정 (Settings)**
 
+![VirtOn 설정 페이지 메인](../_static/images/main/settings/setting_main.png)
+
 VirtOn 시스템의 핵심 기능을 사용하기 위해서는 Proxmox 서버 연동이 필수이며,  
 관리자 페이지 보안을 위해 IP 접근 제어 기능을 제공합니다.
 
@@ -7,9 +9,9 @@ VirtOn 시스템의 핵심 기능을 사용하기 위해서는 Proxmox 서버 �
 
 ## 1. Proxmox API 연결 설정
 
-![Proxmox API 연결 페이지](../_static/images/main/Proxmox_API.png)
+![API 설정 파트 메인](../_static/images/main/settings/setting_API.png)
 
-VirtOn이 가상머신(VM)을 제어하고 모니터링하기 위해 Proxmox VE 서버와의 API 통신을 설정합니다.
+VirtOn이 가상머신(VM)을 제어하고 모니터링하기 위해 Proxmox VE 서버와의 API 통신을 설정합니다. 
 
 ### 1.1 입력 항목 설명
 
@@ -17,19 +19,18 @@ VirtOn이 가상머신(VM)을 제어하고 모니터링하기 위해 Proxmox VE 
 |----|----|----|
 | 호스트 (Host) | Proxmox VE 서버의 IP 또는 도메인 (`http://` 제외) | `123.456.0.100`, `pve.example.com` |
 | 포트 (Port) | Proxmox API 포트 (기본값) | `8006` |
-| 사용자 이름 | `계정명@인증영역` 형식 | `root@pam`, `admin@pve` |
-| 비밀번호 | 해당 계정 비밀번호 (HTTPS 암호화 저장) | - |
+| 토큰 ID | `계정명@인증영역!토큰명` 형식 | `root@pam!Test1`, `admin@pve!Test1` |
+| 시크릿 키 | 해당 토큰의 시크릿 키 값 (암호화 저장) | - |
 
 ### 1.2 주요 기능 버튼
 
-- **연결 테스트**  
-  입력한 정보로 Proxmox 서버 접속 가능 여부를 즉시 확인합니다.
+![API 설정 수정 파트](../_static/images/main/settings/setting_API_update.png)
 
-- **설정 저장**  
-  검증된 연결 정보를 저장하고 즉시 시스템에 반영합니다.
+- **설정 수정**  
+  저장된 검증 연결 정보를 수정하고 즉시 시스템에 반영합니다.
 
-- **설정 초기화**  
-  입력된 모든 정보를 초기 상태로 되돌립니다.
+  - **"SUPER_ADMIN"** 및 **"ADMIN"** Role이 아니라면 수정은 불가능 합니다. 수정을 원한다면 관리자 계정에게 문의해주세요.
+  - 모든 값을 입력하지 않거나 알맞은 값을 입력하지 않으면 수정은 불가합니다.
 
 > 💡 **참고**  
 > 설정 저장 후 VM 목록이 보이지 않는 경우, 네트워크 방화벽 설정 또는  
@@ -39,7 +40,7 @@ VirtOn이 가상머신(VM)을 제어하고 모니터링하기 위해 Proxmox VE 
 
 ## 2. 관리자 IP 접근 제어 (IP Access Control)
 
-![관리자 IP 접근 제어 섹션 1](../_static/images/main/IP_Access_Control_1.png)
+![관리자 IP 접근 제어 섹션 1](../_static/images/main/settings/IP_Access_Control_1.png)
 
 VirtOn은 외부 공격 및 비인가 접근을 방지하기 위해  
 IP 기반 접근 제어(화이트리스트 / 블랙리스트)를 제공합니다.
@@ -62,7 +63,7 @@ IP 기반 접근 제어(화이트리스트 / 블랙리스트)를 제공합니다
 
 #### 2.2.1 내 IP 간편 등록 (권장)
 
-![관리자 IP 접근 제어 섹션 2](../_static/images/main/IP_Access_Control_2.png)
+![관리자 IP 접근 제어 섹션 2](../_static/images/main/settings/IP_Access_Control_2.png)
 
 화이트리스트 최초 설정 시, 본인 IP 차단을 방지하기 위한 기능입니다.
 
@@ -91,7 +92,7 @@ IP 기반 접근 제어(화이트리스트 / 블랙리스트)를 제공합니다
 
 #### 2.2.3 IP 수정 및 삭제
 
-![관리자 IP 접근 제어 섹션 3](../_static/images/main/IP_Access_Control_3.png)
+![관리자 IP 접근 제어 섹션 3](../_static/images/main/settings/IP_Access_Control_3.png)
 
 - **IP 수정** : 리스트 더블 클릭 혹은 펜슬 아이콘 클릭 시 사용 가능, 수정 방법은 IP 직접 등록과 동일
 - **IP 삭제** : 리스트 쓰레기통 아이콘 클릭 시 삭제 가능

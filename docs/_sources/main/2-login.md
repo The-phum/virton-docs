@@ -1,6 +1,6 @@
 # **2. 로그인 (Login)**
 
-![VirtOn 로그인](../_static/images/main/login_page_root.png)
+![VirtOn 로그인](../_static/images/main/login/login_page_root.png)
 
 로그인 페이지는 VirtOn의 루트 페이지입니다.
 
@@ -9,9 +9,9 @@
 
 ### **1.1. 로그인 실패 정책**
 
-![VirtOn 로그인 실패 정책](../_static/images/main/login_fail.png)
+![VirtOn 로그인 실패 정책](../_static/images/main/login/login_fail.png)
 
-![VirtOn 로그인 실패 정책 잠금](../_static/images/main/login_fail_lock.png)
+![VirtOn 로그인 실패 정책 잠금](../_static/images/main/login/login_fail_lock.png)
 
 로그인을 실패하는 상황에 대한 보안 정책입니다.
 
@@ -25,7 +25,7 @@
 
 ### **1.2. 관리자 비밀번호 변경 페이지**
 
-![VirtOn 관리자 비밀번호 변경](../_static/images/main/admin_password_update1.png)
+![VirtOn 관리자 비밀번호 변경](../_static/images/main/login/admin_password_update1.png)
 
 첫 관리자 계정 로그인 후 이동되는 비밀번호 변경 페이지입니다.
 
@@ -38,11 +38,11 @@
     * **이전 비밀번호 재사용이 불가**
 * **확인 절차** : 정확성을 위해 비밀번호는 한 번 더 입력하며, 비밀번호가 조건에 맞게 올바르게 작성되어야 변경이 가능합니다.
 
-![VirtOn 관리자 비밀번호 변경](../_static/images/main/admin_password_update2.png)
+![VirtOn 관리자 비밀번호 변경](../_static/images/main/login/admin_password_update2.png)
 * 다음과 같이 (“1234” 입력 시), 만족한 조건은 체크 표시로 UI가 달라지며 편의성을 제공합니다.
 * 조건 만족과 새 비밀번호 확인이 끝날 때 까지는 비밀번호 변경 버튼이 활성화되지 않습니다.
 
-![VirtOn 관리자 비밀번호 변경](../_static/images/main/admin_password_update_error1.png)
+![VirtOn 관리자 비밀번호 변경](../_static/images/main/login/admin_password_update_error1.png)
 * 단, 조건 만족과 새 비밀번호 확인이 끝났다 해도 비밀번호 변경 버튼을 클릭 시, 이전 비밀번호를 재사용 한다면 에러 메시지와 함께 변경이 불가능합니다.
 
 ---
@@ -51,8 +51,8 @@
 
 ### **2.1. 로그아웃 및 세션 만료**
 
-![VirtOn 로그아웃1](../_static/images/main/logout1.png)
-![VirtOn 로그아웃2](../_static/images/main/logout2.png)
+![VirtOn 로그아웃1](../_static/images/main/login/logout1.png)
+![VirtOn 로그아웃2](../_static/images/main/login/logout2.png)
 
 VirtOn의 사용을 종료하거나 세션이 만료되었을 때의 정책입니다.
 
@@ -69,11 +69,35 @@ VirtOn 시스템은 외부의 무분별한 접속 시도와 해킹 위협으로�
 
 ### **3.1. 로그인 관련 블랙리스트 & 화이트리스트**
 
-![VirtOn IP Block 1](../_static/images/main/blacklist_ip_block1.png)
+![VirtOn IP Block 1](../_static/images/main/login/blacklist_ip_block1.png)
 
 * **로그인 실패 블랙리스트** : 최근 1시간 내 3번의 로그인 임시 차단 (10분 차단)이 있을 시, 비정상적인 접근으로 판단하여 해당 접속 IP가 블랙리스트에 등재되어 차단됩니다.
 
-![VirtOn IP Block 2](../_static/images/main/blacklist_ip_block2.png)
+![VirtOn IP Block 2](../_static/images/main/login/blacklist_ip_block2.png)
 
 * **화이트리스트에 포함되지 않은 IP 접근 시** : 화이트리스트 IP가 미설정 상태일 때는 접근 제한이 없으나, 화이트리스트가 설정되면 등록된 IP만 로그인이 허용됩니다.
 * **화이트리스트 일 때의 로그인 실패** : 화이트리스트로 등재된 IP로 로그인 차단 기준까지 실패할 경우, 차단은 되지 않으나 잠시 후 로그인을 시도 하셔야 합니다.
+
+---
+
+# **4. Proxmox API 설정**
+
+VirtOn 서비스는 Proxmox VE 서버를 제어하기 위해 API 연동이 필수적입니다. 관리자 계정의 비밀번호 변경이 완료되면, 자동으로 시스템 연동을 위한 초기 설정(Setup) 페이지로 이동합니다.
+
+### **4.1. 초기 연동 설정**
+
+이 설정은 최고 관리자(Super Admin) 또는 관리자(Admin) 권한을 가진 사용자만 최초 1회 수행하며, 설정된 정보는 데이터베이스에 암호화되어 저장됩니다.
+
+![VirtOn Proxmox API 설정 메인](../_static/images/main/login/setup_main.png)
+
+* **설정 대상** : 시스템을 처음 구축할 때 관리자(Admin 또는 SUPER ADMIN)가 단 한 번만 입력합니다. 일반 사용자(User)는 이 과정을 거치지 않고 바로 서비스를 이용할 수 있습니다.
+* **API Token 방식** : VirtOn은 보안을 위해 아이디/비밀번호가 아닌 API Token 방식을 사용합니다. Proxmox 콘솔에서 발급받은 토큰 정보를 입력해야 합니다.
+    - **호스트 (Host)** : 연동할 Proxmox 서버의 IP 주소 또는 도메인입니다.
+    - **포트 (Port)** : Proxmox API 포트 (기본값: 8006)를 입력합니다.
+    - **Token ID** : 사용자명@Realm!토큰이름 형식입니다. (예: root@pam!virton)
+    - **Secret** : 토큰 발급 시 생성된 UUID 형식의 비밀 키입니다. (저장 시 암호화됩니다.)
+
+![VirtOn Proxmox API 설정 성공](../_static/images/main/login/setup_success.png)
+
+* **설정 저장 및 자동 적용** : 설정을 저장하면 연동 성공이 표시되고, 이후 로그인하는 모든 사용자는 별도의 IP나 토큰 입력 없이 자동으로 Proxmox에 연결되어 대시보드로 이동합니다.
+* **설정 수정** : 초기 설정 이후에 연결 정보를 변경하려면, 관리자 권한으로 로그인 후 [설정] > [시스템 설정] 메뉴에서 수정할 수 있습니다.

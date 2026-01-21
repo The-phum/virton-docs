@@ -355,12 +355,13 @@ document.write(`
                   
   <section id="settings">
 <h1><strong>13. 설정 (Settings)</strong><a class="headerlink" href="#settings" title="Link to this heading"><span>#</span></a></h1>
+<p><img alt="VirtOn 설정 페이지 메인" src="../_images/setting_main.png" /></p>
 <p>VirtOn 시스템의 핵심 기능을 사용하기 위해서는 Proxmox 서버 연동이 필수이며,<br />
 관리자 페이지 보안을 위해 IP 접근 제어 기능을 제공합니다.</p>
 <hr class="docutils" />
 <section id="proxmox-api">
 <h2>1. Proxmox API 연결 설정<a class="headerlink" href="#proxmox-api" title="Link to this heading"><span>#</span></a></h2>
-<p><img alt="Proxmox API 연결 페이지" src="../_images/Proxmox_API.png" /></p>
+<p><img alt="API 설정 파트 메인" src="../_images/setting_API.png" /></p>
 <p>VirtOn이 가상머신(VM)을 제어하고 모니터링하기 위해 Proxmox VE 서버와의 API 통신을 설정합니다.</p>
 <section id="id1">
 <h3>1.1 입력 항목 설명<a class="headerlink" href="#id1" title="Link to this heading"><span>#</span></a></h3>
@@ -380,12 +381,12 @@ document.write(`
 <td><p>Proxmox API 포트 (기본값)</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">8006</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p>사용자 이름</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">계정명&#64;인증영역</span></code> 형식</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">root&#64;pam</span></code>, <code class="docutils literal notranslate"><span class="pre">admin&#64;pve</span></code></p></td>
+<tr class="row-even"><td><p>토큰 ID</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">계정명&#64;인증영역!토큰명</span></code> 형식</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">root&#64;pam!Test1</span></code>, <code class="docutils literal notranslate"><span class="pre">admin&#64;pve!Test1</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p>비밀번호</p></td>
-<td><p>해당 계정 비밀번호 (HTTPS 암호화 저장)</p></td>
+<tr class="row-odd"><td><p>시크릿 키</p></td>
+<td><p>해당 토큰의 시크릿 키 값 (암호화 저장)</p></td>
 <td><p>-</p></td>
 </tr>
 </tbody>
@@ -394,13 +395,15 @@ document.write(`
 </section>
 <section id="id2">
 <h3>1.2 주요 기능 버튼<a class="headerlink" href="#id2" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="API 설정 수정 파트" src="../_images/setting_API_update.png" /></p>
 <ul class="simple">
-<li><p><strong>연결 테스트</strong><br />
-입력한 정보로 Proxmox 서버 접속 가능 여부를 즉시 확인합니다.</p></li>
-<li><p><strong>설정 저장</strong><br />
-검증된 연결 정보를 저장하고 즉시 시스템에 반영합니다.</p></li>
-<li><p><strong>설정 초기화</strong><br />
-입력된 모든 정보를 초기 상태로 되돌립니다.</p></li>
+<li><p><strong>설정 수정</strong><br />
+저장된 검증 연결 정보를 수정하고 즉시 시스템에 반영합니다.</p>
+<ul>
+<li><p><strong>“SUPER_ADMIN”</strong> 및 <strong>“ADMIN”</strong> Role이 아니라면 수정은 불가능 합니다. 수정을 원한다면 관리자 계정에게 문의해주세요.</p></li>
+<li><p>모든 값을 입력하지 않거나 알맞은 값을 입력하지 않으면 수정은 불가합니다.</p></li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <div><p>💡 <strong>참고</strong><br />
