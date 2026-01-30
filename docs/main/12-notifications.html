@@ -38,8 +38,8 @@
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../_static/documentation_options.js?v=2dfc782e"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../_static/translations.js?v=afa94a99"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'main/12-notifications';</script>
@@ -161,6 +161,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="1-introduction.html"><strong>1. 개요 (Introduction)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="2-login.html"><strong>2. 로그인 (Login)</strong></a></li>
+
 
 
 <li class="toctree-l1"><a class="reference internal" href="3-dashboard.html"><strong>3. 대시보드 (Dashboard)</strong></a></li>
@@ -322,10 +323,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">12.1 보안 경고 알림</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks">12.2 작업 (tasks) 이력</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">12.3 클러스터 로그 이력</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">12.4 상단 및 하단 알림</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virton">12.1 보안 경고 알림 - (VirtOn 알림 및 감사 로그 페이지)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">12.2 감사 로그 - (VirtOn 알림 및 감사 로그 페이지)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks-proxmox">12.3 작업 (tasks) 이력 - (Proxmox 알림 페이지)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proxmox">12.4 클러스터 로그 이력 - (Proxmox 알림 페이지)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">12.5 상단 및 하단 알림</a></li>
 </ul>
 </li>
 </ul>
@@ -342,12 +344,13 @@ document.write(`
   <section id="notifications">
 <h1><strong>12. 알림 (Notifications)</strong><a class="headerlink" href="#notifications" title="Link to this heading"><span>#</span></a></h1>
 <ul class="simple">
-<li><p>알림 페이지는 보안 경고 알림과 작업(Tasks) 그리고 로그(Cluster Log)는 시스템에서 발생하는 보안 감사 알림과 행위를 추적하고 기록하는 핵심 기능입니다.</p></li>
-<li><p>각 알림은 최대 20개까지 보이며, 1분다마 실시간으로 업데이트 됩니다.</p></li>
+<li><p>알림 페이지는 보안 경고 알림과 작업(Tasks) 그리고 로그(Cluster Log)는 시스템에서 발생하는 보안 감사 알림과 행위를 추적하고 기록하는 핵심 기능입니다. 관리자는 감사 로그도 확인이 가능하며 실시간으로 수집되는 보안 감사 로그를 검색하고 분석하는 기능입니다.</p></li>
+<li><p>보안 알림과 Proxmox 관련 알림은 최대 20개까지 보이며, 1분다마 실시간으로 업데이트 됩니다.</p></li>
+<li><p>감사 로그는 변화가 있을 시 실시간으로 업데이트되며, 페이지별로 전체 로그를 확인 가능하며 한 페이지당 15개까지 보입니다.</p></li>
 <li><p>또는, <strong>새로고침</strong> 으로 즉시 업데이트 할 수 있습니다.</p></li>
 </ul>
-<section id="id1">
-<h2>12.1 보안 경고 알림<a class="headerlink" href="#id1" title="Link to this heading"><span>#</span></a></h2>
+<section id="virton">
+<h2>12.1 보안 경고 알림 - (VirtOn 알림 및 감사 로그 페이지)<a class="headerlink" href="#virton" title="Link to this heading"><span>#</span></a></h2>
 <p><img alt="보안 경고 알림 페이지" src="../_images/alerts_1.png" /></p>
 <ul class="simple">
 <li><p><strong>보안 경고 목록</strong> : 사용자의 계정 잠금, 비정상 접속 시도 등 보안 관련 중요 알림입니다.</p></li>
@@ -365,11 +368,53 @@ document.write(`
 <li><p><strong>신뢰 IP</strong> : 화이트리스트에 등록된 신뢰 IP입니다.</p></li>
 </ol>
 </li>
+<li><p><strong>시스템 상황 알림</strong> : 시스템 감사 로그를 저장할 디스크 용량이 부족하거나 포화 대응을 실시할 때 오는 알림입니다.</p>
+<ol class="arabic simple">
+<li><p>디스크를 90% 이상 사용하거나 100MB 미만 남으면 경고 알림</p></li>
+<li><p>남은 용량이 50MB 미만이면 ‘삭제’ 행동 개시 알림, 이때 삭제는 가장 오래된 압축 로그부터 여유 용량이 생길 때까지 진행됩니다.</p></li>
+</ol>
+</li>
 </ul>
 </section>
 <hr class="docutils" />
-<section id="tasks">
-<h2>12.2 작업 (tasks) 이력<a class="headerlink" href="#tasks" title="Link to this heading"><span>#</span></a></h2>
+<section id="id1">
+<h2>12.2 감사 로그 - (VirtOn 알림 및 감사 로그 페이지)<a class="headerlink" href="#id1" title="Link to this heading"><span>#</span></a></h2>
+<blockquote>
+<div><p><strong>Audit Log</strong>는 시스템 내에서 사용자가 수행한 모든 활동(행위)에 대한 법적/보안적 증거 기록입니다. 로그인, VM 제어, 설정 변경 등 “누가, 언제, 어디서, 무엇을 했는지”를 투명하게 제공하여 보안 사고 발생 시 추적 자료로 활용됩니다. 감사 로그는 DB 뿐만 아니라 backend/logs/audit 폴더에 로그 파일로도 저장됩니다. 로그 파일들은 20MB 또는 하루 단위로 압축되며 용량이 문제가 없다면 6개월동안 보관됩니다.</p>
+</div></blockquote>
+<p><img alt="감사 로그 페이지" src="../_images/alerts_user_2.png" /></p>
+<ul class="simple">
+<li><p><strong>접근 권한</strong> : 감사 로그는 보안상 매우 민감한 정보이므로, ADMIN 및 SUPER ADMIN 권한을 가진 관리자만 접근 및 조회가 가능합니다.</p></li>
+<li><p><strong>주요 기록 항목</strong> :</p>
+<ol class="arabic simple">
+<li><p><strong>시간 (Timestamp)</strong> : 행위가 발생한 정확한 시간입니다.</p></li>
+<li><p><strong>행위 (Action)</strong> : 수행한 작업의 종류(로그인, 생성, 삭제, 수정 등)입니다.</p></li>
+<li><p><strong>사용자 및 역할 (행위자)</strong> : 작업을 수행한 계정명과 당시의 권한 등급입니다.</p></li>
+<li><p><strong>접속 IP 주소</strong> : 작업을 요청한 클라이언트의 IP 주소입니다.</p></li>
+<li><p><strong>중요도</strong> : 행위의 중요도를 나타냅니다. LOW (일반), MEDIUM (주의), HIGH (경고) 레벨로 나뉩니다.</p></li>
+<li><p><strong>내용</strong> : 해당 행위에 대한 디테일한 내용입니다.</p></li>
+<li><p><strong>상세 버튼</strong> : 해당 감사 로그의 상세 정보를 볼 수 있습니다.</p></li>
+</ol>
+</li>
+<li><p><strong>검색 및 필터</strong> : 다량의 로그 중 유저, IP, 내용 등을 검색 가능하며 행위나 특정 중요도 필터로 원하는 기록을 빠르게 찾을 수 있습니다.</p></li>
+<li><p><strong>리스트 정렬 기능</strong> : 리스트에서 날짜, 행위, 행위자, IP 주소, 중요도를 오름차순 또는 내림차순으로 정렬이 가능합니다.</p></li>
+<li><p><strong>실시간 업데이트</strong> : 화면을 새로고침 하지 않아도 새로운 감사 로그가 발생하면 실시간으로 목록 최상단에 업데이트됩니다. (한 페이지당 15개씩 표시)</p></li>
+</ul>
+<p><img alt="감사 로그 페이지의 페이지네이션" src="../_images/alerts_user_3.png" /></p>
+<ul class="simple">
+<li><p><strong>페이지네이션</strong> : 1페이지당 15개, 5개의 페이지 표시, 편리한 간편 이동 버튼이 존재 합니다.</p></li>
+</ul>
+<p><img alt="감사 로그 페이지의 상세 보기" src="../_images/alerts_user_4.png" /></p>
+<ul class="simple">
+<li><p><strong>결과 (Status)</strong> : 해당 작업의 성공(Success), 실패(Failure) 여부를 확인 가능합니다.</p></li>
+<li><p><strong>행위자 정보</strong> : 계정명, 역할, IP를 확인 가능합니다.</p></li>
+<li><p><strong>시스템 정보</strong> : 중요도, 대상(Target), 테넌트 ID (멀티 테넌트 구현 시 정상값 출력, 현재 default) 정보 확인 가능합니다.</p></li>
+<li><p><strong>상세 내용 및 사용자 에이전트</strong> : 상세 내용과 사용자 에이전트 (UA)를 확인이 가능합니다. 이때 UA는 사용자를 대신하여 일을 수행하는 소프트웨어의 식별 정보입니다.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="tasks-proxmox">
+<h2>12.3 작업 (tasks) 이력 - (Proxmox 알림 페이지)<a class="headerlink" href="#tasks-proxmox" title="Link to this heading"><span>#</span></a></h2>
 <p><img alt="알림 tasks 페이지" src="../_images/alerts_2.png" /></p>
 <blockquote>
 <div><p><strong>Tasks</strong>는 서버에서 실행된 <strong>개별적인 작업(Process)의 상세 실행 기록</strong>을 보여줍니다. 가상 머신의 시작/종료, 백업, 스냅샷 생성 등 시간이 소요되는 모든 능동적인 행위가 여기에 기록됩니다.</p>
@@ -380,16 +425,16 @@ document.write(`
 <li><p><strong>시스템 이벤트 기록:</strong> 사용자가 의도한 작업뿐만 아니라, 클러스터 쿼럼(Quorum) 변화, 노드 온라인/오프라인 상태 등 시스템 내부의 자동적인 변화도 기록됩니다.</p></li>
 </ul>
 <hr class="docutils" />
-<section id="id2">
-<h3>12.3 클러스터 로그 이력<a class="headerlink" href="#id2" title="Link to this heading"><span>#</span></a></h3>
+<section id="proxmox">
+<h3>12.4 클러스터 로그 이력 - (Proxmox 알림 페이지)<a class="headerlink" href="#proxmox" title="Link to this heading"><span>#</span></a></h3>
 <p><img alt="알림 log 페이지" src="../_images/alerts_3.png" /></p>
 <blockquote>
 <div><p><strong>Cluster Log</strong>는 개별 노드에서 발생하는 Tasks를 포함하여, <strong>클러스터 전체 시스템에서 발생하는 주요 이벤트</strong>를 시간순으로 요약해서 보여주는 통합 뷰어입니다.</p>
 </div></blockquote>
 </section>
 <hr class="docutils" />
-<section id="id3">
-<h3>12.4 상단 및 하단 알림<a class="headerlink" href="#id3" title="Link to this heading"><span>#</span></a></h3>
+<section id="id2">
+<h3>12.5 상단 및 하단 알림<a class="headerlink" href="#id2" title="Link to this heading"><span>#</span></a></h3>
 <p><img alt="전체적인 알림" src="../_images/alerts_main1.png" /></p>
 <p><img alt="상단 알림" src="../_images/alerts_main3.png" /></p>
 <p><img alt="하단 알림" src="../_images/alerts_main2.png" /></p>
@@ -452,10 +497,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">12.1 보안 경고 알림</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks">12.2 작업 (tasks) 이력</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">12.3 클러스터 로그 이력</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">12.4 상단 및 하단 알림</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virton">12.1 보안 경고 알림 - (VirtOn 알림 및 감사 로그 페이지)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">12.2 감사 로그 - (VirtOn 알림 및 감사 로그 페이지)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks-proxmox">12.3 작업 (tasks) 이력 - (Proxmox 알림 페이지)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proxmox">12.4 클러스터 로그 이력 - (Proxmox 알림 페이지)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">12.5 상단 및 하단 알림</a></li>
 </ul>
 </li>
 </ul>
