@@ -21,10 +21,13 @@
 
 - 클러스터 구성이 안되어 있으면 **클러스터 생성** 섹션과 **클러스터 가입** 섹션이 표시됩니다.
 
+<<<<<<< HEAD
 ![클러스터 구성이 안되어 있을 때3](../_static/images/main/cluster/cluster_dashboard.png)
 
 - 클러스터 구성이 안되어 있을 때 대시보드에  **클러스터 구성 필요** 메시지와 함께 조회가 불가능합니다.
 
+=======
+>>>>>>> 6ef2fbfca306e754ecaf6b0145c837157367ad75
 ### 5.2.2 클러스터 생성
 
 ![클러스터 생성](../_static/images/main/cluster/cluster_create.png)

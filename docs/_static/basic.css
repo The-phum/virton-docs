@@ -1,4 +1,5 @@
 /*
+<<<<<<< HEAD
  * basic.css
  * ~~~~~~~~~
  *
@@ -7,6 +8,9 @@
  * :copyright: Copyright 2007-2024 by the Sphinx team, see AUTHORS.
  * :license: BSD, see LICENSE for details.
  *
+=======
+ * Sphinx stylesheet -- basic theme.
+>>>>>>> 6ef2fbfca306e754ecaf6b0145c837157367ad75
  */
 
 /* -- main layout ----------------------------------------------------------- */
@@ -115,6 +119,7 @@ img {
 /* -- search page ----------------------------------------------------------- */
 
 ul.search {
+<<<<<<< HEAD
     margin: 10px 0 0 20px;
     padding: 0;
 }
@@ -124,6 +129,13 @@ ul.search li {
     background-image: url(file.png);
     background-repeat: no-repeat;
     background-position: 0 7px;
+=======
+    margin-top: 10px;
+}
+
+ul.search li {
+    padding: 5px 0;
+>>>>>>> 6ef2fbfca306e754ecaf6b0145c837157367ad75
 }
 
 ul.search li a {
@@ -752,6 +764,7 @@ abbr, acronym {
     cursor: help;
 }
 
+<<<<<<< HEAD
 .translated {
     background-color: rgba(207, 255, 207, 0.2)
 }
@@ -760,6 +773,8 @@ abbr, acronym {
     background-color: rgba(255, 207, 207, 0.2)
 }
 
+=======
+>>>>>>> 6ef2fbfca306e754ecaf6b0145c837157367ad75
 /* -- code displays --------------------------------------------------------- */
 
 pre {
