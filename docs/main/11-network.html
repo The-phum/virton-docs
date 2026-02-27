@@ -1,0 +1,692 @@
+
+<!DOCTYPE html>
+
+
+<html lang="ko" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>11. 네트워크 (Network) &#8212; virton 1.1 문서</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=172036a4" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=2dfc782e"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/translations.js?v=afa94a99"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'main/11-network';</script>
+    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="index" title="색인" href="../genindex.html" />
+    <link rel="search" title="검색" href="../search.html" />
+    <link rel="next" title="12. 알림 (Notifications)" href="12-notifications.html" />
+    <link rel="prev" title="10. 스토리지 (Storage)" href="10-storage.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ko"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="virton 1.1 문서 - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="virton 1.1 문서 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="검색" aria-label="검색" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">검색</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">버트온 사용자 매뉴얼</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1-introduction.html"><strong>1. 설치 및 배포</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="2-login.html"><strong>2. 로그인 (Login)</strong></a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="3-dashboard.html"><strong>3. 대시보드 (Dashboard)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="4-instances.html"><strong>4. 인스턴스 (Instances)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="5-cluster.html"><strong>5. 클러스터 (Cluster)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="6-ceph.html"><strong>6. Ceph</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="7-ha.html"><strong>7. 고가용성 (HA - High Availability)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="8-template.html"><strong>8. 템플릿 (template)/마이그레이션 (migrate)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="9-resources.html"><strong>9. 리소스 (Resources)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="10-storage.html"><strong>10. 스토리지 (Storage)</strong></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>11. 네트워크 (Network)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="12-notifications.html"><strong>12. 알림 (Notifications)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="13-settings.html"><strong>13. 설정 (Settings)</strong></a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="이 페이지 다운로드">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/main/11-network.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="소스 파일 다운로드"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="PDF로 인쇄"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="전체 화면으로보기"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="검색" aria-label="검색" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>11. 네트워크 (Network)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 내용 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">11.1 네트워크 인터페이스 설정</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">11.2 인터페이스 관리 - 새 인터페이스(네트워크) 생성</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bridge">Bridge 타입</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vlan">VLAN 타입</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bond">Bond 타입</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-configuration">11.2.1 변경 적용 - Apply Configuration <strong>[ 🔄 변경 적용 ]</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edit">11.2.2 네트워크 수정 - Edit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remove">11.2.3 네트워크 삭제 - Remove 🗑️</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="network">
+<h1><strong>11. 네트워크 (Network)</strong><a class="headerlink" href="#network" title="Link to this heading"><span>#</span></a></h1>
+<p>네트워크 관리 기능은 <strong>서버의 물리적 인터페이스와 가상 머신(VM) 간의 통신 경로를 통합적으로 설정하고 제어</strong>하는 도구입니다. 복잡한 리눅스 네트워크 구성을 GUI 환경에서 직관적으로 관리하여 인프라의 통신 안정성을 확보합니다.</p>
+<p><img alt="네트워크 관리" src="../_images/network_main.png" /></p>
+<section id="id1">
+<h2>11.1 네트워크 인터페이스 설정<a class="headerlink" href="#id1" title="Link to this heading"><span>#</span></a></h2>
+<ul class="simple">
+<li><p>네트워크 인터페이스는 <strong>구성되어 있는 클러스터의 첫번 째 노드의 인터페이스</strong> 부터 로드 됩니다.</p></li>
+<li><p>**구성되어 있는 클러스터(노드)**를 선택 후 <strong>해당 노드의 네트워크 인터페이스 목록 조회</strong>가 가능합니다.</p></li>
+<li><p><strong>노드 목록이 안보일 시 로그인 재 확인이 필요합니다.<code class="docutils literal notranslate"><span class="pre">(로그인이</span> <span class="pre">안되어</span> <span class="pre">있을</span> <span class="pre">시</span> <span class="pre">노드</span> <span class="pre">목록을</span> <span class="pre">안보입니다.)</span></code></strong></p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>11.2 인터페이스 관리 - 새 인터페이스(네트워크) 생성<a class="headerlink" href="#id2" title="Link to this heading"><span>#</span></a></h2>
+<p><img alt="네트워크 생성 브릿지" src="../_images/network_bridge.png" /></p>
+</section>
+<section id="bridge">
+<h2>Bridge 타입<a class="headerlink" href="#bridge" title="Link to this heading"><span>#</span></a></h2>
+<ul class="simple">
+<li><p><strong>인터페이스 이름</strong></p>
+<ul>
+<li><p><strong>영문, 숫자만 생성 가능합니다.</strong></p></li>
+<li><p><strong>이름만 입력 후 생성 가능합니다.</strong></p></li>
+</ul>
+</li>
+<li><p><strong>Bridge 포트 (선택사항)</strong></p>
+<ul>
+<li><p><strong>브릿지에 연결할 물리 포트를 선택합니다.</strong></p></li>
+<li><p><strong>ex) eth0, eno1, ens1</strong></p></li>
+</ul>
+</li>
+<li><p><strong>IPv4 주소/CIDR (선택사항)</strong></p>
+<ul>
+<li><p><strong>IP주소 입력시 CIDR입력 필수 - *미입력 시 생성 제한합니다.</strong></p></li>
+</ul>
+</li>
+<li><p><strong>게이트 웨이 (선택사항)</strong></p>
+<ul>
+<li><p><strong>외부 네트워크 접근 필요 시 설정합니다.</strong></p></li>
+</ul>
+</li>
+<li><p><strong>댓글 (선택사항)</strong></p>
+<ul>
+<li><p><strong>사용자의 구분을 위한 Comment(메모)</strong></p></li>
+</ul>
+</li>
+<li><p><strong>MTU (선택사항)</strong></p>
+<ul>
+<li><p><strong>한번에 보낼 수 있는 데이터 패킷의 최대 크기입니다.</strong></p></li>
+<li><p><strong>기본값은 1500입니다.</strong></p></li>
+</ul>
+</li>
+<li><p><strong>부팅 시 자동 시작 (autostart)</strong></p>
+<ul>
+<li><p><strong>서버 부팅 시 해당 인터페이스를 자동으로 활성화 하는 기능입니다.</strong></p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<p><img alt="네트워크 생성 vlan" src="../_images/network_vlan.png" /></p>
+</section>
+<section id="vlan">
+<h2>VLAN 타입<a class="headerlink" href="#vlan" title="Link to this heading"><span>#</span></a></h2>
+<ul class="simple">
+<li><p><strong>인터페이스 이름</strong></p>
+<ul>
+<li><p><strong>영문, 숫자만 생성 가능합니다.</strong></p></li>
+<li><p><strong>이름만 입력 후 생성 가능합니다.</strong></p></li>
+</ul>
+</li>
+<li><p><strong>VLAN ID</strong></p>
+<ul>
+<li><p><strong>태그번호 분류 위합니다.</strong></p></li>
+<li><p><strong>범위: 1~4094</strong></p></li>
+<li><p><strong>기본값: 1</strong></p></li>
+<li><p><strong>중복 불가능</strong></p></li>
+</ul>
+</li>
+<li><p><strong>VLAN Raw Device(필수)</strong></p>
+<ul>
+<li><p><strong>VLN이 기반할 물리 포트 입니다.</strong></p></li>
+<li><p><strong>포트가 활성화 되어야 합니다.</strong></p></li>
+<li><p><strong>하나의 포트에 여러 VLAN 가능 합니다.</strong></p></li>
+</ul>
+</li>
+<li><p><strong>IPv4 주소/CIDR (선택사항)</strong></p>
+<ul>
+<li><p><strong>IP주소 입력시 CIDR입력 필수 - *미입력 시 생성 제한 합니다.</strong></p></li>
+</ul>
+</li>
+<li><p><strong>게이트 웨이 (선택사항)</strong></p>
+<ul>
+<li><p><strong>외부 네트워크 접근 필요 시 설정합니다.</strong></p></li>
+</ul>
+</li>
+<li><p><strong>댓글 (선택사항)</strong></p>
+<ul>
+<li><p><strong>사용자의 구분을 위한 Comment(메모)</strong></p></li>
+</ul>
+</li>
+<li><p><strong>MTU (선택사항)</strong></p>
+<ul>
+<li><p><strong>한번에 보낼 수 있는 데이터 패킷의 최대 크기입니다.</strong></p></li>
+<li><p><strong>기본값은 1500 입니다.</strong></p></li>
+</ul>
+</li>
+<li><p><strong>부팅 시 자동 시작 (autostart)</strong></p>
+<ul>
+<li><p><strong>서버 부팅 시 해당 인터페이스를 자동으로 활성화 하는 기능입니다.</strong></p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<p><img alt="네트워크 생성 본드" src="../_images/network_bond.png" /></p>
+</section>
+<section id="bond">
+<h2>Bond 타입<a class="headerlink" href="#bond" title="Link to this heading"><span>#</span></a></h2>
+<ul class="simple">
+<li><p><strong>인터페이스 이름</strong></p>
+<ul>
+<li><p><strong>영문, 숫자만 생성 가능합니다.</strong></p></li>
+<li><p><strong>이름만 입력 후 생성 가능합니다.</strong></p></li>
+</ul>
+</li>
+<li><p><strong>Slaves (선택사항)</strong></p>
+<ul>
+<li><p><strong>Bond에 포함할 물리 포트들</strong></p></li>
+<li><p><strong>최소 2개 필요</strong></p></li>
+<li><p><strong>공백으로 구분: <code class="docutils literal notranslate"><span class="pre">&quot;eth0</span> <span class="pre">eth1&quot;</span></code> 또는 <code class="docutils literal notranslate"><span class="pre">&quot;eth0</span> <span class="pre">eth1</span> <span class="pre">eth2”</span></code></strong></p></li>
+<li><p><strong>한 포트는 한 인터페이스만 사용 가능합니다.</strong></p></li>
+</ul>
+</li>
+<li><p><strong>Bond Mode (선택사항)</strong></p>
+<ul>
+<li><p><strong>Active-Backup: 안정성 우선 (권장)</strong></p>
+<ul>
+<li><p><strong>스위치 설정 불필요</strong></p></li>
+<li><p><strong>간단한 구성</strong></p></li>
+</ul>
+</li>
+<li><p><strong>802.3ad (LACP): 성능 우선</strong></p>
+<ul>
+<li><p><strong>스위치가 LACP를 지원해야 합니다.</strong></p></li>
+<li><p><strong>대역폭 증가</strong></p></li>
+<li><p><strong>고성능 네트워크용</strong></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>IPv4 주소/CIDR (선택사항)</strong></p>
+<ul>
+<li><p><strong>IP주소 입력시 CIDR입력 필수 - *미입력 시 생성 제한합니다.</strong></p></li>
+</ul>
+</li>
+<li><p><strong>게이트 웨이 (선택사항)</strong></p>
+<ul>
+<li><p><strong>외부 네트워크 접근 필요 시 설정합니다.</strong></p></li>
+</ul>
+</li>
+<li><p><strong>댓글 (선택사항)</strong></p>
+<ul>
+<li><p><strong>사용자의 구분을 위한 Comment(메모) 입니다.</strong></p></li>
+</ul>
+</li>
+<li><p><strong>MTU (선택사항)</strong></p>
+<ul>
+<li><p><strong>한번에 보낼 수 있는 데이터 패킷의 최대 크기입니다.</strong></p></li>
+<li><p><strong>기본값은 1500입니다.</strong></p></li>
+</ul>
+</li>
+<li><p><strong>부팅 시 자동 시작 (autostart)</strong></p>
+<ul>
+<li><p><strong>서버 부팅 시 해당 인터페이스를 자동으로 활성화 하는 기능입니다.</strong></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="apply-configuration">
+<h2>11.2.1 변경 적용 - Apply Configuration <strong>[ 🔄 변경 적용 ]</strong><a class="headerlink" href="#apply-configuration" title="Link to this heading"><span>#</span></a></h2>
+<p><img alt="네트워크 비활성화" src="../_images/network_deactivate.png" /></p>
+<ul class="simple">
+<li><p><strong>네트워크 생성시 비활성화 상태로 표시됩니다.</strong></p></li>
+</ul>
+<p><img alt="네트워크 변경 적용" src="../_images/netowk_apply1.png" /></p>
+<p><img alt="네트워크 변경 적용" src="../_images/network_apply2.png" /></p>
+<ul class="simple">
+<li><p><strong>네트워크 활성화</strong></p>
+<ul>
+<li><p>변경 적용 버튼 클릭 시 변경 적용중이 표시됩니다.</p></li>
+</ul>
+</li>
+</ul>
+<p><img alt="네트워크 활성화" src="../_images/network_active.png" /></p>
+<ul class="simple">
+<li><p><strong>활성화된 네트워크 상태 표시 변경</strong></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="edit">
+<h2>11.2.2 네트워크 수정 - Edit<a class="headerlink" href="#edit" title="Link to this heading"><span>#</span></a></h2>
+<p><img alt="네트워크 수정" src="../_images/network_edit.png" /></p>
+<ul class="simple">
+<li><p><strong>각 네트워크 인터페이스 우측에 수정, 삭제 버튼이 있습니다.</strong></p></li>
+</ul>
+<p><img alt="네트워크 수정" src="../_images/network_edit2.png" /></p>
+<ul>
+<li><p><strong>해당 네트워크의 수정버튼을 클릭하면 설정되어있는 네트워크의 정보를 불러옵니다.</strong> <strong>ex)vmbrtest3</strong></p></li>
+<li><p><strong>IPv4 적용 예시</strong></p>
+<ol class="arabic">
+<li><p><strong>수정할 정보 입력합니다.</strong></p>
+<p><img alt="네트워크 수정" src="../_images/network_ip1.png" /></p>
+</li>
+<li><p><strong>수정 버튼 클릭 시 변경 적용중이 표시됩니다.</strong></p>
+<p><img alt="네트워크 수정" src="../_images/network_ip2.png" /></p>
+</li>
+<li><p><strong>수정된 네트워크의 정보를 확인합니다.</strong></p>
+<p><img alt="네트워크 수정" src="../_images/networkl_ip3.png" /></p>
+</li>
+</ol>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="remove">
+<h2>11.2.3 네트워크 삭제 - Remove 🗑️<a class="headerlink" href="#remove" title="Link to this heading"><span>#</span></a></h2>
+<ol class="arabic">
+<li><p>해당 네트워크의 삭제버튼 클릭 시 확인 알림창이 표시 됩니다.</p>
+<p><img alt="네트워크 삭제" src="../_images/network_remove.png" /></p>
+</li>
+<li><p>삭제 버튼 클릭시 해당 네트워크 인터페이스 삭제 중으로 표시됩니다.</p>
+<p><img alt="네트워크 삭제" src="../_images/network_remove2.png" /></p>
+</li>
+<li><p>네트워크 인터페이스 목록을 확인합니다.</p>
+<p><img alt="네트워크 삭제" src="../_images/network_remove3.png" /></p>
+</li>
+</ol>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="10-storage.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">이전</p>
+        <p class="prev-next-title"><strong>10. 스토리지 (Storage)</strong></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="12-notifications.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">다음</p>
+        <p class="prev-next-title"><strong>12. 알림 (Notifications)</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 내용
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">11.1 네트워크 인터페이스 설정</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">11.2 인터페이스 관리 - 새 인터페이스(네트워크) 생성</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bridge">Bridge 타입</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vlan">VLAN 타입</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bond">Bond 타입</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-configuration">11.2.1 변경 적용 - Apply Configuration <strong>[ 🔄 변경 적용 ]</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edit">11.2.2 네트워크 수정 - Edit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remove">11.2.3 네트워크 삭제 - Remove 🗑️</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+으로 phum
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, phum.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
