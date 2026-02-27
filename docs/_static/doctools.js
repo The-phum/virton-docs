@@ -1,5 +1,16 @@
 /*
+<<<<<<< HEAD
+ * doctools.js
+ * ~~~~~~~~~~~
+ *
  * Base JavaScript utilities for all Sphinx HTML documentation.
+ *
+ * :copyright: Copyright 2007-2024 by the Sphinx team, see AUTHORS.
+ * :license: BSD, see LICENSE for details.
+ *
+=======
+ * Base JavaScript utilities for all Sphinx HTML documentation.
+>>>>>>> 6ef2fbfca306e754ecaf6b0145c837157367ad75
  */
 "use strict";
 
@@ -59,7 +70,11 @@ const Documentation = {
     Object.assign(Documentation.TRANSLATIONS, catalog.messages);
     Documentation.PLURAL_EXPR = new Function(
       "n",
+<<<<<<< HEAD
+      `return (${catalog.plural_expr})`
+=======
       `return (${catalog.plural_expr})`,
+>>>>>>> 6ef2fbfca306e754ecaf6b0145c837157367ad75
     );
     Documentation.LOCALE = catalog.locale;
   },
@@ -89,7 +104,11 @@ const Documentation = {
 
     const togglerElements = document.querySelectorAll("img.toggler");
     togglerElements.forEach((el) =>
+<<<<<<< HEAD
+      el.addEventListener("click", (event) => toggler(event.currentTarget))
+=======
       el.addEventListener("click", (event) => toggler(event.currentTarget)),
+>>>>>>> 6ef2fbfca306e754ecaf6b0145c837157367ad75
     );
     togglerElements.forEach((el) => (el.style.display = ""));
     if (DOCUMENTATION_OPTIONS.COLLAPSE_INDEX) togglerElements.forEach(toggler);
@@ -98,15 +117,24 @@ const Documentation = {
   initOnKeyListeners: () => {
     // only install a listener if it is really needed
     if (
+<<<<<<< HEAD
+      !DOCUMENTATION_OPTIONS.NAVIGATION_WITH_KEYS &&
+      !DOCUMENTATION_OPTIONS.ENABLE_SEARCH_SHORTCUTS
+=======
       !DOCUMENTATION_OPTIONS.NAVIGATION_WITH_KEYS
       && !DOCUMENTATION_OPTIONS.ENABLE_SEARCH_SHORTCUTS
+>>>>>>> 6ef2fbfca306e754ecaf6b0145c837157367ad75
     )
       return;
 
     document.addEventListener("keydown", (event) => {
       // bail for input elements
+<<<<<<< HEAD
+      if (BLACKLISTED_KEY_CONTROL_ELEMENTS.has(document.activeElement.tagName)) return;
+=======
       if (BLACKLISTED_KEY_CONTROL_ELEMENTS.has(document.activeElement.tagName))
         return;
+>>>>>>> 6ef2fbfca306e754ecaf6b0145c837157367ad75
       // bail with special keys
       if (event.altKey || event.ctrlKey || event.metaKey) return;
 
