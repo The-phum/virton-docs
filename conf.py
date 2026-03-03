@@ -54,4 +54,6 @@ sys.path.insert(0, os.path.abspath('.')) # 기존주석 해제
 
 exclude_patterns = [
     'README.md',
+    '.venv',
+    'docs',
 ]
