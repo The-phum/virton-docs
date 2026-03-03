@@ -22,10 +22,8 @@ VirtOn 사용자 매뉴얼(User Manual)
    main/10-storage
    main/11-network
    main/12-notifications
-   main/13-settings
+   main/settings/index
    main/14-appendix
-
-   
 
 
 .. toctree::
@@ -33,8 +31,7 @@ VirtOn 사용자 매뉴얼(User Manual)
    :caption: Proxmox 매뉴얼
    :hidden:
 
-   
-   
+
 .. toctree::
    :maxdepth: 2
    :caption: 운영 가이드

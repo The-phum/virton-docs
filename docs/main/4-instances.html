@@ -174,7 +174,13 @@
 <li class="toctree-l1"><a class="reference internal" href="10-storage.html"><strong>10. 스토리지 (Storage)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="11-network.html"><strong>11. 네트워크 (Network)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="12-notifications.html"><strong>12. 알림 (Notifications)</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="13-settings.html"><strong>13. 설정 (Settings)</strong></a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="settings/index.html">13. 설정 (Settings)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="settings/proxmox-api.html">Proxmox API 관리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings/accounts.html">계정 관리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings/security.html">보안 관리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings/smtp.html">SMTP설정</a></li>
+</ul>
+</details></li>
 </ul>
 
     </div>
@@ -323,18 +329,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.1 가상 머신 &amp; 컨테이너 목록 관리</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.1 가상 머신 &amp; 컨테이너 목록 관리</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">4.1.1 인스턴스 목록 조회</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4.1.2 인스턴스 검색 및 필터링</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">4.1.3 전원제어</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vm-ct">4.2 인스턴스 생성 (VM/CT 생성)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vm-ct">4.2 인스턴스 생성 (VM/CT 생성)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vm-virtual-machine">4.2.1 VM 생성 (Virtual Machine)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ct-lxc-container">4.2.2 CT 생성 (LXC Container)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">4.3 인스턴스 상세 정보</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">4.3 인스턴스 상세 정보</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">4.3.1 시스템 정보</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monitoring"><strong>4.3.2 리소스 사용량 및 트렌드 (Monitoring)</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#console">4.3.3 콘솔 접속 (Console)</a></li>
@@ -644,18 +650,18 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.1 가상 머신 &amp; 컨테이너 목록 관리</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.1 가상 머신 &amp; 컨테이너 목록 관리</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">4.1.1 인스턴스 목록 조회</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4.1.2 인스턴스 검색 및 필터링</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">4.1.3 전원제어</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vm-ct">4.2 인스턴스 생성 (VM/CT 생성)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vm-ct">4.2 인스턴스 생성 (VM/CT 생성)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vm-virtual-machine">4.2.1 VM 생성 (Virtual Machine)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ct-lxc-container">4.2.2 CT 생성 (LXC Container)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">4.3 인스턴스 상세 정보</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">4.3 인스턴스 상세 정보</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">4.3.1 시스템 정보</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monitoring"><strong>4.3.2 리소스 사용량 및 트렌드 (Monitoring)</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#console">4.3.3 콘솔 접속 (Console)</a></li>

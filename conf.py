@@ -41,6 +41,8 @@ html_theme_options = {
         # "text": "Virton Docs",
     },
     # 필요시 다른 옵션들…
+    # 사이드바에서 섹션(설정) 하위 문서까지 항상 탐색 가능하도록
+    "show_toc_level": 2,
 }
 
 source_suffix = {

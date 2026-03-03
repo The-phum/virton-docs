@@ -174,7 +174,13 @@
 <li class="toctree-l1"><a class="reference internal" href="10-storage.html"><strong>10. 스토리지 (Storage)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="11-network.html"><strong>11. 네트워크 (Network)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="12-notifications.html"><strong>12. 알림 (Notifications)</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="13-settings.html"><strong>13. 설정 (Settings)</strong></a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="settings/index.html">13. 설정 (Settings)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="settings/proxmox-api.html">Proxmox API 관리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings/accounts.html">계정 관리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings/security.html">보안 관리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings/smtp.html">SMTP설정</a></li>
+</ul>
+</details></li>
 </ul>
 
     </div>
@@ -324,16 +330,16 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1. 화면 구성 개요</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2. 상단 헤더 영역</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2. 상단 헤더 영역</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">표시 항목</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">3. Summary (노드 상태 요약)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">3. Summary (노드 상태 요약)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">주요 특징</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">동작 방식</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-pools">4. Storage Pools (스토리지 현황)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-pools">4. Storage Pools (스토리지 현황)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">구성 요소</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#shared-storage">4.1 Shared Storage</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#node-storage">4.2 Node Storage</a></li>
@@ -342,7 +348,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">사용 목적</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-cpu-usage">5. Memory &amp; CPU Usage (리소스 사용량 그래프)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-cpu-usage">5. Memory &amp; CPU Usage (리소스 사용량 그래프)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">표시 방식</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cpu-usage">5.1 CPU Usage 그래프</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">하단 정보</a></li>
@@ -354,16 +360,16 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-vms">6. Running VMs (실행 중인 가상 머신)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-vms">6. Running VMs (실행 중인 가상 머신)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">표시 항목</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">기능</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-lxcs">7. Running LXCs (실행 중인 컨테이너)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-lxcs">7. Running LXCs (실행 중인 컨테이너)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">표시 항목</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">8. 상태 및 오류 안내</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">8. 상태 및 오류 안내</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proxmox">Proxmox 설정 미완료 시</a></li>
 </ul>
 </li>
@@ -656,16 +662,16 @@ VM 증설 또는 리소스 재배치를 고려해야 합니다.</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1. 화면 구성 개요</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2. 상단 헤더 영역</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2. 상단 헤더 영역</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">표시 항목</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">3. Summary (노드 상태 요약)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">3. Summary (노드 상태 요약)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">주요 특징</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">동작 방식</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-pools">4. Storage Pools (스토리지 현황)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#storage-pools">4. Storage Pools (스토리지 현황)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">구성 요소</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#shared-storage">4.1 Shared Storage</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#node-storage">4.2 Node Storage</a></li>
@@ -674,7 +680,7 @@ VM 증설 또는 리소스 재배치를 고려해야 합니다.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">사용 목적</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-cpu-usage">5. Memory &amp; CPU Usage (리소스 사용량 그래프)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-cpu-usage">5. Memory &amp; CPU Usage (리소스 사용량 그래프)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">표시 방식</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cpu-usage">5.1 CPU Usage 그래프</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">하단 정보</a></li>
@@ -686,16 +692,16 @@ VM 증설 또는 리소스 재배치를 고려해야 합니다.</p>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-vms">6. Running VMs (실행 중인 가상 머신)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-vms">6. Running VMs (실행 중인 가상 머신)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">표시 항목</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">기능</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-lxcs">7. Running LXCs (실행 중인 컨테이너)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-lxcs">7. Running LXCs (실행 중인 컨테이너)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">표시 항목</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">8. 상태 및 오류 안내</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">8. 상태 및 오류 안내</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proxmox">Proxmox 설정 미완료 시</a></li>
 </ul>
 </li>
