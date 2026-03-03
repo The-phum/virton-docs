@@ -174,7 +174,13 @@
 <li class="toctree-l1"><a class="reference internal" href="10-storage.html"><strong>10. 스토리지 (Storage)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="11-network.html"><strong>11. 네트워크 (Network)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="12-notifications.html"><strong>12. 알림 (Notifications)</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="13-settings.html"><strong>13. 설정 (Settings)</strong></a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="settings/index.html">13. 설정 (Settings)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="settings/proxmox-api.html">Proxmox API 관리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings/accounts.html">계정 관리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings/security.html">보안 관리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings/smtp.html">SMTP설정</a></li>
+</ul>
+</details></li>
 </ul>
 
     </div>
@@ -323,14 +329,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ha"><strong>1. HA 상태 모니터링</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ha"><strong>1. HA 상태 모니터링</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crm"><strong>1.1 CRM (마스터 노드) 상태</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lrm-ha"><strong>1.2 LRM (노드별 HA 상태)</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lrm"><strong>1.3 LRM 상태 종류 및 의미</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>1.4 데이터 로딩 및 예외 처리</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>2. HA 리소스 목록</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>2. HA 리소스 목록</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>2.1 컬럼 설명</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type"><strong>2.2 리소스 타입 (Type)</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>2.3 리소스 상태 (Type)</strong></a></li>
@@ -340,7 +346,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><strong>2.7 리소스 선택 및 관리</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ha-affinity-rules"><strong>3. HA 고급 설정 (Affinity Rules 설정)</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ha-affinity-rules"><strong>3. HA 고급 설정 (Affinity Rules 설정)</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#node-affinity-rules"><strong>3.1 노드 친화성 규칙 (Node Affinity Rules)</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">3.1.1 <strong>대상 리소스</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><strong>3.1.2 노드 목록 (가중치)</strong></a></li>
@@ -917,14 +923,14 @@ HA 리소스의 실행 위치와 배치 정책을 세밀하게 제어할 수 있
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ha"><strong>1. HA 상태 모니터링</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ha"><strong>1. HA 상태 모니터링</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crm"><strong>1.1 CRM (마스터 노드) 상태</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lrm-ha"><strong>1.2 LRM (노드별 HA 상태)</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lrm"><strong>1.3 LRM 상태 종류 및 의미</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>1.4 데이터 로딩 및 예외 처리</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>2. HA 리소스 목록</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>2. HA 리소스 목록</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>2.1 컬럼 설명</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type"><strong>2.2 리소스 타입 (Type)</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>2.3 리소스 상태 (Type)</strong></a></li>
@@ -934,7 +940,7 @@ HA 리소스의 실행 위치와 배치 정책을 세밀하게 제어할 수 있
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><strong>2.7 리소스 선택 및 관리</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ha-affinity-rules"><strong>3. HA 고급 설정 (Affinity Rules 설정)</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ha-affinity-rules"><strong>3. HA 고급 설정 (Affinity Rules 설정)</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#node-affinity-rules"><strong>3.1 노드 친화성 규칙 (Node Affinity Rules)</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">3.1.1 <strong>대상 리소스</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><strong>3.1.2 노드 목록 (가중치)</strong></a></li>

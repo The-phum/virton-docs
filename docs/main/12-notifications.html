@@ -46,7 +46,7 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="색인" href="../genindex.html" />
     <link rel="search" title="검색" href="../search.html" />
-    <link rel="next" title="13. 설정 (Settings)" href="13-settings.html" />
+    <link rel="next" title="13. 설정 (Settings)" href="settings/index.html" />
     <link rel="prev" title="11. 네트워크 (Network)" href="11-network.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ko"/>
@@ -174,7 +174,13 @@
 <li class="toctree-l1"><a class="reference internal" href="10-storage.html"><strong>10. 스토리지 (Storage)</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="11-network.html"><strong>11. 네트워크 (Network)</strong></a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>12. 알림 (Notifications)</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="13-settings.html"><strong>13. 설정 (Settings)</strong></a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="settings/index.html">13. 설정 (Settings)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="settings/proxmox-api.html">Proxmox API 관리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings/accounts.html">계정 관리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings/security.html">보안 관리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings/smtp.html">SMTP설정</a></li>
+</ul>
+</details></li>
 </ul>
 
     </div>
@@ -325,7 +331,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virton">12.1 보안 경고 알림 - (VirtOn 알림 및 감사 로그 페이지)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">12.2 감사 로그 - (VirtOn 알림 및 감사 로그 페이지)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks-proxmox">12.3 작업 (tasks) 이력 - (Proxmox 알림 페이지)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks-proxmox">12.3 작업 (tasks) 이력 - (Proxmox 알림 페이지)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proxmox">12.4 클러스터 로그 이력 - (Proxmox 알림 페이지)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">12.5 상단 및 하단 알림</a></li>
 </ul>
@@ -473,11 +479,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="13-settings.html"
+       href="settings/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">다음</p>
-        <p class="prev-next-title"><strong>13. 설정 (Settings)</strong></p>
+        <p class="prev-next-title">13. 설정 (Settings)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -499,7 +505,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virton">12.1 보안 경고 알림 - (VirtOn 알림 및 감사 로그 페이지)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">12.2 감사 로그 - (VirtOn 알림 및 감사 로그 페이지)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks-proxmox">12.3 작업 (tasks) 이력 - (Proxmox 알림 페이지)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks-proxmox">12.3 작업 (tasks) 이력 - (Proxmox 알림 페이지)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proxmox">12.4 클러스터 로그 이력 - (Proxmox 알림 페이지)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">12.5 상단 및 하단 알림</a></li>
 </ul>
