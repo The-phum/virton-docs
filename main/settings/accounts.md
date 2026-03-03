@@ -6,5 +6,5 @@
 
 ```{include} ../13-settings.md
 :start-after: "## 3. 계정 관리"
-:end-before: "## 4. 이메일 알림 설정"
+:end-before: "# 5. 이메일 알림 설정"
 ```
