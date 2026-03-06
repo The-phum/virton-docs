@@ -5,6 +5,6 @@
 ```
 
 ```{include} ../13-settings.md
-:start-after: "## 2. 관리자 IP 접근 제어 (IP Access Control)"
-:end-before: "## 3. 계정 관리"
+:start-after: "# 4. 보안 관리"
+:end-before: "# 5. 이메일 알림 설정"
 ```
