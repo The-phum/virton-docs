@@ -447,17 +447,16 @@ document.write(`
 <blockquote>
 <div><p>시스템의 보안 기능에서 주요 프로세스가 정상적으로 동작하는지 실시간으로 검사하는 기능입니다.</p>
 </div></blockquote>
-<ul>
-<li><p>점검 대상</p>
 <ul class="simple">
+<li><p>점검 대상</p>
+<ul>
 <li><p><strong>암호화 모듈:</strong> 사용자의 비밀번호나 중요 데이터가 정상적으로 암·복호화되고 있는지 확인합니다.</p></li>
 <li><p><strong>데이터베이스:</strong> DB 서버와의 연결 상태 및 데이터 읽기/쓰기 기능에 이상이 없는지 확인합니다.</p></li>
 <li><p><strong>Proxmox API:</strong> 가상화 인프라(Proxmox)를 제어하기 위한 API 통신이 정상적으로 이루어지고 있는지 확인합니다.</p></li>
 </ul>
 </li>
-<li><p><strong>사용 방법:</strong> 검사할 항목의 체크박스를 선택한 후, <strong>[자가 진단 시작]</strong> 버튼을 클릭하면 즉시 테스트가 수행됩니다.</p>
-<p><img alt="자체시험" src="../../_images/SelfTestSuccess.png" /></p>
-</li>
+<li><p><strong>사용 방법:</strong> 검사할 항목의 체크박스를 선택한 후, <strong>[자가 진단 시작]</strong> 버튼을 클릭하면 즉시 테스트가 수행됩니다.
+<img alt="자체시험" src="../../_images/SelfTestSuccess.png" /></p></li>
 </ul>
 </section>
 <hr class="docutils" />
@@ -473,12 +472,8 @@ document.write(`
 <li><p><strong>동작:</strong> 해당 모듈의 검사가 실패하더라도 <strong>시스템의 전체 운영은 그대로 유지</strong>됩니다. 대신, 관리자에게 즉시 장애 상황을 알림(로그 기록, 화면 표시 등)으로 경고합니다.</p></li>
 </ul>
 </li>
-<li><p><strong>시스템 차단  - 🚨 주의 요망</strong></p>
-<ul>
-<li><p><strong>동작:</strong> 이 정책으로 설정된 모듈 중 **단 하나라도 검사에 실패할 경우, 2차 보안 사고나 데이터 오염을 막기 위해 즉시 ‘전체 시스템의 접근 및 동작이 전면 차단’**됩니다.
+<li><p><strong>시스템 차단 - 🚨 주의 요망</strong> - <strong>동작:</strong> 이 정책으로 설정된 모듈 중 **단 하나라도 검사에 실패할 경우, 2차 보안 사고나 데이터 오염을 막기 위해 즉시 ‘전체 시스템의 접근 및 동작이 전면 차단’**됩니다.
 VirtOn System Backup &amp; Restore 기능은 현재 구동 중인 가상머신(VM) 전체를 스냅샷 방식으로 이미지화하여 저장합니다. 운영체제(OS), 데이터베이스(DB), 애플리케이션 설정, 로그 파일 등 시스템의 모든 상태가 포함되므로, 랜섬웨어 감염이나 서버 장애 시 복구가 가능합니다.</p></li>
-</ul>
-</li>
 </ul>
 <hr class="docutils" />
 <p><img alt="버트온 백업 메인 페이지 1" src="../../_images/virton_backup_main.png" /></p>
