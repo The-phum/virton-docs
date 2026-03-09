@@ -161,6 +161,7 @@ VirtOn이 가상머신(VM)을 제어하고 모니터링하기 위해 Proxmox VE 
 ### 3.2.1 기본 권한 삭제(관리자만)
 
 ![권한 삭제](/_static/images/main/settings/permissoin/RoleDelete.png)
+
 ![권한 삭제2](/_static/images/main/settings/permissoin/RoleDelete2.png)
 
 1. 기능별 카테고리 목록에 X 버튼을 클릭하여 권한을 제거할 수 있습니다.
