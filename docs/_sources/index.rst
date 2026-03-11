@@ -7,32 +7,8 @@ VirtOn 사용자 매뉴얼(User Manual)
 ============================================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: 버트온 사용자 매뉴얼
 
-   main/1-introduction
-   main/2-login
-   main/3-dashboard
-   main/4-instances
-   main/5-cluster
-   main/6-ceph
-   main/7-ha
-   main/8-template
-   main/9-resources
-   main/10-storage
-   main/11-network
-   main/12-notifications
-   main/settings/index
-   main/14-appendix
-
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Proxmox 매뉴얼
-   :hidden:
-
-
-.. toctree::
-   :maxdepth: 2
-   :caption: 운영 가이드
-   :hidden:
+   main/index.md
+   pbs/index.md

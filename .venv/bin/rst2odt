@@ -1,6 +1,10 @@
-#!/Users/hongjungi/Documents/nextjs/guide/virton-docs/.venv/bin/python3
+#!/bin/sh
+'''exec' "/Users/jokangmin/Desktop/회사 관련 파일/VirtOn User Guide/virton-docs/.venv/bin/python3.13" "$0" "$@"
+' '''
+# -*- coding: utf-8 -*-
+import re
 import sys
 from docutils.core import rst2odt
 if __name__ == '__main__':
-    sys.argv[0] = sys.argv[0].removesuffix('.exe')
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
     sys.exit(rst2odt())

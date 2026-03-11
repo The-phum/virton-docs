@@ -16,39 +16,43 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css?v=b102d5e9" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="_static/documentation_options.js?v=2dfc782e"></script>
-    <script src="_static/doctools.js?v=9a2dae69"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script src="_static/translations.js?v=e33e7ba0"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="_static/translations.js?v=afa94a99"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
     <link rel="icon" href="_static/favicon.png"/>
     <link rel="index" title="색인" href="genindex.html" />
     <link rel="search" title="검색" href="search.html" />
-    <link rel="next" title="1. 설치 및 배포" href="main/1-introduction.html" />
+    <link rel="next" title="VirtOn" href="main/index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ko"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -64,19 +68,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -84,7 +77,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -92,8 +84,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -111,7 +103,8 @@
       
         
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -141,46 +134,53 @@
     
     
     <img src="_static/logo.png" class="logo__image only-light" alt="virton 1.1 문서 - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="virton 1.1 문서 - Home"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="virton 1.1 문서 - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="검색" aria-label="검색" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">검색</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="검색" aria-label="검색" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">검색</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">버트온 사용자 매뉴얼</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="main/1-introduction.html"><strong>1. 설치 및 배포</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="main/2-login.html"><strong>2. 로그인 (Login)</strong></a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="main/index.html">VirtOn</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="main/1-introduction.html"><strong>1. 설치 및 배포</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/2-login.html"><strong>2. 로그인 (Login)</strong></a></li>
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="main/3-dashboard.html"><strong>3. 대시보드 (Dashboard)</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="main/4-instances.html"><strong>4. 인스턴스 (Instances)</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="main/5-cluster.html"><strong>5. 클러스터 (Cluster)</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="main/6-ceph.html"><strong>6. Ceph</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="main/7-ha.html"><strong>7. 고가용성 (HA - High Availability)</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="main/8-template.html"><strong>8. 템플릿 (template)/마이그레이션 (migrate)</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="main/9-resources.html"><strong>9. 리소스 (Resources)</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="main/10-storage.html"><strong>10. 스토리지 (Storage)</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="main/11-network.html"><strong>11. 네트워크 (Network)</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="main/12-notifications.html"><strong>12. 알림 (Notifications)</strong></a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="main/settings/index.html">13. 설정 (Settings)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="main/settings/proxmox-api.html">Proxmox API 관리</a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/settings/accounts.html">계정 관리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/3-dashboard.html"><strong>3. 대시보드 (Dashboard)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/4-instances.html"><strong>4. 인스턴스 (Instances)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/5-cluster.html"><strong>5. 클러스터 (Cluster)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/6-ceph.html"><strong>6. Ceph</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/7-ha.html"><strong>7. 고가용성 (HA - High Availability)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/8-template.html"><strong>8. 템플릿 (template)/마이그레이션 (migrate)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/9-resources.html"><strong>9. 리소스 (Resources)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/10-storage.html"><strong>10. 스토리지 (Storage)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/11-network.html"><strong>11. 네트워크 (Network)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/12-notifications.html"><strong>12. 알림 (Notifications)</strong></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="main/settings/index.html">13. 설정 (Settings)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="main/settings/proxmox-api.html">Proxmox API 관리</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/settings/accounts.html">계정 관리</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="main/settings/security.html">보안 관리</a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/settings/smtp.html">SMTP설정</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/settings/security.html">보안 관리</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/settings/smtp.html">SMTP설정</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="pbs/index.html">VirtOn PBS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="pbs/1-introduction.html"><strong>1. PBS 사용 및 개요</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pbs/2-dashboard.html"><strong>2. 대시보드 (Dashboard)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pbs/3-backup%26restore.html"><strong>3. 백업 &amp; 복구 (backup&amp;restore)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pbs/4-status.html"><strong>4. 작업 이력 (status)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pbs/5-server.html"><strong>5. 서버 설정 (server)</strong></a></li>
 </ul>
 </details></li>
 </ul>
@@ -191,9 +191,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -276,7 +281,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="전체 화면으로보기"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -290,24 +295,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="검색" aria-label="검색" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="검색" aria-label="검색" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 
 </div></div>
       
@@ -338,116 +335,138 @@ document.write(`
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">버트온 사용자 매뉴얼</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="main/1-introduction.html"><strong>1. 설치 및 배포</strong></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="main/1-introduction.html#virton"><strong>1.1. VirtOn 배포 과정</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="main/index.html">VirtOn</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="main/1-introduction.html"><strong>1. 설치 및 배포</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="main/1-introduction.html#virton"><strong>1.1. VirtOn 배포 과정</strong></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="main/2-login.html"><strong>2. 로그인 (Login)</strong></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="main/2-login.html#id1"><strong>1.1. 로그인 실패 정책</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/2-login.html#id2"><strong>1.2. 관리자 비밀번호 변경 페이지</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/2-login.html"><strong>2. 로그인 (Login)</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="main/2-login.html#id1"><strong>1.1. 로그인 실패 정책</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/2-login.html#id2"><strong>1.2. 관리자 비밀번호 변경 페이지</strong></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="main/2-login.html#id3"><strong>2. 로그아웃</strong></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="main/2-login.html#id4"><strong>2.1. 로그아웃 및 세션 만료</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/2-login.html#id3"><strong>2. 로그아웃</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="main/2-login.html#id4"><strong>2.1. 로그아웃 및 세션 만료</strong></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="main/2-login.html#id5"><strong>3. 블랙리스트 &amp; 화이트리스트</strong></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="main/2-login.html#id6"><strong>3.1. 로그인 관련 블랙리스트 &amp; 화이트리스트</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/2-login.html#id5"><strong>3. 블랙리스트 &amp; 화이트리스트</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="main/2-login.html#id6"><strong>3.1. 로그인 관련 블랙리스트 &amp; 화이트리스트</strong></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="main/2-login.html#proxmox-api"><strong>4. Proxmox API 설정</strong></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="main/2-login.html#id7"><strong>4.1. 초기 연동 설정</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/2-login.html#proxmox-api"><strong>4. Proxmox API 설정</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="main/2-login.html#id7"><strong>4.1. 초기 연동 설정</strong></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="main/3-dashboard.html"><strong>3. 대시보드 (Dashboard)</strong></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="main/3-dashboard.html#id1">2.1 시스템 상태 요약</a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/3-dashboard.html#id7">2.2 시스템 요약</a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/3-dashboard.html#id11">2.3 가상 머신 및 컨테이너 목록</a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/3-dashboard.html#id14">2.4 운영 가이드 요약</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/3-dashboard.html"><strong>3. 대시보드 (Dashboard)</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="main/3-dashboard.html#id1">2.1 시스템 상태 요약</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/3-dashboard.html#id7">2.2 시스템 요약</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/3-dashboard.html#id11">2.3 가상 머신 및 컨테이너 목록</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/3-dashboard.html#id14">2.4 운영 가이드 요약</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="main/4-instances.html"><strong>4. 인스턴스 (Instances)</strong></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="main/4-instances.html#id1">4.1 가상 머신 &amp; 컨테이너 목록 관리</a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/4-instances.html#vm-ct">4.2 인스턴스 생성 (VM/CT 생성)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/4-instances.html#id5">4.3 인스턴스 상세 정보</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/4-instances.html"><strong>4. 인스턴스 (Instances)</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="main/4-instances.html#id1">4.1 가상 머신 &amp; 컨테이너 목록 관리</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/4-instances.html#vm-ct">4.2 인스턴스 생성 (VM/CT 생성)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/4-instances.html#id5">4.3 인스턴스 상세 정보</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="main/5-cluster.html"><strong>5. 클러스터 (Cluster)</strong></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="main/5-cluster.html#id1">5.1 클러스터 현황</a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/5-cluster.html#id2">5.2 노드 관리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/5-cluster.html"><strong>5. 클러스터 (Cluster)</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="main/5-cluster.html#id1">5.1 클러스터 현황</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/5-cluster.html#id2">5.2 노드 관리</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="main/6-ceph.html"><strong>6. Ceph</strong></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="main/6-ceph.html#ceph-health"><strong>1.1. Ceph Health 모니터링</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/6-ceph.html#id1"><strong>1.2. Ceph 상태 진단 내역 상세 모달 창</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/6-ceph.html#id2"><strong>2.1. Ceph 서비스 상태 모니터링</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/6-ceph.html#ceph-osds"><strong>3.1. Ceph OSDs 상태 모니터링</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/6-ceph.html"><strong>6. Ceph</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="main/6-ceph.html#ceph-health"><strong>1.1. Ceph Health 모니터링</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/6-ceph.html#id1"><strong>1.2. Ceph 상태 진단 내역 상세 모달 창</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/6-ceph.html#id2"><strong>2.1. Ceph 서비스 상태 모니터링</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/6-ceph.html#ceph-osds"><strong>3.1. Ceph OSDs 상태 모니터링</strong></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="main/7-ha.html"><strong>7. 고가용성 (HA - High Availability)</strong></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="main/7-ha.html#ha"><strong>1. HA 상태 모니터링</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/7-ha.html#id2"><strong>2. HA 리소스 목록</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/7-ha.html#ha-affinity-rules"><strong>3. HA 고급 설정 (Affinity Rules 설정)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/7-ha.html"><strong>7. 고가용성 (HA - High Availability)</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="main/7-ha.html#ha"><strong>1. HA 상태 모니터링</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/7-ha.html#id2"><strong>2. HA 리소스 목록</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/7-ha.html#ha-affinity-rules"><strong>3. HA 고급 설정 (Affinity Rules 설정)</strong></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="main/8-template.html"><strong>8. 템플릿 (template)/마이그레이션 (migrate)</strong></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="main/8-template.html#id1">8.1 업로드</a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/8-template.html#template">8.2 다운로드(Template)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/8-template.html#id2">8.3 템플릿 목록</a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/8-template.html#clone">8.3.1 복제(Clone)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/8-template.html#convert-to-template">8.4 템플릿으로 변환(Convert to template)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/8-template.html#migrate">8.5 마이그레이션(Migrate)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/8-template.html"><strong>8. 템플릿 (template)/마이그레이션 (migrate)</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="main/8-template.html#id1">8.1 업로드</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/8-template.html#template">8.2 다운로드(Template)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/8-template.html#id2">8.3 템플릿 목록</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/8-template.html#clone">8.3.1 복제(Clone)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/8-template.html#convert-to-template">8.4 템플릿으로 변환(Convert to template)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/8-template.html#migrate">8.5 마이그레이션(Migrate)</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="main/9-resources.html"><strong>9. 리소스 (Resources)</strong></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="main/9-resources.html#id1">1. 화면 구성 개요</a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/9-resources.html#id2">2. 상단 헤더 영역</a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/9-resources.html#summary">3. Summary (노드 상태 요약)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/9-resources.html#storage-pools">4. Storage Pools (스토리지 현황)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/9-resources.html#memory-cpu-usage">5. Memory &amp; CPU Usage (리소스 사용량 그래프)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/9-resources.html#running-vms">6. Running VMs (실행 중인 가상 머신)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/9-resources.html#running-lxcs">7. Running LXCs (실행 중인 컨테이너)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/9-resources.html#id14">8. 상태 및 오류 안내</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/9-resources.html"><strong>9. 리소스 (Resources)</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="main/9-resources.html#id1">1. 화면 구성 개요</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/9-resources.html#id2">2. 상단 헤더 영역</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/9-resources.html#summary">3. Summary (노드 상태 요약)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/9-resources.html#storage-pools">4. Storage Pools (스토리지 현황)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/9-resources.html#memory-cpu-usage">5. Memory &amp; CPU Usage (리소스 사용량 그래프)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/9-resources.html#running-vms">6. Running VMs (실행 중인 가상 머신)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/9-resources.html#running-lxcs">7. Running LXCs (실행 중인 컨테이너)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/9-resources.html#id14">8. 상태 및 오류 안내</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="main/10-storage.html"><strong>10. 스토리지 (Storage)</strong></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="main/10-storage.html#id1"><strong>1.1. 스토리지 목록 모니터링</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/10-storage.html#id2"><strong>1.2. 스토리지 목록 필터링 및 정렬</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/10-storage.html#id3"><strong>1.3.1. 새 스토리지 생성 - 공통</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/10-storage.html#directory"><strong>1.3.2. 새 스토리지 생성 - Directory</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/10-storage.html#lvm"><strong>1.3.3. 새 스토리지 생성 - LVM</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/10-storage.html#lvm-thin"><strong>1.3.4. 새 스토리지 생성 - LVM-Thin</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/10-storage.html#nfs"><strong>1.3.5. 새 스토리지 생성 - NFS</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/10-storage.html#smb-cifs"><strong>1.3.6. 새 스토리지 생성 - SMB/CIFS</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/10-storage.html#iscsi"><strong>1.3.7. 새 스토리지 생성 - iSCSI</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/10-storage.html#id4"><strong>1.3.8. 새 스토리지 생성 - 고급 설정</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/10-storage.html#id5"><strong>1.4. 스토리지 수정</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/10-storage.html#id6"><strong>1.5. 스토리지 삭제</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/10-storage.html"><strong>10. 스토리지 (Storage)</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="main/10-storage.html#id1"><strong>1.1. 스토리지 목록 모니터링</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/10-storage.html#id2"><strong>1.2. 스토리지 목록 필터링 및 정렬</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/10-storage.html#id3"><strong>1.3.1. 새 스토리지 생성 - 공통</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/10-storage.html#directory"><strong>1.3.2. 새 스토리지 생성 - Directory</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/10-storage.html#lvm"><strong>1.3.3. 새 스토리지 생성 - LVM</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/10-storage.html#lvm-thin"><strong>1.3.4. 새 스토리지 생성 - LVM-Thin</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/10-storage.html#nfs"><strong>1.3.5. 새 스토리지 생성 - NFS</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/10-storage.html#smb-cifs"><strong>1.3.6. 새 스토리지 생성 - SMB/CIFS</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/10-storage.html#iscsi"><strong>1.3.7. 새 스토리지 생성 - iSCSI</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/10-storage.html#id4"><strong>1.3.8. 새 스토리지 생성 - 고급 설정</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/10-storage.html#id5"><strong>1.4. 스토리지 수정</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/10-storage.html#id6"><strong>1.5. 스토리지 삭제</strong></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="main/11-network.html"><strong>11. 네트워크 (Network)</strong></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="main/11-network.html#id1">11.1 네트워크 인터페이스 설정</a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/11-network.html#id2">11.2 인터페이스 관리 - 새 인터페이스(네트워크) 생성</a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/11-network.html#bridge">Bridge 타입</a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/11-network.html#vlan">VLAN 타입</a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/11-network.html#bond">Bond 타입</a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/11-network.html#apply-configuration">11.2.1 변경 적용 - Apply Configuration <strong>[ 🔄 변경 적용 ]</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/11-network.html#edit">11.2.2 네트워크 수정 - Edit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/11-network.html#remove">11.2.3 네트워크 삭제 - Remove 🗑️</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/11-network.html"><strong>11. 네트워크 (Network)</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="main/11-network.html#id1">11.1 네트워크 인터페이스 설정</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/11-network.html#id2">11.2 인터페이스 관리 - 새 인터페이스(네트워크) 생성</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/11-network.html#bridge">Bridge 타입</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/11-network.html#vlan">VLAN 타입</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/11-network.html#bond">Bond 타입</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/11-network.html#apply-configuration">11.2.1 변경 적용 - Apply Configuration <strong>[ 🔄 변경 적용 ]</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/11-network.html#edit">11.2.2 네트워크 수정 - Edit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/11-network.html#remove">11.2.3 네트워크 삭제 - Remove 🗑️</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="main/12-notifications.html"><strong>12. 알림 (Notifications)</strong></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="main/12-notifications.html#virton">12.1 보안 경고 알림 - (VirtOn 알림 및 감사 로그 페이지)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/12-notifications.html#id1">12.2 감사 로그 - (VirtOn 알림 및 감사 로그 페이지)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/12-notifications.html#tasks-proxmox">12.3 작업 (tasks) 이력 - (Proxmox 알림 페이지)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/12-notifications.html"><strong>12. 알림 (Notifications)</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="main/12-notifications.html#virton">12.1 보안 경고 알림 - (VirtOn 알림 및 감사 로그 페이지)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/12-notifications.html#id1">12.2 감사 로그 - (VirtOn 알림 및 감사 로그 페이지)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/12-notifications.html#tasks-proxmox">12.3 작업 (tasks) 이력 - (Proxmox 알림 페이지)</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="main/settings/index.html">13. 설정 (Settings)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/settings/index.html">13. 설정 (Settings)</a></li>
 </ul>
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pbs/index.html">VirtOn PBS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pbs/1-introduction.html"><strong>1. PBS 사용 및 개요</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pbs/1-introduction.html#virton-pbs"><strong>1.1. VirtOn PBS 사용 방법 및 개요</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pbs/2-dashboard.html"><strong>2. 대시보드 (Dashboard)</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pbs/2-dashboard.html#id1"><strong>2.1. 스토리지 현황</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pbs/3-backup%26restore.html"><strong>3. 백업 &amp; 복구 (backup&amp;restore)</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pbs/3-backup%26restore.html#id1"><strong>3.1. 백업</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pbs/4-status.html"><strong>4. 작업 이력 (status)</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pbs/4-status.html#id1"><strong>4.1. 작업 이력 목록</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pbs/5-server.html"><strong>5. 서버 설정 (server)</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pbs/5-server.html#pbs"><strong>5.1. PBS 서버 목록 및 생성</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </div>
 </section>
 
@@ -463,11 +482,11 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="main/1-introduction.html"
+       href="main/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">다음</p>
-        <p class="prev-next-title"><strong>1. 설치 및 배포</strong></p>
+        <p class="prev-next-title">VirtOn</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -521,8 +540,8 @@ document.write(`
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

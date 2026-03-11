@@ -40,6 +40,13 @@ html_theme_options = {
         # 선택: 로고 옆에 표시할 텍스트
         # "text": "Virton Docs",
     },
+
+    # 왼쪽 메뉴 항상 펼치기
+    "collapse_navigation": False,
+
+    # 사이드바 탐색 깊이
+    "navigation_depth": 3,
+    
     # 필요시 다른 옵션들…
     # 사이드바에서 섹션(설정) 하위 문서까지 항상 탐색 가능하도록
     "show_toc_level": 2,
