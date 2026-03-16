@@ -175,7 +175,7 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">VirtOn PBS</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="1-introduction.html"><strong>1. PBS 사용 및 개요</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="1-introduction.html"><strong>1. PBS 사용법 및 개요</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="2-dashboard.html"><strong>2. 대시보드 (Dashboard)</strong></a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#"><strong>3. 백업 &amp; 복구 (backup&amp;restore)</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="4-status.html"><strong>4. 작업 이력 (status)</strong></a></li>
@@ -351,7 +351,17 @@
 <ul class="simple">
 <li><p><strong>지금 백업 실행 (Run Backup)</strong>:</p>
 <ol class="arabic simple">
-<li><p>대상 VM ID, 백업을 수행할 노드(Node), 그리고 타겟 스토리지 (PBS Storage) 정보를 입력하여 즉시 수동 백업을 시작합니다.</p></li>
+<li><p><strong>PBS Server</strong> : 백업을 수행할 PBS Server를 선택합니다.</p></li>
+<li><p><strong>Target Node (PVE)</strong> : 백업을 수행할 노드를 선택합니다.</p></li>
+<li><p><strong>타겟 스토리지 (PBS Storage)</strong> :백업을 수행할 해당 서버의 스토리지를 선택합니다.</p></li>
+<li><p><strong>대상 VM / CT</strong> : 백업을 수행할 대상 VM/CT를 선택합니다. (복수개 선택 가능)</p></li>
+<li><p><strong>실행 시점</strong> : 백업 실행 시점을 설정합니다.</p>
+<ul>
+<li><p>즉시 : 백업이 순차적으로 바로 실행됩니다.</p></li>
+<li><p>시간 후 : 몇 시간 후 백업이 될 것인지 설정합니다.</p></li>
+<li><p>특정 시각 : 백업이 진행될 특정 시간 및 날짜를 선택해 설정합니다.</p></li>
+</ul>
+</li>
 <li><p>백업은 백그라운드에서 안전하게 실행되며, 상단 진행률 바를 통해 1% 단위로 실시간 확인이 가능합니다.</p></li>
 </ol>
 </li>
