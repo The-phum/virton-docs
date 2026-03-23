@@ -7,7 +7,6 @@ VirtOn PBS 기능 설명 문서입니다.
 
 1-introduction
 2-dashboard
-3-prune&garbagecollection
-4-backup&restore
-5-status
-6-server
+3-backup&restore
+4-status
+5-server
