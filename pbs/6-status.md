@@ -1,10 +1,10 @@
-# **4. 작업 이력 (status)**
+# **6. 작업 이력 (status)**
 
 ![VirtOn PBS 작업 이력](../_static/images/pbs/pbs_backup_status.png)
 
 "누가, 언제, 어떤 작업을 했고 결과가 어땠는지"를 투명하게 기록하고 추적하는 PBS 전용 감사(Audit) 페이지입니다.
 
-## **4.1. 작업 이력 목록**
+## **6.1. 작업 이력 목록**
 
 - **상태 뱃지 (Status Badges)** :
     1. 모든 작업은 진행 중(RUNNING), 성공(SUCCESS), 실패(FAILED) 3가지 상태로 직관적인 색상 뱃지로 표현됩니다.

@@ -49,7 +49,7 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="색인" href="../genindex.html" />
     <link rel="search" title="검색" href="../search.html" />
-    <link rel="next" title="4. 작업 이력 (status)" href="4-status.html" />
+    <link rel="next" title="4. 오프사이트 관리 (offsite)" href="4-offsite.html" />
     <link rel="prev" title="2. 대시보드 (Dashboard)" href="2-dashboard.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ko"/>
@@ -178,8 +178,10 @@
 <li class="toctree-l2"><a class="reference internal" href="1-introduction.html"><strong>1. PBS 사용법 및 개요</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="2-dashboard.html"><strong>2. 대시보드 (Dashboard)</strong></a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#"><strong>3. 백업 &amp; 복구 (backup&amp;restore)</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="4-status.html"><strong>4. 작업 이력 (status)</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="5-server.html"><strong>5. 서버 설정 (server)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="4-offsite.html"><strong>4. 오프사이트 관리 (offsite)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="5-prune%26garbagecollection.html"><strong>5. PBS 프룬 &amp; 가비지 컬렉션 (Prune &amp; Garbage Collection)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="6-status.html"><strong>6. 작업 이력 (status)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="7-server.html"><strong>7. 서버 설정 (server)</strong></a></li>
 </ul>
 </details></li>
 </ul>
@@ -330,6 +332,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>3.1. 백업</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>3.2. 복구</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>3.3. 삭제 및 중단</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>3.4. 검증 및 복제</strong></a></li>
 </ul>
             </nav>
         </div>
@@ -344,7 +347,7 @@
   <section id="backup-restore">
 <h1><strong>3. 백업 &amp; 복구 (backup&amp;restore)</strong><a class="headerlink" href="#backup-restore" title="Link to this heading"><span>#</span></a></h1>
 <p><img alt="VirtOn PBS 백업 및 복구 메인 페이지" src="../_images/pbs_backup_main.png" /></p>
-<p>실제 백업 데이터를 조회하고 새로운 백업을 생성하거나, 과거 시점으로 시스템을 복원하는 핵심 메뉴입니다.</p>
+<p>실제 백업 데이터를 조회하고 새로운 백업을 생성하거나, 과거 시점으로 시스템을 복원, 검증, 복제를 수행하는 핵심 메뉴입니다.</p>
 <section id="id1">
 <h2><strong>3.1. 백업</strong><a class="headerlink" href="#id1" title="Link to this heading"><span>#</span></a></h2>
 <p><img alt="VirtOn PBS 백업 폼" src="../_images/pbs_backup.png" /></p>
@@ -373,7 +376,7 @@
 <p><img alt="VirtOn PBS 복구 폼" src="../_images/pbs_restore.png" /></p>
 <p><img alt="VirtOn PBS vm 확인 토스트" src="../_images/pbs_restore2.png" /></p>
 <ul class="simple">
-<li><p><strong>복원 (Restore)</strong>:</p>
+<li><p><strong>복구 (Restore)</strong>:</p>
 <ol class="arabic simple">
 <li><p>특정 백업본의 복구 버튼을 누르면, 시스템이 가장 최적의 새로운 VM ID를 자동으로 추천합니다. 또한 복구를 수행할 노드(Node), 타겟 스토리지 (모든 스토리지 가능) 정보를 입력합니다.</p></li>
 <li><p>기존 데이터를 덮어쓰지 않고 새로운 인스턴스로 분리 생성하여 안전성을 높일 수 있습니다. (기존의 VM ID를 사용하면 덮어쓰기도 가능합니다.)</p></li>
@@ -394,6 +397,23 @@
 <li><p><strong>작업 강제 중단 (Abort Task):</strong> :</p>
 <ol class="arabic simple">
 <li><p>진행률 바 옆의 <kbd>X</kbd> 버튼을 누르면, Proxmox 서버 레벨에서 실행 중인 백업/복구 프로세스(Task)를 강제로 Kill(중단) 하고 DB 상태를 동기화합니다.</p></li>
+</ol>
+</li>
+</ul>
+</section>
+<section id="id4">
+<h2><strong>3.4. 검증 및 복제</strong><a class="headerlink" href="#id4" title="Link to this heading"><span>#</span></a></h2>
+<ul class="simple">
+<li><p><strong>백업 파일 검증</strong> :</p>
+<ol class="arabic simple">
+<li><p>현재 백업본이 무결성한지 수동으로 검증합니다. 백업 생성 및 복구 시 자동으로 1회 검증은 수행됩니다.</p></li>
+</ol>
+</li>
+<li><p><strong>전체 복제</strong> :</p>
+<ol class="arabic simple">
+<li><p>해당 백업 파일을 오프사이트 수동으로 복제합니다.</p></li>
+<li><p>백업 생성 및 복구 시 검증이 완료된 시점에 오프사이트 복제 절차에 따라 복제됩니다. (절차를 설정하지 않으면 복제 진행하지 않음)</p></li>
+<li><p>여러 개의 복제 절차가 있을 시, 순차적으로 오프사이트 복제가 됩니다.</p></li>
 </ol>
 </li>
 </ul>
@@ -421,11 +441,11 @@
       </div>
     </a>
     <a class="right-next"
-       href="4-status.html"
+       href="4-offsite.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">다음</p>
-        <p class="prev-next-title"><strong>4. 작업 이력 (status)</strong></p>
+        <p class="prev-next-title"><strong>4. 오프사이트 관리 (offsite)</strong></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -450,6 +470,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>3.1. 백업</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>3.2. 복구</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>3.3. 삭제 및 중단</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>3.4. 검증 및 복제</strong></a></li>
 </ul>
   </nav></div>
 

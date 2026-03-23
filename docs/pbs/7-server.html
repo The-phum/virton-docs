@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>5. 서버 설정 (server) &#8212; virton 1.1 문서</title>
+    <title>7. 서버 설정 (server) &#8212; virton 1.1 문서</title>
   
   
   
@@ -45,11 +45,11 @@
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script src="../_static/translations.js?v=afa94a99"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'pbs/5-server';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pbs/7-server';</script>
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="색인" href="../genindex.html" />
     <link rel="search" title="검색" href="../search.html" />
-    <link rel="prev" title="4. 작업 이력 (status)" href="4-status.html" />
+    <link rel="prev" title="6. 작업 이력 (status)" href="6-status.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ko"/>
   <meta name="docsearch:version" content="" />
@@ -177,8 +177,10 @@
 <li class="toctree-l2"><a class="reference internal" href="1-introduction.html"><strong>1. PBS 사용법 및 개요</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="2-dashboard.html"><strong>2. 대시보드 (Dashboard)</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="3-backup%26restore.html"><strong>3. 백업 &amp; 복구 (backup&amp;restore)</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="4-status.html"><strong>4. 작업 이력 (status)</strong></a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#"><strong>5. 서버 설정 (server)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="4-offsite.html"><strong>4. 오프사이트 관리 (offsite)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="5-prune%26garbagecollection.html"><strong>5. PBS 프룬 &amp; 가비지 컬렉션 (Prune &amp; Garbage Collection)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="6-status.html"><strong>6. 작업 이력 (status)</strong></a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#"><strong>7. 서버 설정 (server)</strong></a></li>
 </ul>
 </details></li>
 </ul>
@@ -240,7 +242,7 @@
       
       
       
-      <li><a href="../_sources/pbs/5-server.md" target="_blank"
+      <li><a href="../_sources/pbs/7-server.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="소스 파일 다운로드"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -316,7 +318,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>5. 서버 설정 (server)</h1>
+    <h1>7. 서버 설정 (server)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -326,10 +328,10 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pbs"><strong>5.1. PBS 서버 목록 및 생성 방법</strong></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">5.1.1 초기 화면</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">5.1.2 서버 설정 폼</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">5.1.3 서버 설정 후 목록</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pbs"><strong>7.1. PBS 서버 목록 및 생성 방법</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">7.1.1 초기 화면</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">7.1.2 서버 설정 폼</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">7.1.3 서버 설정 후 목록</a></li>
 </ul>
 </li>
 </ul>
@@ -344,13 +346,13 @@
                 <article class="bd-article">
                   
   <section id="server">
-<h1><strong>5. 서버 설정 (server)</strong><a class="headerlink" href="#server" title="Link to this heading"><span>#</span></a></h1>
+<h1><strong>7. 서버 설정 (server)</strong><a class="headerlink" href="#server" title="Link to this heading"><span>#</span></a></h1>
 <p><img alt="VirtOn PBS 서버 설정" src="../_images/pbs_server2.png" /></p>
 <p>PBS 서버를 VirtOn 시스템에 연결하고 관리하는 공간입니다. 다중(Multi) PBS 서버 환경을 지원합니다.</p>
 <section id="pbs">
-<h2><strong>5.1. PBS 서버 목록 및 생성 방법</strong><a class="headerlink" href="#pbs" title="Link to this heading"><span>#</span></a></h2>
+<h2><strong>7.1. PBS 서버 목록 및 생성 방법</strong><a class="headerlink" href="#pbs" title="Link to this heading"><span>#</span></a></h2>
 <section id="id1">
-<h3>5.1.1 초기 화면<a class="headerlink" href="#id1" title="Link to this heading"><span>#</span></a></h3>
+<h3>7.1.1 초기 화면<a class="headerlink" href="#id1" title="Link to this heading"><span>#</span></a></h3>
 <p><img alt="VirtOn PBS 서버 설정 초기 화면" src="../_images/pbs_server0.png" /></p>
 <ul class="simple">
 <li><p>처음 서버 설정 페이지로 들어오면 다음과 같이 UI가 출력됩니다.</p></li>
@@ -358,7 +360,7 @@
 </ul>
 </section>
 <section id="id2">
-<h3>5.1.2 서버 설정 폼<a class="headerlink" href="#id2" title="Link to this heading"><span>#</span></a></h3>
+<h3>7.1.2 서버 설정 폼<a class="headerlink" href="#id2" title="Link to this heading"><span>#</span></a></h3>
 <p><img alt="VirtOn PBS 서버 설정 폼" src="../_images/pbs_server1.png" /></p>
 <ul class="simple">
 <li><p>서버 연결 추가 버튼이나 “첫 번째 서버를 연결해보세요” 문구를 클릭하면 다음과 같이 UI가 출력됩니다. 다음을 입력하여 서버를 설정해주세요.</p>
@@ -374,7 +376,7 @@
 </ul>
 </section>
 <section id="id3">
-<h3>5.1.3 서버 설정 후 목록<a class="headerlink" href="#id3" title="Link to this heading"><span>#</span></a></h3>
+<h3>7.1.3 서버 설정 후 목록<a class="headerlink" href="#id3" title="Link to this heading"><span>#</span></a></h3>
 <p><img alt="VirtOn PBS 서버 목록" src="../_images/pbs_server2.png" /></p>
 <ul class="simple">
 <li><p><strong>동기화 (Sync)</strong>:</p>
@@ -412,12 +414,12 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="4-status.html"
+       href="6-status.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">이전</p>
-        <p class="prev-next-title"><strong>4. 작업 이력 (status)</strong></p>
+        <p class="prev-next-title"><strong>6. 작업 이력 (status)</strong></p>
       </div>
     </a>
 </div>
@@ -438,10 +440,10 @@
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pbs"><strong>5.1. PBS 서버 목록 및 생성 방법</strong></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">5.1.1 초기 화면</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">5.1.2 서버 설정 폼</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">5.1.3 서버 설정 후 목록</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pbs"><strong>7.1. PBS 서버 목록 및 생성 방법</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">7.1.1 초기 화면</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">7.1.2 서버 설정 폼</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">7.1.3 서버 설정 후 목록</a></li>
 </ul>
 </li>
 </ul>

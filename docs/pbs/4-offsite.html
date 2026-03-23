@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4. 작업 이력 (status) &#8212; virton 1.1 문서</title>
+    <title>4. 오프사이트 관리 (offsite) &#8212; virton 1.1 문서</title>
   
   
   
@@ -45,11 +45,11 @@
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script src="../_static/translations.js?v=afa94a99"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'pbs/4-status';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pbs/4-offsite';</script>
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="색인" href="../genindex.html" />
     <link rel="search" title="검색" href="../search.html" />
-    <link rel="next" title="5. 서버 설정 (server)" href="5-server.html" />
+    <link rel="next" title="5. PBS 프룬 &amp; 가비지 컬렉션 (Prune &amp; Garbage Collection)" href="5-prune%26garbagecollection.html" />
     <link rel="prev" title="3. 백업 &amp; 복구 (backup&amp;restore)" href="3-backup%26restore.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ko"/>
@@ -178,8 +178,10 @@
 <li class="toctree-l2"><a class="reference internal" href="1-introduction.html"><strong>1. PBS 사용법 및 개요</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="2-dashboard.html"><strong>2. 대시보드 (Dashboard)</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="3-backup%26restore.html"><strong>3. 백업 &amp; 복구 (backup&amp;restore)</strong></a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#"><strong>4. 작업 이력 (status)</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="5-server.html"><strong>5. 서버 설정 (server)</strong></a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#"><strong>4. 오프사이트 관리 (offsite)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="5-prune%26garbagecollection.html"><strong>5. PBS 프룬 &amp; 가비지 컬렉션 (Prune &amp; Garbage Collection)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="6-status.html"><strong>6. 작업 이력 (status)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="7-server.html"><strong>7. 서버 설정 (server)</strong></a></li>
 </ul>
 </details></li>
 </ul>
@@ -241,7 +243,7 @@
       
       
       
-      <li><a href="../_sources/pbs/4-status.md" target="_blank"
+      <li><a href="../_sources/pbs/4-offsite.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="소스 파일 다운로드"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -317,7 +319,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>4. 작업 이력 (status)</h1>
+    <h1>4. 오프사이트 관리 (offsite)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -327,7 +329,8 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>4.1. 작업 이력 목록</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>4.1. 오프사이트 복제 정책 설정 &amp; 등록 복제 정책 목록</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>4.2. 오프사이트 전용 백업 목록</strong></a></li>
 </ul>
             </nav>
         </div>
@@ -339,34 +342,44 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="status">
-<h1><strong>4. 작업 이력 (status)</strong><a class="headerlink" href="#status" title="Link to this heading"><span>#</span></a></h1>
-<p><img alt="VirtOn PBS 작업 이력" src="../_images/pbs_backup_status.png" /></p>
-<p>“누가, 언제, 어떤 작업을 했고 결과가 어땠는지”를 투명하게 기록하고 추적하는 PBS 전용 감사(Audit) 페이지입니다.</p>
+  <section id="offsite">
+<h1><strong>4. 오프사이트 관리 (offsite)</strong><a class="headerlink" href="#offsite" title="Link to this heading"><span>#</span></a></h1>
+<p><img alt="VirtOn PBS 오프사이트 관리 페이지 1" src="../_images/pbs_offsite_main1.png" />
+<img alt="VirtOn PBS 오프사이트 관리 페이지 2" src="../_images/pbs_offsite_main2.png" /></p>
 <section id="id1">
-<h2><strong>4.1. 작업 이력 목록</strong><a class="headerlink" href="#id1" title="Link to this heading"><span>#</span></a></h2>
+<h2><strong>4.1. 오프사이트 복제 정책 설정 &amp; 등록 복제 정책 목록</strong><a class="headerlink" href="#id1" title="Link to this heading"><span>#</span></a></h2>
 <ul class="simple">
-<li><p><strong>상태 뱃지 (Status Badges)</strong> :</p>
+<li><p><strong>오프사이트 복제 정책 설정</strong>:</p>
 <ol class="arabic simple">
-<li><p>모든 작업은 진행 중(RUNNING), 성공(SUCCESS), 실패(FAILED) 3가지 상태로 직관적인 색상 뱃지로 표현됩니다.</p></li>
+<li><p><strong>정책 이름</strong> : 복제 정책명</p></li>
+<li><p><strong>방향</strong> : PULL 및 PUSH 설정 여부</p></li>
+<li><p><strong>Source PBS</strong> : 소스(일반) PBS</p></li>
+<li><p><strong>Target PBS</strong> : 오프사이트 전용 PBS</p></li>
+<li><p><strong>Source Datastore</strong> : 소스(일반) PBS에 만들어 둔 타겟 데이터스토어명</p></li>
+<li><p><strong>Target Datastore</strong> : 오프사이트 PBS에 만들어 둔 타겟 데이터스토어명</p></li>
+<li><p><strong>설명</strong> : 정책 용도나 운영 메모</p></li>
+<li><p><strong>활성화 설정</strong> :</p>
+<ol class="arabic simple">
+<li><p>정책 활성화 - 해당 정책 활성화 유무</p></li>
+<li><p>검증 완료 백업만 복제 (verifiedOnly) - 검증 완료 백업만 복제할 것인지 유무</p></li>
+<li><p>원본에서 사라진 데이터 정리 (removeVanished) - 원본에서 사라진 백업 데이터는 삭제할 것인지 유무</p></li>
+<li><p>암호화된 백업만 복제 (encryptedOnly) - 암호화된 백업만 복제할 것인지 유무</p></li>
 </ol>
 </li>
-<li><p><strong>작업 타입 필터링:</strong> :</p>
-<ol class="arabic simple">
-<li><p>단순한 백업(BACKUP)뿐만 아니라 복구(RESTORE), 삭제(DELETE) 등 모든 시스템 액션이 누락 없이 기록됩니다.</p></li>
-<li><p>드롭다운 필터를 통해 원하는 작업 타입만 모아볼 수 있습니다.</p></li>
 </ol>
 </li>
-<li><p><strong>강력한 예외 감지:</strong> :</p>
+<li><p><strong>복제 정책 목록</strong>:</p>
 <ol class="arabic simple">
-<li><p>네트워크 단절이나 관리자의 Proxmox 수동 중단 등으로 작업이 예기치 않게 종료되더라도, VirtOn 폴링(Polling) 엔진이 이를 감지하여 작업 이력을 FAILED로 자동 업데이트합니다.</p></li>
+<li><p>등록된 목제 정책 목록으로 간단한 설정 정보를 확인 가능하며 수정 및 삭제가 가능하다.</p></li>
 </ol>
 </li>
-<li><p><strong>검색 및 페이지네이션:</strong> :</p>
-<ol class="arabic simple">
-<li><p>VM ID나 작업 이름으로 특정 기록을 빠르게 검색할 수 있으며, 클라이언트 사이드 페이지네이션을 통해 대량의 로그도 쾌적하게 탐색할 수 있습니다.</p></li>
-</ol>
-</li>
+</ul>
+</section>
+<section id="id2">
+<h2><strong>4.2. 오프사이트 전용 백업 목록</strong><a class="headerlink" href="#id2" title="Link to this heading"><span>#</span></a></h2>
+<ul class="simple">
+<li><p>검색 및 정렬이 가능한 현재 오프사이트 백업 목록입니다.</p></li>
+<li><p>일반적인 백업 목록과 거의 유사하지만 백업을 제외한 복구, 검증, 삭제 기능을 가지고 있습니다.</p></li>
 </ul>
 </section>
 </section>
@@ -392,11 +405,11 @@
       </div>
     </a>
     <a class="right-next"
-       href="5-server.html"
+       href="5-prune%26garbagecollection.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">다음</p>
-        <p class="prev-next-title"><strong>5. 서버 설정 (server)</strong></p>
+        <p class="prev-next-title"><strong>5. PBS 프룬 &amp; 가비지 컬렉션 (Prune &amp; Garbage Collection)</strong></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -418,7 +431,8 @@
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>4.1. 작업 이력 목록</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>4.1. 오프사이트 복제 정책 설정 &amp; 등록 복제 정책 목록</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>4.2. 오프사이트 전용 백업 목록</strong></a></li>
 </ul>
   </nav></div>
 
