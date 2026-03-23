@@ -1,19 +1,19 @@
-# **5. 서버 설정 (server)**
+# **6. 서버 설정 (server)**
 
 ![VirtOn PBS 서버 설정](../_static/images/pbs/pbs_server2.png)
 
 PBS 서버를 VirtOn 시스템에 연결하고 관리하는 공간입니다. 다중(Multi) PBS 서버 환경을 지원합니다.
 
-## **5.1. PBS 서버 목록 및 생성 방법**
+## **6.1. PBS 서버 목록 및 생성 방법**
 
-### 5.1.1 초기 화면
+### 6.1.1 초기 화면
 
 ![VirtOn PBS 서버 설정 초기 화면](../_static/images/pbs/pbs_server0.png)
 
 - 처음 서버 설정 페이지로 들어오면 다음과 같이 UI가 출력됩니다.
 - 서버 연결 추가 버튼이나 "첫 번째 서버를 연결해보세요" 문구를 클릭합니다.
 
-### 5.1.2 서버 설정 폼
+### 6.1.2 서버 설정 폼
 
 ![VirtOn PBS 서버 설정 폼](../_static/images/pbs/pbs_server1.png)
 
@@ -25,7 +25,7 @@ PBS 서버를 VirtOn 시스템에 연결하고 관리하는 공간입니다. 다
     5. **API 토큰(Token ID/Secret)** : PBS에서 발급받은 토큰 ID와 시크릿 키
     6. **유형** : 저장 유형을 선택 (오프사이트는 미구현 -> 어떤 타입으로 사용할지 지정하는 것에 불과합니다.)
 
-### 5.1.3 서버 설정 후 목록
+### 6.1.3 서버 설정 후 목록
 
 ![VirtOn PBS 서버 목록](../_static/images/pbs/pbs_server2.png)
 
