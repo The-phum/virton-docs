@@ -30,6 +30,7 @@
 ![클러스터 생성](../_static/images/main/cluster/cluster_create.png)
 
 - 클러스터 이름: 클러스터의 이름을 입력하며, 한글 입력은 제한됩니다.
+- Proxmox Password : 프록스목스 계정의 비밀번호를 입력합니다.
 - 클러스터 네트워크: 현재 서버의 기본 네트워크가 자동으로 할당되며, 추가 할 수 있습니다.
 
 ![클러스터 생성 완료](../_static/images/main/cluster/cluster_create_complete.png)
