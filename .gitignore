@@ -4,7 +4,7 @@ venv/
 env/
 ENV/
 docs/.venv/
-
+echo .venv/ 
 # Build artifacts
 _build/
 .eggs/
