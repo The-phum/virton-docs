@@ -156,16 +156,17 @@
 
 
 <li class="toctree-l2"><a class="reference internal" href="main/3-dashboard.html"><strong>3. 대시보드 (Dashboard)</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/4-instances.html"><strong>4. 인스턴스 (Instances)</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/5-cluster.html"><strong>5. 클러스터 (Cluster)</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/6-ceph.html"><strong>6. Ceph</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/7-ha.html"><strong>7. 고가용성 (HA - High Availability)</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/8-template.html"><strong>8. 템플릿 (template)/마이그레이션 (migrate)</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/9-resources.html"><strong>9. 리소스 (Resources)</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/10-storage.html"><strong>10. 스토리지 (Storage)</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/11-network.html"><strong>11. 네트워크 (Network)</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="main/12-notifications.html"><strong>12. 알림 (Notifications)</strong></a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="main/settings/index.html"><strong>13. 설정 (Settings)</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="main/4-hostShell.html"><strong>4. 호스트(노드) 셸 (HostShell)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/5-instances.html"><strong>5. 인스턴스 (Instances)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/6-cluster.html"><strong>6. 클러스터 (Cluster)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/7-ceph.html"><strong>7. Ceph</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/8-ha.html"><strong>8. 고가용성 (HA - High Availability)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/9-template.html"><strong>9. 템플릿 (template)/마이그레이션 (migrate)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/10-resources.html"><strong>10. 리소스 (Resources)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/11-storage.html"><strong>11. 스토리지 (Storage)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/12-network.html"><strong>12. 네트워크 (Network)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/13-notifications.html"><strong>13. 알림 (Notifications)</strong></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="main/settings/index.html"><strong>14. 설정 (Settings)</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="main/settings/proxmox-api.html">Proxmox API 관리</a></li>
 <li class="toctree-l3"><a class="reference internal" href="main/settings/accounts.html">계정 관리</a></li>
 
@@ -379,83 +380,88 @@
 <li class="toctree-l3"><a class="reference internal" href="main/3-dashboard.html#id14">2.4 운영 가이드 요약</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="main/4-instances.html"><strong>4. 인스턴스 (Instances)</strong></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="main/4-instances.html#id1">4.1 가상 머신 &amp; 컨테이너 목록 관리</a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/4-instances.html#vm-ct">4.2 인스턴스 생성 (VM/CT 생성)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/4-instances.html#id5">4.3 인스턴스 상세 정보</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/4-hostShell.html"><strong>4. 호스트(노드) 셸 (HostShell)</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="main/4-hostShell.html#web-based-terminal">4.1 실시간 노드 제어 (Web-based Terminal)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/4-hostShell.html#id2">4.2 보안 및 편의 기능</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="main/5-cluster.html"><strong>5. 클러스터 (Cluster)</strong></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="main/5-cluster.html#id1">5.1 클러스터 현황</a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/5-cluster.html#id2">5.2 노드 관리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/5-instances.html"><strong>5. 인스턴스 (Instances)</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="main/5-instances.html#id1">5.1 가상 머신 &amp; 컨테이너 목록 관리</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/5-instances.html#vm-ct">5.2 인스턴스 생성 (VM/CT 생성)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/5-instances.html#id5">5.3 인스턴스 상세 정보</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="main/6-ceph.html"><strong>6. Ceph</strong></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="main/6-ceph.html#ceph-health"><strong>1.1. Ceph Health 모니터링</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/6-ceph.html#id1"><strong>1.2. Ceph 상태 진단 내역 상세 모달 창</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/6-ceph.html#id2"><strong>2.1. Ceph 서비스 상태 모니터링</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/6-ceph.html#ceph-osds"><strong>3.1. Ceph OSDs 상태 모니터링</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/6-cluster.html"><strong>6. 클러스터 (Cluster)</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="main/6-cluster.html#id1">6.1 클러스터 현황</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/6-cluster.html#id2">6.2 노드 관리</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="main/7-ha.html"><strong>7. 고가용성 (HA - High Availability)</strong></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="main/7-ha.html#ha"><strong>1. HA 상태 모니터링</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/7-ha.html#id2"><strong>2. HA 리소스 목록</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/7-ha.html#ha-affinity-rules"><strong>3. HA 고급 설정 (Affinity Rules 설정)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/7-ceph.html"><strong>7. Ceph</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="main/7-ceph.html#ceph-health"><strong>1.1. Ceph Health 모니터링</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/7-ceph.html#id1"><strong>1.2. Ceph 상태 진단 내역 상세 모달 창</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/7-ceph.html#id2"><strong>2.1. Ceph 서비스 상태 모니터링</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/7-ceph.html#ceph-osds"><strong>3.1. Ceph OSDs 상태 모니터링</strong></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="main/8-template.html"><strong>8. 템플릿 (template)/마이그레이션 (migrate)</strong></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="main/8-template.html#id1">8.1 업로드</a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/8-template.html#template">8.2 다운로드(Template)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/8-template.html#id2">8.3 템플릿 목록</a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/8-template.html#clone">8.3.1 복제(Clone)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/8-template.html#convert-to-template">8.4 템플릿으로 변환(Convert to template)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/8-template.html#migrate">8.5 마이그레이션(Migrate)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/8-ha.html"><strong>8. 고가용성 (HA - High Availability)</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="main/8-ha.html#ha"><strong>1. HA 상태 모니터링</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/8-ha.html#id2"><strong>2. HA 리소스 목록</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/8-ha.html#ha-affinity-rules"><strong>3. HA 고급 설정 (Affinity Rules 설정)</strong></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="main/9-resources.html"><strong>9. 리소스 (Resources)</strong></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="main/9-resources.html#id1">1. 화면 구성 개요</a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/9-resources.html#id2">2. 상단 헤더 영역</a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/9-resources.html#summary">3. Summary (노드 상태 요약)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/9-resources.html#storage-pools">4. Storage Pools (스토리지 현황)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/9-resources.html#memory-cpu-usage">5. Memory &amp; CPU Usage (리소스 사용량 그래프)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/9-resources.html#running-vms">6. Running VMs (실행 중인 가상 머신)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/9-resources.html#running-lxcs">7. Running LXCs (실행 중인 컨테이너)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/9-resources.html#id14">8. 상태 및 오류 안내</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/9-template.html"><strong>9. 템플릿 (template)/마이그레이션 (migrate)</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="main/9-template.html#id1">9.1 업로드</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/9-template.html#template">9.2 다운로드(Template)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/9-template.html#id2">9.3 템플릿 목록</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/9-template.html#clone">9.3.1 복제(Clone)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/9-template.html#convert-to-template">9.4 템플릿으로 변환(Convert to template)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/9-template.html#migrate">9.5 마이그레이션(Migrate)</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="main/10-storage.html"><strong>10. 스토리지 (Storage)</strong></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="main/10-storage.html#id1"><strong>1.1. 스토리지 목록 모니터링</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/10-storage.html#id2"><strong>1.2. 스토리지 목록 필터링 및 정렬</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/10-storage.html#id3"><strong>1.3.1. 새 스토리지 생성 - 공통</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/10-storage.html#directory"><strong>1.3.2. 새 스토리지 생성 - Directory</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/10-storage.html#lvm"><strong>1.3.3. 새 스토리지 생성 - LVM</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/10-storage.html#lvm-thin"><strong>1.3.4. 새 스토리지 생성 - LVM-Thin</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/10-storage.html#nfs"><strong>1.3.5. 새 스토리지 생성 - NFS</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/10-storage.html#smb-cifs"><strong>1.3.6. 새 스토리지 생성 - SMB/CIFS</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/10-storage.html#iscsi"><strong>1.3.7. 새 스토리지 생성 - iSCSI</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/10-storage.html#id4"><strong>1.3.8. 새 스토리지 생성 - 고급 설정</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/10-storage.html#id5"><strong>1.4. 스토리지 수정</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/10-storage.html#id6"><strong>1.5. 스토리지 삭제</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/10-resources.html"><strong>10. 리소스 (Resources)</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="main/10-resources.html#id1">1. 화면 구성 개요</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/10-resources.html#id2">2. 상단 헤더 영역</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/10-resources.html#summary">3. Summary (노드 상태 요약)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/10-resources.html#storage-pools">4. Storage Pools (스토리지 현황)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/10-resources.html#memory-cpu-usage">5. Memory &amp; CPU Usage (리소스 사용량 그래프)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/10-resources.html#running-vms">6. Running VMs (실행 중인 가상 머신)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/10-resources.html#running-lxcs">7. Running LXCs (실행 중인 컨테이너)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/10-resources.html#id14">8. 상태 및 오류 안내</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="main/11-network.html"><strong>11. 네트워크 (Network)</strong></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="main/11-network.html#id1">11.1 네트워크 인터페이스 설정</a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/11-network.html#id2">11.2 인터페이스 관리 - 새 인터페이스(네트워크) 생성</a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/11-network.html#bridge">Bridge 타입</a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/11-network.html#vlan">VLAN 타입</a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/11-network.html#bond">Bond 타입</a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/11-network.html#apply-configuration">11.2.1 변경 적용 - Apply Configuration <strong>[ 🔄 변경 적용 ]</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/11-network.html#edit">11.2.2 네트워크 수정 - Edit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/11-network.html#remove">11.2.3 네트워크 삭제 - Remove 🗑️</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/11-storage.html"><strong>11. 스토리지 (Storage)</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="main/11-storage.html#id1"><strong>1.1. 스토리지 목록 모니터링</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/11-storage.html#id2"><strong>1.2. 스토리지 목록 필터링 및 정렬</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/11-storage.html#id3"><strong>1.3.1. 새 스토리지 생성 - 공통</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/11-storage.html#directory"><strong>1.3.2. 새 스토리지 생성 - Directory</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/11-storage.html#lvm"><strong>1.3.3. 새 스토리지 생성 - LVM</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/11-storage.html#lvm-thin"><strong>1.3.4. 새 스토리지 생성 - LVM-Thin</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/11-storage.html#nfs"><strong>1.3.5. 새 스토리지 생성 - NFS</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/11-storage.html#smb-cifs"><strong>1.3.6. 새 스토리지 생성 - SMB/CIFS</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/11-storage.html#iscsi"><strong>1.3.7. 새 스토리지 생성 - iSCSI</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/11-storage.html#id4"><strong>1.3.8. 새 스토리지 생성 - 고급 설정</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/11-storage.html#id5"><strong>1.4. 스토리지 수정</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/11-storage.html#id6"><strong>1.5. 스토리지 삭제</strong></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="main/12-notifications.html"><strong>12. 알림 (Notifications)</strong></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="main/12-notifications.html#virton">12.1 보안 경고 알림 - (VirtOn 알림 및 감사 로그 페이지)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/12-notifications.html#id1">12.2 감사 로그 - (VirtOn 알림 및 감사 로그 페이지)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="main/12-notifications.html#tasks-proxmox">12.3 작업 (tasks) 이력 - (Proxmox 알림 페이지)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/12-network.html"><strong>12. 네트워크 (Network)</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="main/12-network.html#id1">12.1 네트워크 인터페이스 설정</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/12-network.html#id2">12.2 인터페이스 관리 - 새 인터페이스(네트워크) 생성</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/12-network.html#bridge">Bridge 타입</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/12-network.html#vlan">VLAN 타입</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/12-network.html#bond">Bond 타입</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/12-network.html#apply-configuration">12.2.1 변경 적용 - Apply Configuration <strong>[ 🔄 변경 적용 ]</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/12-network.html#edit">12.2.2 네트워크 수정 - Edit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/12-network.html#remove">12.2.3 네트워크 삭제 - Remove 🗑️</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="main/settings/index.html"><strong>13. 설정 (Settings)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main/13-notifications.html"><strong>13. 알림 (Notifications)</strong></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="main/13-notifications.html#virton">13.1 보안 경고 알림 - (VirtOn 알림 및 감사 로그 페이지)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/13-notifications.html#id1">13.2 감사 로그 - (VirtOn 알림 및 감사 로그 페이지)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="main/13-notifications.html#tasks-proxmox">13.3 작업 (tasks) 이력 - (Proxmox 알림 페이지)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="main/settings/index.html"><strong>14. 설정 (Settings)</strong></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="pbs/index.html">VirtOn PBS (미적용)</a><ul>

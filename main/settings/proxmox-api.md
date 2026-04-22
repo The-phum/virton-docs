@@ -8,7 +8,7 @@
 .. |IMG_BASE| replace:: ../../_static
 ```
 
-```{include} ../13-settings.md
+```{include} ../14-settings.md
 :start-after: "# 1. Proxmox API 연결 설정"
 :end-before: "## 2. 계정 관리"
 ```
