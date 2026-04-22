@@ -1,6 +1,6 @@
-# **4. 호스트(노드) 셸 (HostShell)**
+# **4. 셸 (Shell)**
 
-> VirtOn의 호스트(셸) 기능은 관리자가 별도의 SSH 클라이언트(Terminal, PuTTY 등) 설치 없이 웹 브라우저에서 물리적 노드(Proxmox Host)에 직접 접속하여 명령어를 실행하고 시스템을 제어할 수 있는 강력한 관리 도구입니다.
+> VirtOn의 호스트 셸 기능은 관리자가 별도의 SSH 클라이언트(Terminal, PuTTY 등) 설치 없이 웹 브라우저에서 물리적 노드(Proxmox Host)에 직접 접속하여 명령어를 실행하고 시스템을 제어할 수 있는 강력한 관리 도구입니다.
 > 
 
 ![호스트셸 메인 1](../_static/images/main/hostshell/host_shell1.png)
