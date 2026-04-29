@@ -42,7 +42,7 @@
 
 ### 5.2.1 VM 생성 (Virtual Machine)
 
-![인스턴스 생성vm](../_static/images/main/instance/instance_createvm.png)
+![인스턴스 생성vm](../_static/images/main/instance/VM_Create.png)
 
 **1. 기본 정보**
 
@@ -59,6 +59,7 @@
 - **BIOS:** 가상 머신의 부팅 펌웨어 방식을 결정합니다. 일반적으로 기본값인 `SeaBIOS` (Legacy 호환)를 사용하며, 최신 OS 규격이나 특정 요구사항(보안 부팅 등)에 따라 UEFI 방식의 펌웨어로 변경할 수 있습니다.
 - **SCSI Controller:** 가상 디스크와의 데이터 입출력(I/O) 통신을 담당하는 컨트롤러입니다. 기본값인 `VirtIO SCSI single`은 최신 가상화 환경에서 가장 빠르고 안정적인 I/O 성능을 제공합니다.
 - **Qemu Agent (권장):** 활성화 시, 호스트 서버(프록스목스)와 가상 머신(게스트 OS) 간의 전용 통신 채널을 엽니다. 이 기능이 켜져 있어야 대시보드에서 VM의 실시간 IP 주소를 확인할 수 있으며, 전원 종료 시 강제 종료가 아닌 '안전한 종료(Graceful Shutdown)'가 가능해집니다.
+- **Auto Start:** 활성화 시, 호스트(노드) 재부팅 후 가상 머신이 자동으로 시작됩니다. 운영 서비스용 VM은 장애 복구 및 무중단 운영을 위해 이 옵션 활성화를 권장합니다.
 
 **4. 리소스 설정 (CPU / 메모리)**
 

@@ -6,5 +6,5 @@
 
 ```{include} ../14-settings.md
 :start-after: "## 2. 계정 관리"
-:end-before: "# 4. 보안 관리"
+:end-before: "# 5. 보안 관리"
 ```
