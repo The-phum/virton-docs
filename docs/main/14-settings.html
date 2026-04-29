@@ -155,7 +155,7 @@
 
 
 <li class="toctree-l2"><a class="reference internal" href="3-dashboard.html"><strong>3. 대시보드 (Dashboard)</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="4-hostShell.html"><strong>4. 호스트(노드) 셸 (HostShell)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="4-hostShell.html"><strong>4. 셸 (Shell)</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="5-instances.html"><strong>5. 인스턴스 (Instances)</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="6-cluster.html"><strong>6. 클러스터 (Cluster)</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="7-ceph.html"><strong>7. Ceph</strong></a></li>
@@ -903,10 +903,9 @@ VirtOn System Backup &amp; Restore 기능은 현재 구동 중인 가상머신(V
 <h2>4.4 시작하기 전에 (권한 및 접근)<a class="headerlink" href="#id26" title="Link to this heading"><span>#</span></a></h2>
 <ul class="simple">
 <li><p><strong>접근 권한:</strong> 이 페이지는 시스템의 핵심 기능을 다루므로 관리자(ADMIN) 및 최고 관리자(SUPER_ADMIN) 권한을 가진 사용자만 접근할 수 있습니다.</p></li>
-<li><p><strong>자기 인식 (Auto-Discovery):</strong></p>
+<li><p><strong>백업 대상 선택:</strong></p>
 <ul>
-<li><p>페이지 상단에 <code class="docutils literal notranslate"><span class="pre">자기</span> <span class="pre">인식</span> <span class="pre">완료:</span> <span class="pre">현재</span> <span class="pre">이</span> <span class="pre">시스템은</span> <span class="pre">Proxmox</span> <span class="pre">VMID</span> <span class="pre">[번호]</span> <span class="pre">으로</span> <span class="pre">매핑되어</span> <span class="pre">있습니다.</span></code> 라는 문구가 표시됩니다.</p></li>
-<li><p>이는 VirtOn 서버가 스스로 Proxmox 내의 어떤 가상머신인지 식별했음을 의미하며, 이 번호를 기준으로 백업이 수행됩니다.</p></li>
+<li><p>VirtOn 시스템 전체 백업 및 복구를 사용하려면, 현재 VirtOn이 배포된 QEMU VM의 노드와 VMID를 먼저 등록해야 합니다.</p></li>
 </ul>
 </li>
 </ul>
