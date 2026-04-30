@@ -199,17 +199,9 @@ VirtOn이 가상머신(VM)을 제어하고 모니터링하기 위해 Proxmox VE 
 
 ---
 
-## 4.1 시작하기 전에 (권한 및 접근)
-
-- **조회 권한:** `pool:read` 또는 `pool:manage`
-- **관리 권한:** `pool:manage` (생성/삭제/연결/해제/역할 할당)
-- **역할 할당 제한:** `ADMIN`, `SUPER_ADMIN` 계정에는 Pool 역할을 할당할 수 없습니다.
-
----
-
-## 4.2 Pool 생성 및 목록
+## 4.1 Pool 생성 및 목록
 ![Pool 생성](/_static/images/main/settings/Pool_Create.png)
-### 4.2.1 새 Pool 생성
+### 4.1.1 새 Pool 생성
 ![Pool 생성](/_static/images/main/settings/Pool_Create2.png)
 - 우측 상단 **[+ 새 Pool]** 버튼으로 생성합니다.
 - 입력 항목:
@@ -217,7 +209,7 @@ VirtOn이 가상머신(VM)을 제어하고 모니터링하기 위해 Proxmox VE 
   - **설명**(선택)
 - 동일 이름의 Pool이 이미 존재하면 생성할 수 없습니다.
 
-### 4.2.2 목록에서 확인 가능한 정보
+### 4.1.2 목록에서 확인 가능한 정보
 ![Pool 정보](/_static/images/main/settings/Pool_List.png)
 - **Pool 이름 / 설명**
 - **멤버 수**
@@ -226,9 +218,9 @@ VirtOn이 가상머신(VM)을 제어하고 모니터링하기 위해 Proxmox VE 
 
 ---
 
-## 4.3 주요 관리 작업
+## 4.2 주요 관리 작업
 
-### 4.3.1 리소스 연결
+### 4.2.1 리소스 연결
 ![Pool 리소스](/_static/images/main/settings/Pool_Resource.png)
 - Pool 카드 확장 후 **리소스 연결** 영역에서 유형과 식별자를 입력하여 연결합니다.
 - 연결 가능 유형:
@@ -241,11 +233,11 @@ VirtOn이 가상머신(VM)을 제어하고 모니터링하기 위해 Proxmox VE 
   - **스토리지:** `storageId` (예: `local-lvm`)
 - 리소스 식별자는 한 번에 1개만 입력할 수 있으며, 이미 다른 Pool에 연결된 리소스는 중복 연결할 수 없습니다.
 
-### 4.3.2 리소스 해제
+### 4.2.2 리소스 해제
 ![Pool 리소스](/_static/images/main/settings/Pool_Resource_Delete.png)
 - 연결 리소스 우측 **[X]** 버튼으로 해제합니다.
 
-### 4.3.3 사용자 역할 할당/해제
+### 4.2.3 사용자 역할 할당/해제
 ![Pool 사용자](/_static/images/main/settings/Pool_User.png)
 ![Pool 사용자](/_static/images/main/settings/Pool_User2.png)
 - Pool 카드의 사용자 추가 아이콘으로 역할을 할당합니다.
@@ -256,10 +248,27 @@ VirtOn이 가상머신(VM)을 제어하고 모니터링하기 위해 Proxmox VE 
 
 ---
 
-## 4.4 Pool 삭제
+## 4.3 Pool 삭제
 
 - Pool 카드 우측 휴지통 아이콘으로 삭제할 수 있습니다.
 - 삭제 시 해당 Pool의 사용자 역할 매핑과 리소스 매핑이 함께 삭제됩니다.
+
+---
+
+## 4.4 Pool 역할별 접근 및 제어 범위
+- **역할 할당 제한:** `ADMIN`, `SUPER_ADMIN` 계정에는 Pool 역할을 할당할 수 없습니다.
+
+### 4.4.1 Pool 운영자 (POOL_OPERATOR)
+
+- 인스턴스 제어 가능: `vm.power`, `vm.start`, `vm.stop`, `vm.console`, `vm:resource-modify`
+- 네트워크/스토리지 조회 가능
+- 백업/스냅샷: 생성/조회/복구 가능, 삭제 불가
+
+### 4.4.2 Pool 관리자 (POOL_ADMIN)
+
+- 인스턴스/네트워크/스토리지 조회+수정(RU) 가능
+- 네트워크/스토리지 생성/삭제 불가
+- 백업/스냅샷: 생성/조회/복구/삭제 가능
 
 # 5. 보안 관리
 

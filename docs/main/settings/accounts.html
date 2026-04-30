@@ -384,19 +384,23 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pool">4. Pool 관리</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">4.1 시작하기 전에 (권한 및 접근)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">4.2 Pool 생성 및 목록</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">4.2.1 새 Pool 생성</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">4.2.2 목록에서 확인 가능한 정보</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">4.1 Pool 생성 및 목록</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">4.1.1 새 Pool 생성</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">4.1.2 목록에서 확인 가능한 정보</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">4.3 주요 관리 작업</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">4.3.1 리소스 연결</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">4.3.2 리소스 해제</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">4.3.3 사용자 역할 할당/해제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">4.2 주요 관리 작업</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">4.2.1 리소스 연결</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">4.2.2 리소스 해제</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">4.2.3 사용자 역할 할당/해제</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">4.4 Pool 삭제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">4.3 Pool 삭제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">4.4 Pool 역할별 접근 및 제어 범위</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pool-pool-operator">4.4.1 Pool 운영자 (POOL_OPERATOR)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pool-pool-admin">4.4.2 Pool 관리자 (POOL_ADMIN)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -727,19 +731,10 @@ document.write(`
 </ul>
 <hr class="docutils" />
 <section id="id16">
-<h2>4.1 시작하기 전에 (권한 및 접근)<a class="headerlink" href="#id16" title="Link to this heading"><span>#</span></a></h2>
-<ul class="simple">
-<li><p><strong>조회 권한:</strong> <code class="docutils literal notranslate"><span class="pre">pool:read</span></code> 또는 <code class="docutils literal notranslate"><span class="pre">pool:manage</span></code></p></li>
-<li><p><strong>관리 권한:</strong> <code class="docutils literal notranslate"><span class="pre">pool:manage</span></code> (생성/삭제/연결/해제/역할 할당)</p></li>
-<li><p><strong>역할 할당 제한:</strong> <code class="docutils literal notranslate"><span class="pre">ADMIN</span></code>, <code class="docutils literal notranslate"><span class="pre">SUPER_ADMIN</span></code> 계정에는 Pool 역할을 할당할 수 없습니다.</p></li>
-</ul>
-</section>
-<hr class="docutils" />
-<section id="id17">
-<h2>4.2 Pool 생성 및 목록<a class="headerlink" href="#id17" title="Link to this heading"><span>#</span></a></h2>
+<h2>4.1 Pool 생성 및 목록<a class="headerlink" href="#id16" title="Link to this heading"><span>#</span></a></h2>
 <p><img alt="Pool 생성" src="../../_images/Pool_Create.png" /></p>
-<section id="id18">
-<h3>4.2.1 새 Pool 생성<a class="headerlink" href="#id18" title="Link to this heading"><span>#</span></a></h3>
+<section id="id17">
+<h3>4.1.1 새 Pool 생성<a class="headerlink" href="#id17" title="Link to this heading"><span>#</span></a></h3>
 <p><img alt="Pool 생성" src="../../_images/Pool_Create2.png" /></p>
 <ul class="simple">
 <li><p>우측 상단 <strong>[+ 새 Pool]</strong> 버튼으로 생성합니다.</p></li>
@@ -752,8 +747,8 @@ document.write(`
 <li><p>동일 이름의 Pool이 이미 존재하면 생성할 수 없습니다.</p></li>
 </ul>
 </section>
-<section id="id19">
-<h3>4.2.2 목록에서 확인 가능한 정보<a class="headerlink" href="#id19" title="Link to this heading"><span>#</span></a></h3>
+<section id="id18">
+<h3>4.1.2 목록에서 확인 가능한 정보<a class="headerlink" href="#id18" title="Link to this heading"><span>#</span></a></h3>
 <p><img alt="Pool 정보" src="../../_images/Pool_List.png" /></p>
 <ul class="simple">
 <li><p><strong>Pool 이름 / 설명</strong></p></li>
@@ -764,10 +759,10 @@ document.write(`
 </section>
 </section>
 <hr class="docutils" />
+<section id="id19">
+<h2>4.2 주요 관리 작업<a class="headerlink" href="#id19" title="Link to this heading"><span>#</span></a></h2>
 <section id="id20">
-<h2>4.3 주요 관리 작업<a class="headerlink" href="#id20" title="Link to this heading"><span>#</span></a></h2>
-<section id="id21">
-<h3>4.3.1 리소스 연결<a class="headerlink" href="#id21" title="Link to this heading"><span>#</span></a></h3>
+<h3>4.2.1 리소스 연결<a class="headerlink" href="#id20" title="Link to this heading"><span>#</span></a></h3>
 <p><img alt="Pool 리소스" src="../../_images/Pool_Resource.png" /></p>
 <ul class="simple">
 <li><p>Pool 카드 확장 후 <strong>리소스 연결</strong> 영역에서 유형과 식별자를 입력하여 연결합니다.</p></li>
@@ -788,15 +783,15 @@ document.write(`
 <li><p>리소스 식별자는 한 번에 1개만 입력할 수 있으며, 이미 다른 Pool에 연결된 리소스는 중복 연결할 수 없습니다.</p></li>
 </ul>
 </section>
-<section id="id22">
-<h3>4.3.2 리소스 해제<a class="headerlink" href="#id22" title="Link to this heading"><span>#</span></a></h3>
+<section id="id21">
+<h3>4.2.2 리소스 해제<a class="headerlink" href="#id21" title="Link to this heading"><span>#</span></a></h3>
 <p><img alt="Pool 리소스" src="../../_images/Pool_Resource_Delete.png" /></p>
 <ul class="simple">
 <li><p>연결 리소스 우측 <strong>[X]</strong> 버튼으로 해제합니다.</p></li>
 </ul>
 </section>
-<section id="id23">
-<h3>4.3.3 사용자 역할 할당/해제<a class="headerlink" href="#id23" title="Link to this heading"><span>#</span></a></h3>
+<section id="id22">
+<h3>4.2.3 사용자 역할 할당/해제<a class="headerlink" href="#id22" title="Link to this heading"><span>#</span></a></h3>
 <p><img alt="Pool 사용자" src="../../_images/Pool_User.png" />
 <img alt="Pool 사용자" src="../../_images/Pool_User2.png" /></p>
 <ul class="simple">
@@ -812,12 +807,35 @@ document.write(`
 </section>
 </section>
 <hr class="docutils" />
-<section id="id24">
-<h2>4.4 Pool 삭제<a class="headerlink" href="#id24" title="Link to this heading"><span>#</span></a></h2>
+<section id="id23">
+<h2>4.3 Pool 삭제<a class="headerlink" href="#id23" title="Link to this heading"><span>#</span></a></h2>
 <ul class="simple">
 <li><p>Pool 카드 우측 휴지통 아이콘으로 삭제할 수 있습니다.</p></li>
 <li><p>삭제 시 해당 Pool의 사용자 역할 매핑과 리소스 매핑이 함께 삭제됩니다.</p></li>
 </ul>
+</section>
+<hr class="docutils" />
+<section id="id24">
+<h2>4.4 Pool 역할별 접근 및 제어 범위<a class="headerlink" href="#id24" title="Link to this heading"><span>#</span></a></h2>
+<ul class="simple">
+<li><p><strong>역할 할당 제한:</strong> <code class="docutils literal notranslate"><span class="pre">ADMIN</span></code>, <code class="docutils literal notranslate"><span class="pre">SUPER_ADMIN</span></code> 계정에는 Pool 역할을 할당할 수 없습니다.</p></li>
+</ul>
+<section id="pool-pool-operator">
+<h3>4.4.1 Pool 운영자 (POOL_OPERATOR)<a class="headerlink" href="#pool-pool-operator" title="Link to this heading"><span>#</span></a></h3>
+<ul class="simple">
+<li><p>인스턴스 제어 가능: <code class="docutils literal notranslate"><span class="pre">vm.power</span></code>, <code class="docutils literal notranslate"><span class="pre">vm.start</span></code>, <code class="docutils literal notranslate"><span class="pre">vm.stop</span></code>, <code class="docutils literal notranslate"><span class="pre">vm.console</span></code>, <code class="docutils literal notranslate"><span class="pre">vm:resource-modify</span></code></p></li>
+<li><p>네트워크/스토리지 조회 가능</p></li>
+<li><p>백업/스냅샷: 생성/조회/복구 가능, 삭제 불가</p></li>
+</ul>
+</section>
+<section id="pool-pool-admin">
+<h3>4.4.2 Pool 관리자 (POOL_ADMIN)<a class="headerlink" href="#pool-pool-admin" title="Link to this heading"><span>#</span></a></h3>
+<ul class="simple">
+<li><p>인스턴스/네트워크/스토리지 조회+수정(RU) 가능</p></li>
+<li><p>네트워크/스토리지 생성/삭제 불가</p></li>
+<li><p>백업/스냅샷: 생성/조회/복구/삭제 가능</p></li>
+</ul>
+</section>
 </section>
 </section>
 
@@ -892,19 +910,23 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pool">4. Pool 관리</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">4.1 시작하기 전에 (권한 및 접근)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">4.2 Pool 생성 및 목록</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">4.2.1 새 Pool 생성</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">4.2.2 목록에서 확인 가능한 정보</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">4.1 Pool 생성 및 목록</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">4.1.1 새 Pool 생성</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">4.1.2 목록에서 확인 가능한 정보</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">4.3 주요 관리 작업</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">4.3.1 리소스 연결</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">4.3.2 리소스 해제</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">4.3.3 사용자 역할 할당/해제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">4.2 주요 관리 작업</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">4.2.1 리소스 연결</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">4.2.2 리소스 해제</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">4.2.3 사용자 역할 할당/해제</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">4.4 Pool 삭제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">4.3 Pool 삭제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">4.4 Pool 역할별 접근 및 제어 범위</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pool-pool-operator">4.4.1 Pool 운영자 (POOL_OPERATOR)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pool-pool-admin">4.4.2 Pool 관리자 (POOL_ADMIN)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
