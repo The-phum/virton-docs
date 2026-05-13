@@ -361,7 +361,8 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>14. 설정 (Settings)</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proxmox-api">1. Proxmox API 연결 설정</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1.1 입력 항목 설명</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">1.2 주요 기능 버튼</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">1.2 설정 수정</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#api">1.3 API 장애 대응</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2. 계정 관리</a><ul class="visible nav section-nav flex-column">
@@ -497,7 +498,10 @@ document.write(`
 <section id="proxmox-api">
 <h2>1. Proxmox API 연결 설정<a class="headerlink" href="#proxmox-api" title="Link to this heading"><span>#</span></a></h2>
 <p><img alt="API 설정 파트 메인" src="../_images/setting_API.png" /></p>
-<p>VirtOn이 가상머신(VM)을 제어하고 모니터링하기 위해 Proxmox VE 서버와의 API 통신을 설정합니다.</p>
+<ul class="simple">
+<li><p>VirtOn이 가상머신(VM)을 제어하고 모니터링하기 위해 Proxmox VE 서버와의 API 통신을 설정합니다.</p></li>
+<li><p>해당 부분의 초기값은 초기 API 설정값으로 채워집니다.</p></li>
+</ul>
 <section id="id1">
 <h3>1.1 입력 항목 설명<a class="headerlink" href="#id1" title="Link to this heading"><span>#</span></a></h3>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -518,7 +522,7 @@ document.write(`
 </tr>
 <tr class="row-even"><td><p>토큰 ID</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">계정명&#64;인증영역!토큰명</span></code> 형식</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">root&#64;pam!Test1</span></code>, <code class="docutils literal notranslate"><span class="pre">admin&#64;pve!Test1</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">root&#64;pam!Test1</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>시크릿 키</p></td>
 <td><p>해당 토큰의 시크릿 키 값 (암호화 저장)</p></td>
@@ -529,21 +533,34 @@ document.write(`
 </div>
 </section>
 <section id="id2">
-<h3>1.2 주요 기능 버튼<a class="headerlink" href="#id2" title="Link to this heading"><span>#</span></a></h3>
+<h3>1.2 설정 수정<a class="headerlink" href="#id2" title="Link to this heading"><span>#</span></a></h3>
 <p><img alt="API 설정 수정 파트" src="../_images/setting_API_update.png" /></p>
 <ul class="simple">
-<li><p><strong>설정 수정</strong><br />
-저장된 검증 연결 정보를 수정하고 즉시 시스템에 반영합니다.</p>
-<ul>
-<li><p><strong>“SUPER_ADMIN”</strong> 및 <strong>“ADMIN”</strong> Role이 아니라면 수정은 불가능 합니다. 수정을 원한다면 관리자 계정에게 문의해주세요.</p></li>
+<li><p>저장된 검증 연결 정보를 수정하고 즉시 시스템에 반영합니다.</p></li>
+<li><p><strong>“SUPER_ADMIN”</strong> 및 <strong>“ADMIN”</strong> 등 허락된 Role이 아니라면 수정은 불가능 합니다. 수정을 원한다면 관리자 계정에게 문의해주세요.</p></li>
 <li><p>모든 값을 입력하지 않거나 알맞은 값을 입력하지 않으면 수정은 불가합니다.</p></li>
-</ul>
-</li>
+<li><p>해당 값을 수정하면 초기 등록과 마찬가지로 standby API가 /cluster/status 의 node.ip 기준으로 자동 등록됩니다.</p></li>
 </ul>
 <blockquote>
 <div><p>💡 <strong>참고</strong><br />
 설정 저장 후 VM 목록이 보이지 않는 경우, 네트워크 방화벽 설정 또는<br />
 Proxmox 사용자 권한(Permission)을 확인하세요.</p>
+</div></blockquote>
+</section>
+<section id="api">
+<h3>1.3 API 장애 대응<a class="headerlink" href="#api" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="API 설정 파트 메인 2" src="../_images/setting_API2.png" /></p>
+<ul class="simple">
+<li><p>활성 API를 주기적으로 헬스체크하고, 실패 시 우선순위가 높은 대기 API로 자동 전환합니다.</p></li>
+<li><p>헬스체크 실패 또는 페일오버 발생 시 감사 로그와 보안 알림에 기록됩니다.</p></li>
+<li><p>현재 연결된 활성 엔드포인트는 수동 헬스체크도 가능합니다.</p></li>
+<li><p>목록의 <strong>자동 등록</strong> 배지는 기본 API 저장 시 클러스터에서 탐색된 엔드포인트이고, <strong>수동 추가</strong> 배지는 운영자가 직접 추가한 엔드포인트입니다.</p></li>
+<li><p>현재 활성화된 엔드포인트 및 자동 등록이 아닌 엔드포인트만 수정이 가능합니다.</p></li>
+</ul>
+<blockquote>
+<div><p>💡 <strong>참고</strong>
+환경에 따라 node.ip가 관리 API 접속 IP와 다를 수 있으니, 자동 등록 후 host IP를 꼭 확인하고 필요하면 수동 대기 API를 추가하거나 수정해주세요.
+기본 API 저장 시 standby API는 /cluster/status 의 node.ip 기준으로 자동 등록됩니다.</p>
 </div></blockquote>
 </section>
 </section>
@@ -1400,7 +1417,8 @@ IP 기반 접근 제어(화이트리스트 / 블랙리스트)를 제공합니다
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>14. 설정 (Settings)</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proxmox-api">1. Proxmox API 연결 설정</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1.1 입력 항목 설명</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">1.2 주요 기능 버튼</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">1.2 설정 수정</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#api">1.3 API 장애 대응</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2. 계정 관리</a><ul class="visible nav section-nav flex-column">
