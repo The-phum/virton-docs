@@ -16,35 +16,32 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b102d5e9" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../../_static/documentation_options.js?v=2dfc782e"></script>
-    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
-    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
-    <script src="../../_static/translations.js?v=afa94a99"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/translations.js?v=e33e7ba0"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'main/settings/security';</script>
     <link rel="icon" href="../../_static/favicon.png"/>
     <link rel="index" title="색인" href="../../genindex.html" />
@@ -53,7 +50,6 @@
     <link rel="prev" title="계정 관리" href="accounts.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ko"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -69,8 +65,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -78,6 +85,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -85,8 +93,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -102,8 +110,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -133,17 +140,21 @@
     
     
     <img src="../../_static/logo.png" class="logo__image only-light" alt="virton 1.1 문서 - Home"/>
-    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="virton 1.1 문서 - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="virton 1.1 문서 - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="검색" aria-label="검색" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">검색</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="검색" aria-label="검색" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">검색</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">버트온 사용자 매뉴얼</span></p>
@@ -207,14 +218,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -297,7 +303,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  class="btn btn-sm btn-fullscreen-button"
   title="전체 화면으로보기"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -311,17 +317,25 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="검색" aria-label="검색" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="검색" aria-label="검색" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -353,49 +367,54 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">5.3 자체보호</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">5.3.1 보안 기능 자체시험 수행</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">5.3.2 자체시험 실패 시 대응 정책</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">5.3.3 시스템 차단 해제 절차</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">1) 복구 시크릿 발급</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">2) 시스템 차단 해제</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">5.4 시작하기 전에 (권한 및 접근)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">5.4.1 백업 기능 활성화/비활성화</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">5.4 시작하기 전에 (권한 및 접근)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">5.4.1 백업 기능 활성화/비활성화</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">5.4.2 백업 정책 설정 (Configuration)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#storage">① 백업 스토리지 선택 (Storage)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#schedule">② 자동 백업 스케줄 설정 (Schedule)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#retention">③ 백업 보존 기간 설정 (Retention)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">5.4.3 백업 실행하기</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">5.4.3 백업 실행하기</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manual-backup">▶ 수동 백업 (Manual Backup)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">진행률 모니터링 및 중단</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">진행률 모니터링 및 중단</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">5.4.4 백업 목록 관리 및 조회</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">필터링 (스토리지별 조회)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">테이블 정보</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">백업 삭제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">5.4.4 백업 목록 관리 및 조회</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">필터링 (스토리지별 조회)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">테이블 정보</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">백업 삭제</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restoration">5.4.5 시스템 복구 (Restoration)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">복구 절차</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">복구 절차</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting">5.4.6 문제 해결 (Troubleshooting)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ip-ip-access-control">5.5 관리자 IP 접근 제어 (IP Access Control)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">5.5.1 보안 정책 (작동 원리)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">5.5.1 보안 정책 (작동 원리)</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#open-mode">개방 모드 (Open Mode)</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lockdown-mode">잠금 모드 (Lockdown Mode)</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">5.6 주요 기능 사용법</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">5.6 주요 기능 사용법</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ip">5.6.1 내 IP 간편 등록 (권장)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">5.6.2 IP 직접 등록</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">5.6.3 IP 수정 및 삭제</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">5.6.2 IP 직접 등록</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">5.6.3 IP 수정 및 삭제</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ips">5.6.4 자동 차단 (IPS)</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lockout">5.6.5 긴급 조치 가이드 (Lockout 상황)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">5.7 세션관리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">5.7 세션관리</a></li>
 </ul>
             </nav>
         </div>
@@ -489,12 +508,38 @@
 <li><p><strong>시스템 차단 - 🚨 주의 요망</strong> - <strong>동작:</strong> 이 정책으로 설정된 모듈 중 **단 하나라도 검사에 실패할 경우, 2차 보안 사고나 데이터 오염을 막기 위해 즉시 ‘전체 시스템의 접근 및 동작이 전면 차단’**됩니다.
 VirtOn System Backup &amp; Restore 기능은 현재 구동 중인 가상머신(VM) 전체를 스냅샷 방식으로 이미지화하여 저장합니다. 운영체제(OS), 데이터베이스(DB), 애플리케이션 설정, 로그 파일 등 시스템의 모든 상태가 포함되므로, 랜섬웨어 감염이나 서버 장애 시 복구가 가능합니다.</p></li>
 </ul>
+</section>
+<section id="id9">
+<h3>5.3.3 시스템 차단 해제 절차<a class="headerlink" href="#id9" title="Link to this heading"><span>#</span></a></h3>
+<blockquote>
+<div><p>시스템 차단 정책으로 전체 접근이 잠긴 경우, 사전에 발급한 <strong>복구 시크릿(Recovery Secret)</strong> 으로만 차단을 해제할 수 있습니다.</p>
+</div></blockquote>
+<section id="id10">
+<h4>1) 복구 시크릿 발급<a class="headerlink" href="#id10" title="Link to this heading"><span>#</span></a></h4>
+<p><img alt="복구시크릿" src="../../_images/system_block1.png" />
+<img alt="복구시크릿2" src="../../_images/system_block2.png" /></p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">설정</span> <span class="pre">&gt;</span> <span class="pre">보안</span> <span class="pre">관리</span> <span class="pre">&gt;</span> <span class="pre">자체보호</span></code> 화면에서 <strong>[복구 시크릿 발급]</strong> 버튼을 클릭합니다.</p></li>
+<li><p>발급된 복구 시크릿은 <strong>화면에 1회만 표시</strong>되므로 즉시 확인하여 안전한 저장소(사내 비밀관리 시스템 등)에 보관합니다.</p></li>
+<li><p>복구 시크릿을 <strong>재발급하면 이전 시크릿은 즉시 폐기</strong>되어 사용할 수 없습니다.</p></li>
+</ol>
+</section>
+<section id="id11">
+<h4>2) 시스템 차단 해제<a class="headerlink" href="#id11" title="Link to this heading"><span>#</span></a></h4>
+<p><img alt="시스템 차단 해제" src="../../_images/system_block_recovery.png" /></p>
+<ol class="arabic simple">
+<li><p>시스템이 차단된 상태에서 <code class="docutils literal notranslate"><span class="pre">시스템</span> <span class="pre">차단</span> <span class="pre">해제</span></code> 화면으로 이동합니다.</p></li>
+<li><p>발급받아 보관한 복구 시크릿을 입력하고 <strong>[차단 해제]</strong> 를 실행합니다.</p></li>
+<li><p>정상 해제 시 로그인 및 주요 기능 접근이 다시 가능해집니다.</p></li>
+<li><p>해제 후에는 실패 원인(자체시험 실패 항목)을 반드시 점검한 뒤 운영을 재개합니다.</p></li>
+</ol>
 <hr class="docutils" />
 <p><img alt="버트온 백업 메인 페이지 1" src="../../_images/virton_backup_main.png" /></p>
 </section>
 </section>
-<section id="id9">
-<h2>5.4 시작하기 전에 (권한 및 접근)<a class="headerlink" href="#id9" title="Link to this heading"><span>#</span></a></h2>
+</section>
+<section id="id12">
+<h2>5.4 시작하기 전에 (권한 및 접근)<a class="headerlink" href="#id12" title="Link to this heading"><span>#</span></a></h2>
 <ul class="simple">
 <li><p><strong>접근 권한:</strong> 이 페이지는 시스템의 핵심 기능을 다루므로 관리자(ADMIN) 및 최고 관리자(SUPER_ADMIN) 권한을 가진 사용자만 접근할 수 있습니다.</p></li>
 <li><p><strong>백업 대상 선택:</strong></p>
@@ -505,8 +550,8 @@ VirtOn System Backup &amp; Restore 기능은 현재 구동 중인 가상머신(V
 </ul>
 </section>
 <hr class="docutils" />
-<section id="id10">
-<h2>5.4.1 백업 기능 활성화/비활성화<a class="headerlink" href="#id10" title="Link to this heading"><span>#</span></a></h2>
+<section id="id13">
+<h2>5.4.1 백업 기능 활성화/비활성화<a class="headerlink" href="#id13" title="Link to this heading"><span>#</span></a></h2>
 <p>페이지 우측 상단의 토글 스위치를 통해 백업 기능을 제어할 수 있습니다.</p>
 <ul class="simple">
 <li><p><strong>활성화 (ON):</strong> 시스템 탐색을 수행하고 백업 설정 폼과 리스트를 불러옵니다.</p></li>
@@ -542,8 +587,8 @@ VirtOn System Backup &amp; Restore 기능은 현재 구동 중인 가상머신(V
 </section>
 </section>
 <hr class="docutils" />
-<section id="id11">
-<h2>5.4.3 백업 실행하기<a class="headerlink" href="#id11" title="Link to this heading"><span>#</span></a></h2>
+<section id="id14">
+<h2>5.4.3 백업 실행하기<a class="headerlink" href="#id14" title="Link to this heading"><span>#</span></a></h2>
 <p><img alt="백업 실행 이미지" src="../../_images/virton_backup_run.png" /></p>
 <section id="manual-backup">
 <h3>▶ 수동 백업 (Manual Backup)<a class="headerlink" href="#manual-backup" title="Link to this heading"><span>#</span></a></h3>
@@ -554,8 +599,8 @@ VirtOn System Backup &amp; Restore 기능은 현재 구동 중인 가상머신(V
 <li><p>백업은 Proxmox 백그라운드에서 진행되므로, 페이지를 이동해도 작업은 계속됩니다.</p></li>
 </ol>
 </section>
-<section id="id12">
-<h3>진행률 모니터링 및 중단<a class="headerlink" href="#id12" title="Link to this heading"><span>#</span></a></h3>
+<section id="id15">
+<h3>진행률 모니터링 및 중단<a class="headerlink" href="#id15" title="Link to this heading"><span>#</span></a></h3>
 <ul class="simple">
 <li><p>백업 또는 복구 작업이 진행 중일 때, 실시간 진행률(%)이 게이지에 표시됩니다.</p></li>
 <li><p>작업을 멈추고 싶다면 게이지 우측의 [X 중단] 버튼을 클릭하여 강제로 종료할 수 있습니다.</p></li>
@@ -563,19 +608,19 @@ VirtOn System Backup &amp; Restore 기능은 현재 구동 중인 가상머신(V
 </section>
 </section>
 <hr class="docutils" />
-<section id="id13">
-<h2>5.4.4 백업 목록 관리 및 조회<a class="headerlink" href="#id13" title="Link to this heading"><span>#</span></a></h2>
+<section id="id16">
+<h2>5.4.4 백업 목록 관리 및 조회<a class="headerlink" href="#id16" title="Link to this heading"><span>#</span></a></h2>
 <p>하단의 테이블에서 저장된 모든 백업 파일을 확인하고 관리할 수 있습니다.</p>
-<section id="id14">
-<h3>필터링 (스토리지별 조회)<a class="headerlink" href="#id14" title="Link to this heading"><span>#</span></a></h3>
+<section id="id17">
+<h3>필터링 (스토리지별 조회)<a class="headerlink" href="#id17" title="Link to this heading"><span>#</span></a></h3>
 <p>테이블 우측 상단의 드롭다운(Select Box)을 통해 특정 스토리지에 저장된 백업만 모아볼 수 있습니다.</p>
 <ul class="simple">
 <li><p><strong>모든 스토리지:</strong> 전체 백업 목록을 최신순으로 표시합니다.</p></li>
 <li><p><strong>개별 스토리지 (예: NAS):</strong> 해당 스토리지의 파일만 필터링합니다. 각 스토리지별 파일 개수도 함께 표시됩니다.</p></li>
 </ul>
 </section>
-<section id="id15">
-<h3>테이블 정보<a class="headerlink" href="#id15" title="Link to this heading"><span>#</span></a></h3>
+<section id="id18">
+<h3>테이블 정보<a class="headerlink" href="#id18" title="Link to this heading"><span>#</span></a></h3>
 <ul class="simple">
 <li><p><strong>저장소 (Storage):</strong> 파일이 위치한 스토리지 이름 (뱃지 형태)</p></li>
 <li><p><strong>파일명:</strong> Proxmox 백업 파일명 (<code class="docutils literal notranslate"><span class="pre">vzdump-qemu-105...</span></code>)</p></li>
@@ -583,8 +628,8 @@ VirtOn System Backup &amp; Restore 기능은 현재 구동 중인 가상머신(V
 <li><p><strong>용량:</strong> 백업 파일의 크기 (GB 단위)</p></li>
 </ul>
 </section>
-<section id="id16">
-<h3>백업 삭제<a class="headerlink" href="#id16" title="Link to this heading"><span>#</span></a></h3>
+<section id="id19">
+<h3>백업 삭제<a class="headerlink" href="#id19" title="Link to this heading"><span>#</span></a></h3>
 <ul class="simple">
 <li><p>필요 없는 백업 파일은 우측의 [삭제] 버튼(빨간색 휴지통 아이콘)을 눌러 지울 수 있습니다.</p></li>
 <li><p>삭제 시 확인 모달창이 뜨며, 승인하면 파일이 영구적으로 제거됩니다.</p></li>
@@ -600,8 +645,8 @@ VirtOn System Backup &amp; Restore 기능은 현재 구동 중인 가상머신(V
 <p>VirtOn은 운영 중인 서버가 멈추는 것을 방지하기 위해 “새로운 가상머신(New VM)”을 생성하여 복구합니다. 기존 서버(105번)를 덮어쓰지 않으므로 안전합니다.</p>
 </div></blockquote>
 <p><img alt="백업 복원 완료" src="../../_images/system_restore_message.png" /></p>
-<section id="id17">
-<h3>복구 절차<a class="headerlink" href="#id17" title="Link to this heading"><span>#</span></a></h3>
+<section id="id20">
+<h3>복구 절차<a class="headerlink" href="#id20" title="Link to this heading"><span>#</span></a></h3>
 <ol class="arabic simple">
 <li><p>백업 목록에서 원하는 시점의 파일 우측 [복구] 버튼(파란색 아이콘)을 클릭합니다.</p></li>
 <li><p>확인 알림창에서 내용을 숙지하고 [확인]을 누릅니다.</p></li>
@@ -630,8 +675,8 @@ VirtOn System Backup &amp; Restore 기능은 현재 구동 중인 가상머신(V
 <p><img alt="관리자 IP 접근 제어 섹션 1" src="../../_images/IP_Access_Control_1.png" /></p>
 <p>VirtOn은 외부 공격 및 비인가 접근을 방지하기 위해<br />
 IP 기반 접근 제어(화이트리스트 / 블랙리스트)를 제공합니다.</p>
-<section id="id18">
-<h3>5.5.1 보안 정책 (작동 원리)<a class="headerlink" href="#id18" title="Link to this heading"><span>#</span></a></h3>
+<section id="id21">
+<h3>5.5.1 보안 정책 (작동 원리)<a class="headerlink" href="#id21" title="Link to this heading"><span>#</span></a></h3>
 <p>시스템은 화이트리스트 등록 상태에 따라 자동으로 모드가 전환됩니다.</p>
 <section id="open-mode">
 <h4>개방 모드 (Open Mode)<a class="headerlink" href="#open-mode" title="Link to this heading"><span>#</span></a></h4>
@@ -649,8 +694,8 @@ IP 기반 접근 제어(화이트리스트 / 블랙리스트)를 제공합니다
 </section>
 </section>
 <hr class="docutils" />
-<section id="id19">
-<h3>5.6 주요 기능 사용법<a class="headerlink" href="#id19" title="Link to this heading"><span>#</span></a></h3>
+<section id="id22">
+<h3>5.6 주요 기능 사용법<a class="headerlink" href="#id22" title="Link to this heading"><span>#</span></a></h3>
 <section id="ip">
 <h4>5.6.1 내 IP 간편 등록 (권장)<a class="headerlink" href="#ip" title="Link to this heading"><span>#</span></a></h4>
 <p><img alt="관리자 IP 접근 제어 섹션 2" src="../../_images/IP_Access_Control_2.png" /></p>
@@ -662,8 +707,8 @@ IP 기반 접근 제어(화이트리스트 / 블랙리스트)를 제공합니다
 </ol>
 </section>
 <hr class="docutils" />
-<section id="id20">
-<h4>5.6.2 IP 직접 등록<a class="headerlink" href="#id20" title="Link to this heading"><span>#</span></a></h4>
+<section id="id23">
+<h4>5.6.2 IP 직접 등록<a class="headerlink" href="#id23" title="Link to this heading"><span>#</span></a></h4>
 <ul class="simple">
 <li><p><strong>유형 선택</strong></p>
 <ul>
@@ -687,8 +732,8 @@ IP 기반 접근 제어(화이트리스트 / 블랙리스트)를 제공합니다
 </ul>
 </section>
 <hr class="docutils" />
-<section id="id21">
-<h4>5.6.3 IP 수정 및 삭제<a class="headerlink" href="#id21" title="Link to this heading"><span>#</span></a></h4>
+<section id="id24">
+<h4>5.6.3 IP 수정 및 삭제<a class="headerlink" href="#id24" title="Link to this heading"><span>#</span></a></h4>
 <p><img alt="관리자 IP 접근 제어 섹션 3" src="../../_images/IP_Access_Control_3.png" /></p>
 <ul class="simple">
 <li><p><strong>IP 수정</strong> : 리스트 더블 클릭 혹은 펜슬 아이콘 클릭 시 사용 가능, 수정 방법은 IP 직접 등록과 동일</p></li>
@@ -713,8 +758,8 @@ IP 기반 접근 제어(화이트리스트 / 블랙리스트)를 제공합니다
 </section>
 </section>
 <hr class="docutils" />
-<section id="id22">
-<h2>5.7 세션관리<a class="headerlink" href="#id22" title="Link to this heading"><span>#</span></a></h2>
+<section id="id25">
+<h2>5.7 세션관리<a class="headerlink" href="#id25" title="Link to this heading"><span>#</span></a></h2>
 <p><img alt="세션" src="../../_images/Session.png" /></p>
 <blockquote>
 <div><p>이 기능은 시스템에 로그인한 사용자의 접속 유지 시간과 비활동 세션 관리 및 동시 접속 기기 수를 제어하여, 비인가자의 무단 접근이나 계정 공유로 인한 보안 사고를 방지하는 기능입니다.</p>
@@ -769,16 +814,14 @@ IP 기반 접근 제어(화이트리스트 / 블랙리스트)를 제공합니다
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item"><div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> 내용
   </div>
-  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+  <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">5.1 식별·인증</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">5.1.1 패스워드 정책</a></li>
@@ -789,49 +832,54 @@ IP 기반 접근 제어(화이트리스트 / 블랙리스트)를 제공합니다
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">5.3 자체보호</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">5.3.1 보안 기능 자체시험 수행</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">5.3.2 자체시험 실패 시 대응 정책</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">5.3.3 시스템 차단 해제 절차</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">1) 복구 시크릿 발급</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">2) 시스템 차단 해제</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">5.4 시작하기 전에 (권한 및 접근)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">5.4.1 백업 기능 활성화/비활성화</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">5.4 시작하기 전에 (권한 및 접근)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">5.4.1 백업 기능 활성화/비활성화</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">5.4.2 백업 정책 설정 (Configuration)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#storage">① 백업 스토리지 선택 (Storage)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#schedule">② 자동 백업 스케줄 설정 (Schedule)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#retention">③ 백업 보존 기간 설정 (Retention)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">5.4.3 백업 실행하기</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">5.4.3 백업 실행하기</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manual-backup">▶ 수동 백업 (Manual Backup)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">진행률 모니터링 및 중단</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">진행률 모니터링 및 중단</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">5.4.4 백업 목록 관리 및 조회</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">필터링 (스토리지별 조회)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">테이블 정보</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">백업 삭제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">5.4.4 백업 목록 관리 및 조회</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">필터링 (스토리지별 조회)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">테이블 정보</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">백업 삭제</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restoration">5.4.5 시스템 복구 (Restoration)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">복구 절차</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">복구 절차</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting">5.4.6 문제 해결 (Troubleshooting)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ip-ip-access-control">5.5 관리자 IP 접근 제어 (IP Access Control)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">5.5.1 보안 정책 (작동 원리)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">5.5.1 보안 정책 (작동 원리)</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#open-mode">개방 모드 (Open Mode)</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lockdown-mode">잠금 모드 (Lockdown Mode)</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">5.6 주요 기능 사용법</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">5.6 주요 기능 사용법</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ip">5.6.1 내 IP 간편 등록 (권장)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">5.6.2 IP 직접 등록</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">5.6.3 IP 수정 및 삭제</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">5.6.2 IP 직접 등록</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">5.6.3 IP 수정 및 삭제</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ips">5.6.4 자동 차단 (IPS)</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lockout">5.6.5 긴급 조치 가이드 (Lockout 상황)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">5.7 세션관리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">5.7 세션관리</a></li>
 </ul>
   </nav></div>
 
@@ -880,8 +928,8 @@ IP 기반 접근 제어(화이트리스트 / 블랙리스트)를 제공합니다
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
