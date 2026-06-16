@@ -69,7 +69,7 @@
 
 - 해당 템플릿의 우측 작업 메뉴에서 복제 버튼을 클릭합니다.
 
-![템플릿 클론2](../_static/images/main/template&migrate/template_clone_modal.png)
+![템플릿 클론2](../_static/images/main/template&migrate/clone1.png)
 
 - 버튼 클릭 후 클론 설정 모달창이 표시됩니다.
 
@@ -78,9 +78,21 @@
 **이름:** 클론할 이름을 입력할 수 있으며, 한글은 입력이 제한됩니다.
 > 
 
-![템플릿 클론3](../_static/images/main/template&migrate/template_clone_complate.png)
+![템플릿 클론3](../_static/images/main/template&migrate/clone2.png)
 
-- 설정 입력 후 클론 버튼을 클릭하면 알림창과 함께 **인스턴스 목록**에 생성됩니다.
+- 클론 생성이 시작되면 진행 중 모달이 표시되며, 작업이 완료될 때까지 대기합니다.
+
+![템플릿 클론4](../_static/images/main/template&migrate/clone3.png)
+
+- 클론 생성이 완료되면 생성된 인스턴스의 **이름, VM ID, 노드** 정보를 확인할 수 있습니다.
+- **인스턴스 상세 보기** 버튼을 클릭하면 생성된 인스턴스 상세 화면으로 이동합니다.
+
+![템플릿 클론5](../_static/images/main/template&migrate/clone4.png)
+
+- 상세 화면에서 클론된 가상 머신의 **시스템, 리소스, 네트워크, 디스크** 정보를 확인합니다.
+- 필요 시 시작, 설정, 콘솔, 삭제 등의 작업을 진행할 수 있습니다.
+
+
 
 ## 9.4 템플릿으로 변환(Convert to template)
 
