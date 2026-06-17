@@ -1,0 +1,1721 @@
+
+<!DOCTYPE html>
+
+
+<html lang="ko" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4.13 설정 (Settings) &#8212; virton 1.1 문서</title>
+
+
+
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=6a7660f3" />
+
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=2dfc782e"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/translations.js?v=e33e7ba0"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'main/14-settings';</script>
+    <script src="../_static/theme-toggle.js?v=036f6176"></script>
+    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="index" title="색인" href="../genindex.html" />
+    <link rel="search" title="검색" href="../search.html" />
+    <link rel="next" title="5. 문제 해결 방법" href="15-troubleshooting.html" />
+    <link rel="prev" title="4.12 알림 (Notifications)" href="13-notifications.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ko"/>
+  </head>
+
+
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+
+
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  <div id="pst-scroll-pixel-helper"></div>
+
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+
+
+
+      <div class="bd-sidebar-primary bd-sidebar">
+
+
+
+  <div class="sidebar-header-items sidebar-primary__section">
+
+
+
+
+  </div>
+
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+
+
+
+
+<a class="navbar-brand logo" href="../index.html">
+
+
+
+
+
+
+
+
+
+
+    <img src="../_static/logo.png" class="logo__image only-light" alt="virton 1.1 문서 - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="virton 1.1 문서 - Home"/>`);</script>
+
+
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="검색" aria-label="검색" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">검색</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">버트온 사용자 매뉴얼 및 제품 설명서</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">VirtOn</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1-introduction.html"><strong>1. 개요</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="2-product-introduction.html"><strong>2. 제품 소개</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="3-installation.html"><strong>3. 설치 및 배포</strong></a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="4-features.html"><strong>4. 제품 기능 및 사용 방법</strong></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="2-login.html"><strong>4.1 로그인 및 초기 설정 (Login)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="3-dashboard.html"><strong>4.2 대시보드 (Dashboard)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="4-hostShell.html"><strong>4.3 셸 (Shell)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="5-instances.html"><strong>4.4 인스턴스 (Instances)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="6-cluster.html"><strong>4.5 클러스터 (Cluster)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="7-ceph.html"><strong>4.6 Ceph</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="8-ha.html"><strong>4.7 고가용성 (HA - High Availability)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="9-template.html"><strong>4.8 템플릿 (Template)/마이그레이션 (Migrate)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="10-resources.html"><strong>4.9 리소스 (Resources)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="11-storage.html"><strong>4.10 스토리지 (Storage)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="12-network.html"><strong>4.11 네트워크 (Network)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="13-notifications.html"><strong>4.12 알림 (Notifications)</strong></a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#"><strong>4.13 설정 (Settings)</strong></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="15-troubleshooting.html"><strong>5. 문제 해결 방법</strong></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pbs/index.html">VirtOn PBS (미적용)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pbs/1-introduction.html"><strong>1. VirtOn PBS 사용법 및 개요</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pbs/2-dashboard.html"><strong>2. 대시보드 (Dashboard)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pbs/3-DR%20Readiness.html"><strong>3. DR (DR Readiness)</strong></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pbs/backup-restore/index.html"><strong>4. 백업 &amp; 복구 (backup &amp; restore)</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pbs/backup-restore/management.html">백업 &amp; 복구 관리</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pbs/backup-restore/policy.html">정기 백업 정책</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pbs/offsite/index.html"><strong>5. 오프사이트 관리 (offsite)</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pbs/offsite/replication-policy.html">복제 정책</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pbs/offsite/backup-list.html">오프사이트 백업 목록</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../pbs/6-prune%26garbagecollection.html"><strong>6. PBS 프룬 &amp; 가비지 컬렉션 (Prune &amp; Garbage Collection)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pbs/7-status.html"><strong>7. 작업 이력 (status)</strong></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pbs/settings/index.html"><strong>8. 설정 (Settings)</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pbs/settings/verify.html">자동 검증 설정</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pbs/settings/server.html">서버 설정</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+
+
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+
+      <main id="main-content" class="bd-main" role="main">
+
+
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+
+    <div class="header-article-items__start">
+
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+
+    </div>
+
+
+    <div class="header-article-items__end">
+
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="이 페이지 다운로드">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+
+
+
+      <li><a href="../_sources/main/14-settings.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="소스 파일 다운로드"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+
+
+
+
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="PDF로 인쇄"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="전체 화면으로보기"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="검색" aria-label="검색" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+
+    </div>
+
+</div>
+</div>
+
+
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>4.13 설정 (Settings)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+
+            <div>
+                <h2> 내용 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">사용 전 확인사항</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proxmox-api">4.13.1 Proxmox API 연결 설정</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">4.13.1.1 입력 항목 설명</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4.13.1.2 설정 수정</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#api">4.13.1.3 API 장애 대응</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">4.13.2 계정 관리</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">4.13.2.1 계정 추가</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">4.13.2.2 역할 선택</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">4.13.2.3 비밀번호</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">4.13.2.4 관리</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">4.13.2.4.1 비밀번호 변경</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">4.13.2.4.2 역할 변경</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">4.13.2.4.3 비밀번호 리셋</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">4.13.2.4.4 삭제</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">4.13.3 권한 관리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#role">4.13.3.1 역할(Role)별 기본 권한 리스트(기능 허용범위)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">4.13.3.1.1 각 계정의 역할별 기본 권한 할당</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">4.13.3.2 역할 권한 추가, 삭제</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">4.13.3.2.1 기본 권한 삭제(관리자만)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">4.13.3.2.2 기본 권한 추가(관리자만)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#custom">4.13.3.2.3 CUSTOM 계정</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">4.13.3.3 관리자 외 권한 관리 제어 금지</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pool">4.13.4 Pool 관리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">4.13.4.1 Pool 생성 및 목록</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">4.13.4.1.1 새 Pool 생성</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">4.13.4.1.2 목록에서 확인 가능한 정보</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">4.13.4.2 주요 관리 작업</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">4.13.4.2.1 리소스 연결</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">4.13.4.2.2 리소스 해제</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">4.13.4.2.3 사용자 역할 할당/해제</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">4.13.4.3 Pool 삭제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">4.13.4.4 Pool 역할별 접근 및 제어 범위</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pool-pool-operator">4.13.4.4.1 Pool 운영자 (POOL_OPERATOR)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pool-pool-admin">4.13.4.4.2 Pool 관리자 (POOL_ADMIN)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">4.13.5 보안 관리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">4.13.5.1 식별·인증</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">4.13.5.1.1 패스워드 정책</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id31">4.13.5.1.2 인증 실패 정책</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id32">4.13.5.2 감사관리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id33">4.13.5.3 자체보호</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id34">4.13.5.3.1 보안 기능 자체시험 수행</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id35">4.13.5.3.2 자체시험 실패 시 대응 정책</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id36">4.13.5.3.3 시스템 차단 해제 절차</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id37">1) 복구 시크릿 발급</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id38">2) 시스템 차단 해제</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id39">4.13.5.4 시작하기 전에 (권한 및 접근)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id40">4.13.5.4.1 백업 기능 활성화/비활성화</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">4.13.5.4.2 백업 정책 설정 (Configuration)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#storage">백업 스토리지 선택 (Storage)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#schedule">자동 백업 스케줄 설정 (Schedule)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#retention">백업 보존 기간 설정 (Retention)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id41">4.13.5.4.3 백업 실행하기</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manual-backup">▶ 수동 백업 (Manual Backup)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id42">진행률 모니터링 및 중단</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id43">4.13.5.4.4 백업 목록 관리 및 조회</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id44">필터링 (스토리지별 조회)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id45">테이블 정보</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id46">백업 삭제</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restoration">4.13.5.4.5 시스템 복구 (Restoration)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id47">복구 절차</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting">4.13.5.4.6 문제 해결 (Troubleshooting)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ip-ip-access-control">4.13.5.5 관리자 IP 접근 제어 (IP Access Control)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id48">4.13.5.5.1 보안 정책 (작동 원리)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#open-mode">개방 모드 (Open Mode)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lockdown-mode">잠금 모드 (Lockdown Mode)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id49">4.13.5.5.2 주요 기능 사용법</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ip">4.13.5.5.2.1 내 IP 간편 등록 (권장)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id50">4.13.5.5.2.2 IP 직접 등록</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id51">4.13.5.5.2.3 IP 수정 및 삭제</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ips">4.13.5.5.2.4 자동 차단 (IPS)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lockout">4.13.5.5.3 긴급 조치 가이드 (Lockout 상황)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id52">4.13.5.6 세션관리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id53">4.13.6 이메일 알림 설정</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id54">4.13.6.1 이메일 알림 비활성화 상태</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id55">4.13.6.2 내 알림 이메일 설정 (모든 사용자 공통)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smtp">4.13.6.3 전역 메일 발송 서버 (SMTP) 설정 (관리자 전용)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id56">4.13.6.3.1 입력 항목 설명</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id57">4.13.6.3.2 적용 및 테스트 순서</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id58">4.13.7 설정 기능 문제 해결 방법</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="searchbox"></div>
+                <article class="bd-article">
+
+  <section id="settings">
+<h1><strong>4.13 설정 (Settings)</strong><a class="headerlink" href="#settings" title="Link to this heading"><span>#</span></a></h1>
+<p><img alt="VirtOn 설정 페이지 메인" src="../_images/setting_main.png" /></p>
+<p>VirtOn 시스템의 핵심 기능을 사용하기 위해서는 Proxmox 서버 연동이 필수이며,<br />
+관리자 페이지 보안을 위해 IP 접근 제어 기능을 제공합니다.</p>
+<hr class="docutils" />
+<section id="id1">
+<h2>사용 전 확인사항<a class="headerlink" href="#id1" title="Link to this heading"><span>#</span></a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>구분</strong></p></th>
+<th class="head"><p><strong>내용</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>필요 권한</strong></p></td>
+<td><p>Proxmox API 연결, 계정/권한/Pool, 보안 정책, 시스템 백업, IP 접근 제어, SMTP 설정은 기능별로 ADMIN 또는 SUPER ADMIN 권한이 필요합니다.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>비밀정보 처리</strong></p></td>
+<td><p>API Token Secret, 사용자 비밀번호, SMTP 비밀번호 등은 화면 입력 시 마스킹되며 제출문서에는 원문을 기재하지 않습니다.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>저장 보호</strong></p></td>
+<td><p>외부 연동 비밀값은 저장 시 암호화되며, 기존 비밀값의 평문은 조회되지 않습니다. 변경이 필요한 경우 새 값을 입력합니다.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>감사기록</strong></p></td>
+<td><p>계정, 권한, Pool, 보안 정책, IP 접근 제어, 백업/복구, SMTP 설정 변경은 감사 로그 확인 대상입니다.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="proxmox-api">
+<h2>4.13.1 Proxmox API 연결 설정<a class="headerlink" href="#proxmox-api" title="Link to this heading"><span>#</span></a></h2>
+<p><img alt="API 설정 파트 메인" src="../_images/setting_API.png" /></p>
+<ul class="simple">
+<li><p>VirtOn이 가상머신(VM)을 제어하고 모니터링하기 위해 Proxmox VE 서버와의 API 통신을 설정합니다.</p></li>
+<li><p>해당 부분의 초기값은 초기 API 설정값으로 채워집니다.</p></li>
+</ul>
+<section id="id2">
+<h3>4.13.1.1 입력 항목 설명<a class="headerlink" href="#id2" title="Link to this heading"><span>#</span></a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>항목</p></th>
+<th class="head"><p>설명</p></th>
+<th class="head"><p>예시</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>호스트 (Host)</p></td>
+<td><p>Proxmox VE 서버의 IP 또는 도메인 (<code class="docutils literal notranslate"><span class="pre">http://</span></code> 제외)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">123.456.0.100</span></code>, <code class="docutils literal notranslate"><span class="pre">pve.example.com</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>포트 (Port)</p></td>
+<td><p>Proxmox API 포트 (기본값)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">8006</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>토큰 ID</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">계정명&#64;인증영역!토큰명</span></code> 형식</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">root&#64;pam!Test1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>시크릿 키</p></td>
+<td><p>해당 토큰의 시크릿 키 값 (암호화 저장)</p></td>
+<td><p>-</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>항목</p></th>
+<th class="head"><p>입력 기준</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>호스트</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">http://</span></code> 또는 <code class="docutils literal notranslate"><span class="pre">https://</span></code>를 제외한 IP 주소 또는 도메인을 입력합니다.</p></td>
+</tr>
+<tr class="row-odd"><td><p>포트</p></td>
+<td><p>Proxmox API 기본 포트는 <code class="docutils literal notranslate"><span class="pre">8006</span></code>이며, 운영 환경에서 변경한 경우 해당 포트를 입력합니다.</p></td>
+</tr>
+<tr class="row-even"><td><p>토큰 ID</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">계정명&#64;Realm!토큰명</span></code> 형식으로 입력합니다.</p></td>
+</tr>
+<tr class="row-odd"><td><p>시크릿 키</p></td>
+<td><p>Proxmox에서 발급한 Token Secret을 입력합니다. 저장 후 평문으로 다시 표시되지 않습니다.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id3">
+<h3>4.13.1.2 설정 수정<a class="headerlink" href="#id3" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="API 설정 수정 파트" src="../_images/setting_API_update.png" /></p>
+<ul class="simple">
+<li><p>저장된 검증 연결 정보를 수정하고 즉시 시스템에 반영합니다.</p></li>
+<li><p><strong>“SUPER_ADMIN”</strong> 및 <strong>“ADMIN”</strong> 등 허락된 Role이 아니라면 수정은 불가능 합니다. 수정을 원한다면 관리자 계정에게 문의해주세요.</p></li>
+<li><p>모든 값을 입력하지 않거나 알맞은 값을 입력하지 않으면 수정은 불가합니다.</p></li>
+<li><p>해당 값을 수정하면 초기 등록과 마찬가지로 standby API가 /cluster/status 의 node.ip 기준으로 자동 등록됩니다.</p></li>
+</ul>
+<blockquote>
+<div><p>💡 <strong>참고</strong><br />
+설정 저장 후 VM 목록이 보이지 않는 경우, 네트워크 방화벽 설정 또는<br />
+Proxmox 사용자 권한(Permission)을 확인하세요.</p>
+</div></blockquote>
+</section>
+<section id="api">
+<h3>4.13.1.3 API 장애 대응<a class="headerlink" href="#api" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="API 설정 파트 메인 2" src="../_images/setting_API2.png" /></p>
+<ul class="simple">
+<li><p>활성 API를 주기적으로 헬스체크하고, 실패 시 우선순위가 높은 대기 API로 자동 전환합니다.</p></li>
+<li><p>헬스체크 실패 또는 페일오버 발생 시 감사 로그와 보안 알림에 기록됩니다.</p></li>
+<li><p>현재 연결된 활성 엔드포인트는 수동 헬스체크도 가능합니다.</p></li>
+<li><p>목록의 <strong>자동 등록</strong> 배지는 기본 API 저장 시 클러스터에서 탐색된 엔드포인트이고, <strong>수동 추가</strong> 배지는 운영자가 직접 추가한 엔드포인트입니다.</p></li>
+<li><p>현재 활성화된 엔드포인트 및 자동 등록이 아닌 엔드포인트만 수정이 가능합니다.</p></li>
+</ul>
+<blockquote>
+<div><p>💡 <strong>참고</strong>
+환경에 따라 node.ip가 관리 API 접속 IP와 다를 수 있으니, 자동 등록 후 host IP를 꼭 확인하고 필요하면 수동 대기 API를 추가하거나 수정해주세요.
+기본 API 저장 시 standby API는 /cluster/status 의 node.ip 기준으로 자동 등록됩니다.</p>
+</div></blockquote>
+</section>
+</section>
+<section id="id4">
+<h2>4.13.2 계정 관리<a class="headerlink" href="#id4" title="Link to this heading"><span>#</span></a></h2>
+<p><img alt="계정관리 메인" src="../_images/AccountMain1.png" /></p>
+<p><strong>계정관리</strong>는 <strong>VirtOn</strong> 시스템을 사용하는 사용자 계정을 효율적으로 관리하기 위한 핵심 기능입니다. 관리자는 이 화면에서 새 계정을 추가하고, 기존 계정의 정보를 수정하며, 사용자 역할을 관리할 수 있습니다.</p>
+<section id="id5">
+<h3>4.13.2.1 계정 추가<a class="headerlink" href="#id5" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="계정추가1" src="../_images/Addaccount1.png" /></p>
+<p><img alt="계정추가2" src="../_images/Addaccount2.png" /></p>
+<ul class="simple">
+<li><p><strong>계정ID:</strong> 영문, 숫자, 하이픈, 언더바만 사용 가능하며 입력 후 중복 확인을 클릭합니다.</p>
+<ul>
+<li><p>중복된 아이디가 있을 경우 존재 여부 메시지와 함께 생성 불가합니다.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id6">
+<h3>4.13.2.2 역할 선택<a class="headerlink" href="#id6" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="계정추가3" src="../_images/Addaccount3.png" /></p>
+<ul class="simple">
+<li><p><strong>역할 선택</strong></p>
+<ul>
+<li><p><strong>관리자:</strong> 클러스터 구축, HA 설정, 스토리지 관리, VM/CT 전체 생명주기 관리</p></li>
+<li><p><strong>커스텀:</strong> 사용자/모니터링 계정만 관리 가능한 부분 관리자 (ADMIN, SUPER_ADMIN은 제어 불가)</p></li>
+<li><p><strong>멤버:</strong> 할당된 자원에 대한 운영 및 사양 수정 권한</p></li>
+<li><p><strong>모니터링:</strong> 대시보드, 리소스, 알림 페이지 조회만 가능</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id7">
+<h3>4.13.2.3 비밀번호<a class="headerlink" href="#id7" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="계정추가4" src="../_images/Addaccount4.png" /></p>
+<ul class="simple">
+<li><p><strong>비밀번호:</strong> 패스워드 정책은 위와 같으며 입력 시 실시간로 검증하고, 모든 조건 충족 시 생성 가능합니다.</p>
+<ul>
+<li><p>입력 칸 우측 눈 모양 아이콘 클릭 시 입력한 비밀번호를 확인할 수 있습니다.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id8">
+<h3>4.13.2.4 관리<a class="headerlink" href="#id8" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="관리" src="../_images/AccountManage.png" /></p>
+<p>관리 영역은 <strong>비밀번호 변경</strong>, <strong>역할 변경</strong>, <strong>비밀번호 리셋</strong>, <strong>삭제</strong>가 있습니다.
+단, <strong>역할변경, 비밀번호 리셋, 삭제 기능</strong>은 <strong>관리자</strong>만 제어할 수 있습니다.</p>
+</section>
+<section id="id9">
+<h3>4.13.2.4.1 비밀번호 변경<a class="headerlink" href="#id9" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="비밀번호 변경1" src="../_images/PasswordChange1.png" /></p>
+<p><img alt="비밀번호 변경2" src="../_images/PasswordChange2.png" /></p>
+<ul class="simple">
+<li><p><strong>비밀번호 변경:</strong> 기존 비밀번호를 입력하며 새 비밀번호도 동일하게 패스워드 정책을 적용해 실시간으로 검증합니다.</p>
+<ul>
+<li><p>비밀번호 변경은 <strong>자신의 계정만 변경</strong> 가능합니다. (해당 계정에 직접 로그인 후 변경)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id10">
+<h3>4.13.2.4.2 역할 변경<a class="headerlink" href="#id10" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="역할 변경1" src="../_images/RoleChange.png" /></p>
+<ul class="simple">
+<li><p>역할 변경은 <strong>관리자</strong>만 제어 가능하며 <strong>역할(role)</strong> 변경을 통해 <strong>권한 상승</strong> 또는 <strong>권한 하향</strong> 시킬 수 있습니다.</p></li>
+<li><p>역할 변경 시 해당 계정의 기본 권한이 변경됩니다.</p></li>
+</ul>
+</section>
+<section id="id11">
+<h3>4.13.2.4.3 비밀번호 리셋<a class="headerlink" href="#id11" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="비밀번호 리셋1" src="../_images/PasswordReset1.png" /></p>
+<p><img alt="비밀번호 리셋2" src="../_images/PasswordReset2.png" /></p>
+<ul class="simple">
+<li><p>비밀번호 리셋은 <strong>관리자</strong>만 제어 가능하며 <strong>다른 계정의 비밀번호를 초기화</strong> 하고 <strong>임시 비밀번호를 발급</strong>받습니다.</p></li>
+<li><p>발급받은 임시 비밀번호를 복사해서 해당 계정에게 전달합니다.</p></li>
+<li><p>전달받은 계정은 직접 임시 비밀번호로 로그인 접속해서 비밀번호를 변경합니다.</p></li>
+</ul>
+</section>
+<section id="id12">
+<h3>4.13.2.4.4 삭제<a class="headerlink" href="#id12" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="계정 삭제" src="../_images/AccountDlelte.png" /></p>
+<ul class="simple">
+<li><p>삭제 기능은 <strong>관리자</strong>만 가능하며 다른계정들을 삭제할 수 있습니다.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id13">
+<h2>4.13.3 권한 관리<a class="headerlink" href="#id13" title="Link to this heading"><span>#</span></a></h2>
+<p><img alt="권한 관리 메인" src="../_images/PermissionsMain.png" /></p>
+<p><strong>권한 관리 기능</strong>은 사용자별 **역할(Role)**에 따라 시스템 접근 및 제어 권한을 세밀하게 설정하고 통제하는 핵심 보안 기능입니다. 관리자는 사용자를 4가지 주요 등급(ADMIN, CUSTOM, USER, VIEWER)으로 분류하여 계정을 직관적으로 관리할 수 있습니다.</p>
+</section>
+<section id="role">
+<h2>4.13.3.1 역할(Role)별 기본 권한 리스트(기능 허용범위)<a class="headerlink" href="#role" title="Link to this heading"><span>#</span></a></h2>
+<div class="perm-table">
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>기능 카테고리</strong></p></th>
+<th class="head"><p><strong>상세 기능 항목</strong></p></th>
+<th class="head"><p><strong>슈퍼 관리자(super admin)</strong></p></th>
+<th class="head"><p><strong>관리자(admin)</strong></p></th>
+<th class="head"><p><strong>멤버(User)</strong></p></th>
+<th class="head"><p><strong>모니터링(viewer)</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>계정 및 보안</strong></p></td>
+<td><p>사용자 등록/삭제 및 권한 부여</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>Proxmox API 연결 및 비밀번호 설정</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>Pool 관리(생성/삭제/리소스 연결/역할 할당)</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>클러스터 관리</strong></p></td>
+<td><p>클러스터 생성 및 노드 조인(Manual/Assisted)</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>클러스터 네트워크 및 링크 설정</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>고가용성 (HA)</strong></p></td>
+<td><p>HA 노드 역할(CRM) 및 쿼럼 상태 관리</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>HA 리소스(VM/CT) 추가 및 고급 설정</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>인프라/네트워크</strong></p></td>
+<td><p>Ceph 스토리지(OSD/MDS) 상태 관리</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>네트워크 인터페이스 생성/수정/삭제</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>인스턴스 제어</strong></p></td>
+<td><p>VM / CT 신규 생성 및 삭제</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>인스턴스 전원 제어 (시작/중지/재시작)</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>콘솔 접속 (VNC 연결 및 키 전송)</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>리소스 사양 수정 (CPU, 메모리 변경)</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>데이터 보호</strong></p></td>
+<td><p>템플릿 변환 및 노드 간 마이그레이션</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>백업 생성/복구/삭제 및 보호 설정</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>스냅샷 생성/롤백/삭제(RAM 포함 선택)</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>모니터링/로그</strong></p></td>
+<td><p>전체 대시보드 및 리소스 사용량 조회</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>실시간 알림(Alert) 및 Ceph 헬스 체크</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>감사 기록 조회</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>시스템 일반 설정</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<section id="id14">
+<h3>4.13.3.1.1 각 계정의 역할별 기본 권한 할당<a class="headerlink" href="#id14" title="Link to this heading"><span>#</span></a></h3>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>새로 추가된 계정은 역할 별로 기본적인 기능 권한이 할당됩니다. 이 기능은 삭제, 추가 가능합니다.
+단, 슈퍼관리자, 관리자 계정만 제어 가능합니다.</p></li>
+<li><p><strong>관리자 계정</strong>은 대부분의 운영 권한을 가지지만, 일부 <strong>슈퍼관리자 전용 권한</strong>(예: 권한 관리, 시스템 초기화/업그레이드 관련)은 제외됩니다.</p></li>
+</ol>
+</div></blockquote>
+<p><img alt="계정 선택" src="../_images/AccountSelect.png" /></p>
+<ul class="simple">
+<li><p>계정 목록에서 계정 선택시 각 계정별 역할과 권한 수를 확인할 수 있습니다.</p></li>
+</ul>
+</section>
+</section>
+<section id="id15">
+<h2>4.13.3.2 역할 권한 추가, 삭제<a class="headerlink" href="#id15" title="Link to this heading"><span>#</span></a></h2>
+<p><img alt="권한 추가,삭제 메인" src="../_images/RoleMain.png" /></p>
+<ul class="simple">
+<li><p>각 카테고리별로 할당된 기본 권한을 확인할 수 있으며 기본 권한이라고 표시됩니다.</p></li>
+</ul>
+<section id="id16">
+<h3>4.13.3.2.1 기본 권한 삭제(관리자만)<a class="headerlink" href="#id16" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="권한 삭제" src="../_images/RoleDelete.png" /></p>
+<p><img alt="권한 삭제2" src="../_images/RoleDelete2.png" /></p>
+<ol class="arabic simple">
+<li><p>기능별 카테고리 목록에 X 버튼을 클릭하여 권한을 제거할 수 있습니다.</p></li>
+<li><p>삭제된 권한은 + 버튼과 함께 권한에서 제거됩니다.</p></li>
+</ol>
+</section>
+<section id="id17">
+<h3>4.13.3.2.2 기본 권한 추가(관리자만)<a class="headerlink" href="#id17" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="권한 추가" src="../_images/RoleCreate.png" /></p>
+<p><img alt="권한 추가" src="../_images/RoleCreate2.png" /></p>
+<ul class="simple">
+<li><p>제거되어 있던 기본 권한을 다시 추가하면 기본 권한 표시와 함께 다시 할당됩니다.</p></li>
+</ul>
+</section>
+<section id="custom">
+<h3>4.13.3.2.3 CUSTOM 계정<a class="headerlink" href="#custom" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="권한 추가" src="../_images/Custom.png" /></p>
+<ul class="simple">
+<li><p>커스텀(CUSTOM) 역할은 특정 운영 환경이나 담당자의 업무 범위에 맞춰 관리자가 권한을 자유롭게 조립할 수 있는 가장 유연한 계정 등급입니다.</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>계정 생성 초기에는 어떠한 기본 권한도 부여되지 않은 완전한 무권한 상태(권한: 0)로 시작합니다.</p></li>
+<li><p>시스템 관리자는 ‘계정 및 보안’, ‘클러스터 관리’ 등의 세부 카테고리에서 해당 사용자에게 필수적인 개별 접근 권한(예: 사용자 등록, 역할 변경 등) 우측의 추가(+) 버튼을 사용하여 필요한 권한만 수동으로 할당하거나 취소할 수 있습니다.</p></li>
+</ol>
+</section>
+</section>
+<section id="id18">
+<h2>4.13.3.3 관리자 외 권한 관리 제어 금지<a class="headerlink" href="#id18" title="Link to this heading"><span>#</span></a></h2>
+<p><img alt="권한 추가" src="../_images/Admin.png" /></p>
+<ul class="simple">
+<li><p>접속한 계정이 관리자가 아니라면 제어 권한이 없다는 메시지가 표시되며 제어 불가능합니다.
+(현재 접속 예시: 모니터링 역할 계정)</p></li>
+</ul>
+</section>
+<section id="pool">
+<h2>4.13.4 Pool 관리<a class="headerlink" href="#pool" title="Link to this heading"><span>#</span></a></h2>
+<p><img alt="Pool 메인" src="../_images/Pool_Main.png" /></p>
+<ul class="simple">
+<li><p><strong>Pool 관리</strong> 기능은 리소스 접근 범위를 Pool 단위로 묶고, 사용자별 Pool 역할을 관리하는 기능입니다.</p></li>
+<li><p>화면에서 Pool 생성, 리소스 연결/해제, 사용자 Pool 역할 할당/해제, Pool 삭제를 수행할 수 있습니다.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="id19">
+<h2>4.13.4.1 Pool 생성 및 목록<a class="headerlink" href="#id19" title="Link to this heading"><span>#</span></a></h2>
+<p><img alt="Pool 생성" src="../_images/Pool_Create.png" /></p>
+<section id="id20">
+<h3>4.13.4.1.1 새 Pool 생성<a class="headerlink" href="#id20" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="Pool 생성" src="../_images/Pool_Create2.png" /></p>
+<ul class="simple">
+<li><p>우측 상단 <strong>[+ 새 Pool]</strong> 버튼으로 생성합니다.</p></li>
+<li><p>입력 항목:</p>
+<ul>
+<li><p><strong>Pool 이름</strong>(필수)</p></li>
+<li><p><strong>설명</strong>(선택)</p></li>
+</ul>
+</li>
+<li><p>동일 이름의 Pool이 이미 존재하면 생성할 수 없습니다.</p></li>
+</ul>
+</section>
+<section id="id21">
+<h3>4.13.4.1.2 목록에서 확인 가능한 정보<a class="headerlink" href="#id21" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="Pool 정보" src="../_images/Pool_List.png" /></p>
+<ul class="simple">
+<li><p><strong>Pool 이름 / 설명</strong></p></li>
+<li><p><strong>멤버 수</strong></p></li>
+<li><p><strong>리소스 수</strong></p></li>
+<li><p><strong>생성일</strong></p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id22">
+<h2>4.13.4.2 주요 관리 작업<a class="headerlink" href="#id22" title="Link to this heading"><span>#</span></a></h2>
+<section id="id23">
+<h3>4.13.4.2.1 리소스 연결<a class="headerlink" href="#id23" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="Pool 리소스" src="../_images/Pool_Resource.png" /></p>
+<ul class="simple">
+<li><p>Pool 카드 확장 후 <strong>리소스 연결</strong> 영역에서 유형과 식별자를 입력하여 연결합니다.</p></li>
+<li><p>연결 가능 유형:</p>
+<ul>
+<li><p><strong>VM/CT</strong></p></li>
+<li><p><strong>네트워크</strong></p></li>
+<li><p><strong>스토리지</strong></p></li>
+</ul>
+</li>
+<li><p>식별자 형식:</p>
+<ul>
+<li><p><strong>VM/CT:</strong> <code class="docutils literal notranslate"><span class="pre">nodeId:qemu|lxc:vmid</span></code> (예: <code class="docutils literal notranslate"><span class="pre">phum03:qemu:101</span></code>)</p></li>
+<li><p><strong>네트워크:</strong> <code class="docutils literal notranslate"><span class="pre">nodeId:iface</span></code> (예: <code class="docutils literal notranslate"><span class="pre">phum03:vmbr0</span></code>)</p></li>
+<li><p><strong>스토리지:</strong> <code class="docutils literal notranslate"><span class="pre">storageId</span></code> (예: <code class="docutils literal notranslate"><span class="pre">local-lvm</span></code>)</p></li>
+</ul>
+</li>
+<li><p>리소스 식별자는 한 번에 1개만 입력할 수 있으며, 이미 다른 Pool에 연결된 리소스는 중복 연결할 수 없습니다.</p></li>
+</ul>
+</section>
+<section id="id24">
+<h3>4.13.4.2.2 리소스 해제<a class="headerlink" href="#id24" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="Pool 리소스" src="../_images/Pool_Resource_Delete.png" /></p>
+<ul class="simple">
+<li><p>연결 리소스 우측 <strong>[X]</strong> 버튼으로 해제합니다.</p></li>
+</ul>
+</section>
+<section id="id25">
+<h3>4.13.4.2.3 사용자 역할 할당/해제<a class="headerlink" href="#id25" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="Pool 사용자" src="../_images/Pool_User.png" />
+<img alt="Pool 사용자" src="../_images/Pool_User2.png" /></p>
+<ul class="simple">
+<li><p>Pool 카드의 사용자 추가 아이콘으로 역할을 할당합니다.</p></li>
+<li><p>할당 가능한 Pool 역할:</p>
+<ul>
+<li><p><strong>Pool 관리자 (POOL_ADMIN)</strong></p></li>
+<li><p><strong>Pool 운영자 (POOL_OPERATOR)</strong></p></li>
+</ul>
+</li>
+<li><p>사용자 역할 목록 우측 <strong>[X]</strong> 버튼으로 역할을 해제할 수 있습니다.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id26">
+<h2>4.13.4.3 Pool 삭제<a class="headerlink" href="#id26" title="Link to this heading"><span>#</span></a></h2>
+<ul class="simple">
+<li><p>Pool 카드 우측 휴지통 아이콘으로 삭제할 수 있습니다.</p></li>
+<li><p>삭제 시 해당 Pool의 사용자 역할 매핑과 리소스 매핑이 함께 삭제됩니다.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="id27">
+<h2>4.13.4.4 Pool 역할별 접근 및 제어 범위<a class="headerlink" href="#id27" title="Link to this heading"><span>#</span></a></h2>
+<ul class="simple">
+<li><p><strong>역할 할당 제한:</strong> <code class="docutils literal notranslate"><span class="pre">ADMIN</span></code>, <code class="docutils literal notranslate"><span class="pre">SUPER_ADMIN</span></code> 계정에는 Pool 역할을 할당할 수 없습니다.</p></li>
+</ul>
+<section id="pool-pool-operator">
+<h3>4.13.4.4.1 Pool 운영자 (POOL_OPERATOR)<a class="headerlink" href="#pool-pool-operator" title="Link to this heading"><span>#</span></a></h3>
+<ul class="simple">
+<li><p>인스턴스 제어 가능: <code class="docutils literal notranslate"><span class="pre">vm.power</span></code>, <code class="docutils literal notranslate"><span class="pre">vm.start</span></code>, <code class="docutils literal notranslate"><span class="pre">vm.stop</span></code>, <code class="docutils literal notranslate"><span class="pre">vm.console</span></code>, <code class="docutils literal notranslate"><span class="pre">vm:resource-modify</span></code></p></li>
+<li><p>네트워크/스토리지 조회 가능</p></li>
+<li><p>백업/스냅샷: 생성/조회/복구 가능, 삭제 불가</p></li>
+</ul>
+</section>
+<section id="pool-pool-admin">
+<h3>4.13.4.4.2 Pool 관리자 (POOL_ADMIN)<a class="headerlink" href="#pool-pool-admin" title="Link to this heading"><span>#</span></a></h3>
+<ul class="simple">
+<li><p>인스턴스/네트워크/스토리지 조회+수정(RU) 가능</p></li>
+<li><p>네트워크/스토리지 생성/삭제 불가</p></li>
+<li><p>백업/스냅샷: 생성/조회/복구/삭제 가능</p></li>
+</ul>
+</section>
+</section>
+<section id="id28">
+<h2>4.13.5 보안 관리<a class="headerlink" href="#id28" title="Link to this heading"><span>#</span></a></h2>
+<p><img alt="보안관리 메인" src="../_images/SecurityMain.png" /></p>
+<ul class="simple">
+<li><p><strong>보안 관리</strong> 기능은 시스템의 전반적인 보안 상태를 점검하고 정책을 중앙에서 통제하는 핵심 인프라 보안 기능입니다. 관리자는 상단의 5가지 탭**(식별·인증, 감사관리, 자체보호, 접근제어, 세션관리)**을 통해 시스템별로 세분화된 보안 설정을 제어할 수 있습니다.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="id29">
+<h2>4.13.5.1 식별·인증<a class="headerlink" href="#id29" title="Link to this heading"><span>#</span></a></h2>
+<section id="id30">
+<h3>4.13.5.1.1 패스워드 정책<a class="headerlink" href="#id30" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="패스워드 정책" src="../_images/Password.png" /></p>
+<blockquote>
+<div><p>시스템 내 모든 사용자 계정의 비밀번호 생성 규칙을 전역으로 강제하여, 취약한 비밀번호로 인한 계정 탈취 및 무작위 대입 공격을 예방하는 핵심 보안 설정입니다.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>비밀번호 길이:</strong> 비밀번호의 최소 및 최대 길이를 지정하여 기본적인 보안 강도를 확보합니다.</p></li>
+<li><p><strong>문자 조합(복잡도):</strong> 영문 대문자, 영문 소문자, 숫자, 특수문자 중 비밀번호에 반드시 포함되어야 할 필수 요소를 개별적으로 선택하여 복잡도를 강제할 수 있습니다.</p></li>
+<li><p><strong>취약 패턴 사용 제한:</strong> 동일 문자 반복이나 연속 문자와 같이 해킹에 취약하고 유추하기 쉬운 패턴이 비밀번호에 포함되지 않도록 엄격하게 차단합니다.</p></li>
+</ul>
+</section>
+<section id="id31">
+<h3>4.13.5.1.2 인증 실패 정책<a class="headerlink" href="#id31" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="패스워드 정책" src="../_images/PasswordFail.png" /></p>
+<blockquote>
+<div><p>악의적인 로그인 시도로부터 시스템과 사용자 계정을 안전하게 보호하기 위한 자동 차단 기능입니다.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>최대 실패 횟수:</strong> 연속으로 로그인을 실패하 수 있는 허용 기준치를 설정합니다. 사용자가 이 횟수를 초과하여 비밀번호를 틀릴 경우, 시스템 보호를 위해 해당 계정은 즉시 잠금 처리됩니다.</p></li>
+<li><p><strong>잠금 시간(분):</strong> 실패 횟수를 초과하여 잠겨버린 계정의 시스템 접근을 일시적으로 차단하는 시간을 분 단위로 지정합니다. 설정된 시간이 지나면 계정 잠금 상태가 자동으로 해제됩니다.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id32">
+<h2>4.13.5.2 감사관리<a class="headerlink" href="#id32" title="Link to this heading"><span>#</span></a></h2>
+<p><img alt="감사관리" src="../_images/log.png" /></p>
+<blockquote>
+<div><p>이 기능은 시스템의 감사 로그를 저장하는 공간이 가득 찼을 때, 시스템이 어떤 방식으로 대처할 지 관리자가 사전에 정책을 저장하는 기능입니다. 운영 중인 서비스의 성격과 보안 규정에 맞춰 두 가지 방식 중 하나를 선택할 수 있습니다.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>덮어 쓰기: 저장 공간이 꽉 차며느 가장 오래된 감사 로그부터 순차적으로 삭제하고 그 자리에 새로운 로그를 덮어써서 저장합니다.</p></li>
+<li><p>중단: 저장 공간이 부족해지면, 로그를 남길 수 없는 상태로 판단해 시스템의 운영을 즉시 중단합니다. 이후 관리자가 직접 개입할 때까지 대기합니다.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="id33">
+<h2>4.13.5.3 자체보호<a class="headerlink" href="#id33" title="Link to this heading"><span>#</span></a></h2>
+<section id="id34">
+<h3>4.13.5.3.1 보안 기능 자체시험 수행<a class="headerlink" href="#id34" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="자체시험" src="../_images/SelfTest.png" /></p>
+<blockquote>
+<div><p>시스템의 보안 기능에서 주요 프로세스가 정상적으로 동작하는지 실시간으로 검사하는 기능입니다.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>점검 대상</p>
+<ul>
+<li><p><strong>암호화 모듈:</strong> 사용자의 비밀번호나 중요 데이터가 정상적으로 암·복호화되고 있는지 확인합니다.</p></li>
+<li><p><strong>데이터베이스:</strong> DB 서버와의 연결 상태 및 데이터 읽기/쓰기 기능에 이상이 없는지 확인합니다.</p></li>
+<li><p><strong>Proxmox API:</strong> 가상화 인프라(Proxmox)를 제어하기 위한 API 통신이 정상적으로 이루어지고 있는지 확인합니다.</p></li>
+</ul>
+</li>
+<li><p><strong>사용 방법:</strong> 검사할 항목의 체크박스를 선택한 후, <strong>[자가 진단 시작]</strong> 버튼을 클릭하면 즉시 테스트가 수행됩니다.
+<img alt="자체시험" src="../_images/SelfTestSuccess.png" /></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="id35">
+<h3>4.13.5.3.2 자체시험 실패 시 대응 정책<a class="headerlink" href="#id35" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="자체시험" src="../_images/SelfTestFail.png" /></p>
+<blockquote>
+<div><p>시스템 내부에서 주기적으로, 또는 수동으로 수행된 자체시험에서 ‘실패(Error)’ 가 발생했을 때의 시스템 동작 방식을 설정합니다.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>경고 알림</strong></p>
+<ul>
+<li><p><strong>동작:</strong> 해당 모듈의 검사가 실패하더라도 <strong>시스템의 전체 운영은 그대로 유지</strong>됩니다. 대신, 관리자에게 즉시 장애 상황을 알림(로그 기록, 화면 표시 등)으로 경고합니다.</p></li>
+</ul>
+</li>
+<li><p><strong>시스템 차단 - 🚨 주의 요망</strong> - <strong>동작:</strong> 이 정책으로 설정된 모듈 중 **단 하나라도 검사에 실패할 경우, 2차 보안 사고나 데이터 오염을 막기 위해 즉시 ‘전체 시스템의 접근 및 동작이 전면 차단’**됩니다.
+VirtOn System Backup &amp; Restore 기능은 현재 구동 중인 가상머신(VM) 전체를 스냅샷 방식으로 이미지화하여 저장합니다. 운영체제(OS), 데이터베이스(DB), 애플리케이션 설정, 로그 파일 등 시스템의 모든 상태가 포함되므로, 랜섬웨어 감염이나 서버 장애 시 복구가 가능합니다.</p></li>
+</ul>
+</section>
+<section id="id36">
+<h3>4.13.5.3.3 시스템 차단 해제 절차<a class="headerlink" href="#id36" title="Link to this heading"><span>#</span></a></h3>
+<blockquote>
+<div><p>시스템 차단 정책으로 전체 접근이 잠긴 경우, 사전에 발급한 <strong>복구 시크릿(Recovery Secret)</strong> 으로만 차단을 해제할 수 있습니다.</p>
+</div></blockquote>
+<section id="id37">
+<h4>1) 복구 시크릿 발급<a class="headerlink" href="#id37" title="Link to this heading"><span>#</span></a></h4>
+<p><img alt="복구시크릿" src="../_images/system_block1.png" />
+<img alt="복구시크릿2" src="../_images/system_block2.png" /></p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">설정</span> <span class="pre">&gt;</span> <span class="pre">보안</span> <span class="pre">관리</span> <span class="pre">&gt;</span> <span class="pre">자체보호</span></code> 화면에서 <strong>[복구 시크릿 발급]</strong> 버튼을 클릭합니다.</p></li>
+<li><p>발급된 복구 시크릿은 <strong>화면에 1회만 표시</strong>되므로 즉시 확인하여 안전한 저장소(사내 비밀관리 시스템 등)에 보관합니다.</p></li>
+<li><p>복구 시크릿을 <strong>재발급하면 이전 시크릿은 즉시 폐기</strong>되어 사용할 수 없습니다.</p></li>
+</ol>
+</section>
+<section id="id38">
+<h4>2) 시스템 차단 해제<a class="headerlink" href="#id38" title="Link to this heading"><span>#</span></a></h4>
+<p><img alt="시스템 차단 해제" src="../_images/system_block_recovery.png" /></p>
+<ol class="arabic simple">
+<li><p>시스템이 차단된 상태에서 <code class="docutils literal notranslate"><span class="pre">시스템</span> <span class="pre">차단</span> <span class="pre">해제</span></code> 화면으로 이동합니다.</p></li>
+<li><p>발급받아 보관한 복구 시크릿을 입력하고 <strong>[차단 해제]</strong> 를 실행합니다.</p></li>
+<li><p>정상 해제 시 로그인 및 주요 기능 접근이 다시 가능해집니다.</p></li>
+<li><p>해제 후에는 실패 원인(자체시험 실패 항목)을 반드시 점검한 뒤 운영을 재개합니다.</p></li>
+</ol>
+<hr class="docutils" />
+<p><img alt="버트온 백업 메인 페이지 1" src="../_images/virton_backup_main.png" /></p>
+</section>
+</section>
+</section>
+<section id="id39">
+<h2>4.13.5.4 시작하기 전에 (권한 및 접근)<a class="headerlink" href="#id39" title="Link to this heading"><span>#</span></a></h2>
+<ul class="simple">
+<li><p><strong>접근 권한:</strong> 이 페이지는 시스템의 핵심 기능을 다루므로 관리자(ADMIN) 및 최고 관리자(SUPER_ADMIN) 권한을 가진 사용자만 접근할 수 있습니다.</p></li>
+<li><p><strong>백업 대상 선택:</strong></p>
+<ul>
+<li><p>VirtOn 시스템 전체 백업 및 복구를 사용하려면, 현재 VirtOn이 배포된 QEMU VM의 노드와 VMID를 먼저 등록해야 합니다.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="id40">
+<h2>4.13.5.4.1 백업 기능 활성화/비활성화<a class="headerlink" href="#id40" title="Link to this heading"><span>#</span></a></h2>
+<p>페이지 우측 상단의 토글 스위치를 통해 백업 기능을 제어할 수 있습니다.</p>
+<ul class="simple">
+<li><p><strong>활성화 (ON):</strong> 시스템 탐색을 수행하고 백업 설정 폼과 리스트를 불러옵니다.</p></li>
+<li><p><strong>비활성화 (OFF):</strong> 백업 기능을 끕니다. 비활성화 상태에서는 자동 백업 스케줄도 동작하지 않습니다.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="configuration">
+<h2>4.13.5.4.2 백업 정책 설정 (Configuration)<a class="headerlink" href="#configuration" title="Link to this heading"><span>#</span></a></h2>
+<p>중앙의 설정 패널에서 백업 저장 위치, 주기, 보존 기간을 설정할 수 있습니다. 설정을 변경한 후 반드시 우측의 <strong>[💾 정책 저장]</strong> 버튼을 눌러야 적용됩니다.</p>
+<section id="storage">
+<h3>백업 스토리지 선택 (Storage)<a class="headerlink" href="#storage" title="Link to this heading"><span>#</span></a></h3>
+<p>백업 파일이 물리적으로 저장될 디스크를 선택합니다.</p>
+<ul class="simple">
+<li><p>드롭다운을 열면 연결된 스토리지 목록과 잔여 용량이 표시됩니다.</p></li>
+<li><p>용량이 넉넉한 스토리지를 선택하는 것을 권장합니다.</p></li>
+</ul>
+</section>
+<section id="schedule">
+<h3>자동 백업 스케줄 설정 (Schedule)<a class="headerlink" href="#schedule" title="Link to this heading"><span>#</span></a></h3>
+<p>시스템이 자동으로 백업을 수행할 시간을 지정합니다.</p>
+<ul class="simple">
+<li><p><strong>사용 안 함:</strong> 자동 백업을 끕니다 (수동 백업만 가능).</p></li>
+<li><p><strong>매일/매주/매월:</strong> 트래픽이 적은 새벽 시간대(00:00, 02:00, 04:00 등)를 선택할 수 있습니다.</p></li>
+</ul>
+</section>
+<section id="retention">
+<h3>백업 보존 기간 설정 (Retention)<a class="headerlink" href="#retention" title="Link to this heading"><span>#</span></a></h3>
+<p>오래된 백업 파일이 디스크 용량을 차지하는 것을 방지합니다.</p>
+<ul class="simple">
+<li><p>입력한 일수(기본 30일)가 지난 백업 파일은 매일 새벽 3시에 자동으로 영구 삭제됩니다.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id41">
+<h2>4.13.5.4.3 백업 실행하기<a class="headerlink" href="#id41" title="Link to this heading"><span>#</span></a></h2>
+<p><img alt="백업 실행 이미지" src="../_images/virton_backup_run.png" /></p>
+<section id="manual-backup">
+<h3>▶ 수동 백업 (Manual Backup)<a class="headerlink" href="#manual-backup" title="Link to this heading"><span>#</span></a></h3>
+<p>긴급 점검 전이나 중요한 변경 사항 적용 전에 즉시 백업을 생성합니다.</p>
+<ol class="arabic simple">
+<li><p>상단의 [▷ 지금 새 백업 생성] 버튼을 클릭합니다.</p></li>
+<li><p>백업이 시작되면 상단에 진행률 게이지(Blue Bar)가 표시됩니다.</p></li>
+<li><p>백업은 Proxmox 백그라운드에서 진행되므로, 페이지를 이동해도 작업은 계속됩니다.</p></li>
+</ol>
+</section>
+<section id="id42">
+<h3>진행률 모니터링 및 중단<a class="headerlink" href="#id42" title="Link to this heading"><span>#</span></a></h3>
+<ul class="simple">
+<li><p>백업 또는 복구 작업이 진행 중일 때, 실시간 진행률(%)이 게이지에 표시됩니다.</p></li>
+<li><p>작업을 멈추고 싶다면 게이지 우측의 [X 중단] 버튼을 클릭하여 강제로 종료할 수 있습니다.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id43">
+<h2>4.13.5.4.4 백업 목록 관리 및 조회<a class="headerlink" href="#id43" title="Link to this heading"><span>#</span></a></h2>
+<p>하단의 테이블에서 저장된 모든 백업 파일을 확인하고 관리할 수 있습니다.</p>
+<section id="id44">
+<h3>필터링 (스토리지별 조회)<a class="headerlink" href="#id44" title="Link to this heading"><span>#</span></a></h3>
+<p>테이블 우측 상단의 드롭다운(Select Box)을 통해 특정 스토리지에 저장된 백업만 모아볼 수 있습니다.</p>
+<ul class="simple">
+<li><p><strong>모든 스토리지:</strong> 전체 백업 목록을 최신순으로 표시합니다.</p></li>
+<li><p><strong>개별 스토리지 (예: NAS):</strong> 해당 스토리지의 파일만 필터링합니다. 각 스토리지별 파일 개수도 함께 표시됩니다.</p></li>
+</ul>
+</section>
+<section id="id45">
+<h3>테이블 정보<a class="headerlink" href="#id45" title="Link to this heading"><span>#</span></a></h3>
+<ul class="simple">
+<li><p><strong>저장소 (Storage):</strong> 파일이 위치한 스토리지 이름 (뱃지 형태)</p></li>
+<li><p><strong>파일명:</strong> Proxmox 백업 파일명 (<code class="docutils literal notranslate"><span class="pre">vzdump-qemu-105...</span></code>)</p></li>
+<li><p><strong>생성 일시:</strong> 백업이 완료된 날짜와 시간</p></li>
+<li><p><strong>용량:</strong> 백업 파일의 크기 (GB 단위)</p></li>
+</ul>
+</section>
+<section id="id46">
+<h3>백업 삭제<a class="headerlink" href="#id46" title="Link to this heading"><span>#</span></a></h3>
+<ul class="simple">
+<li><p>필요 없는 백업 파일은 우측의 [삭제] 버튼(빨간색 휴지통 아이콘)을 눌러 지울 수 있습니다.</p></li>
+<li><p>삭제 시 확인 모달창이 뜨며, 승인하면 파일이 영구적으로 제거됩니다.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="restoration">
+<h2>4.13.5.4.5 시스템 복구 (Restoration)<a class="headerlink" href="#restoration" title="Link to this heading"><span>#</span></a></h2>
+<p>장애 발생 시 특정 시점의 백업 파일로 시스템을 되돌립니다.</p>
+<blockquote>
+<div><p>⚠️ 주의: 복구 방식 (Safe Clone Restore)</p>
+<p>VirtOn은 운영 중인 서버가 멈추는 것을 방지하기 위해 “새로운 가상머신(New VM)”을 생성하여 복구합니다. 기존 서버(105번)를 덮어쓰지 않으므로 안전합니다.</p>
+</div></blockquote>
+<p><img alt="백업 복원 완료" src="../_images/system_restore_message.png" /></p>
+<section id="id47">
+<h3>복구 절차<a class="headerlink" href="#id47" title="Link to this heading"><span>#</span></a></h3>
+<ol class="arabic simple">
+<li><p>백업 목록에서 원하는 시점의 파일 우측 [복구] 버튼(파란색 아이콘)을 클릭합니다.</p></li>
+<li><p>확인 알림창에서 내용을 숙지하고 [확인]을 누릅니다.</p></li>
+<li><p>상단 게이지를 통해 복구 진행률이 표시됩니다 (예: “안전하게 새로운 가상머신으로 시스템을 복원하고 있습니다…”).</p></li>
+<li><p><strong>복구가 100% 완료되면:</strong></p>
+<ul class="simple">
+<li><p>Proxmox에 새로운 번호(예: VM 106)를 가진 가상머신이 생성됩니다.</p></li>
+<li><p>관리자는 Proxmox 콘솔에서 기존 VM(예: 105번)을 끄고, 새 VM(예: 106번)을 켜서 서비스를 교체(Switching)합니다.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="troubleshooting">
+<h2>4.13.5.4.6 문제 해결 (Troubleshooting)<a class="headerlink" href="#troubleshooting" title="Link to this heading"><span>#</span></a></h2>
+<ul class="simple">
+<li><p><strong>백업 버튼이 비활성화 되어 있어요:</strong> 이미 백업이나 복구 작업이 진행 중인 경우, 중복 실행을 막기 위해 버튼이 잠깁니다. 작업이 끝날 때까지 기다리거나 [중단] 버튼을 눌러주세요.</p></li>
+<li><p><strong>게이지가 0%에서 멈춰 있어요:</strong> 대용량 스토리지의 경우 초기 공간 할당에 시간이 소요될 수 있습니다. 약 1~2분 정도 기다리면 정상적으로 숫자가 올라갑니다.</p></li>
+<li><p><strong>복구 후 접속이 안 돼요:</strong> 복구된 시스템은 새로운 VM입니다. IP 충돌 방지를 위해 기존 VM을 끄고 새 VM을 부팅했는지 확인해주세요.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="ip-ip-access-control">
+<h2>4.13.5.5 관리자 IP 접근 제어 (IP Access Control)<a class="headerlink" href="#ip-ip-access-control" title="Link to this heading"><span>#</span></a></h2>
+<p><img alt="관리자 IP 접근 제어 섹션 1" src="../_images/IP_Access_Control_1.png" /></p>
+<p>VirtOn은 외부 공격 및 비인가 접근을 방지하기 위해<br />
+IP 기반 접근 제어(화이트리스트 / 블랙리스트)를 제공합니다.</p>
+<section id="id48">
+<h3>4.13.5.5.1 보안 정책 (작동 원리)<a class="headerlink" href="#id48" title="Link to this heading"><span>#</span></a></h3>
+<p>시스템은 화이트리스트 등록 상태에 따라 자동으로 모드가 전환됩니다.</p>
+<section id="open-mode">
+<h4>개방 모드 (Open Mode)<a class="headerlink" href="#open-mode" title="Link to this heading"><span>#</span></a></h4>
+<ul class="simple">
+<li><p><strong>조건</strong>: 화이트리스트 IP가 0개일 경우</p></li>
+<li><p><strong>동작</strong>: 블랙리스트에 없는 모든 IP 접근 허용</p></li>
+</ul>
+</section>
+<section id="lockdown-mode">
+<h4>잠금 모드 (Lockdown Mode)<a class="headerlink" href="#lockdown-mode" title="Link to this heading"><span>#</span></a></h4>
+<ul class="simple">
+<li><p><strong>조건</strong>: 화이트리스트 IP가 1개 이상 등록될 경우</p></li>
+<li><p><strong>동작</strong>: 화이트리스트 IP만 접근 허용 (강력 보안)</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id49">
+<h3>4.13.5.5.2 주요 기능 사용법<a class="headerlink" href="#id49" title="Link to this heading"><span>#</span></a></h3>
+<section id="ip">
+<h4>4.13.5.5.2.1 내 IP 간편 등록 (권장)<a class="headerlink" href="#ip" title="Link to this heading"><span>#</span></a></h4>
+<p><img alt="관리자 IP 접근 제어 섹션 2" src="../_images/IP_Access_Control_2.png" /></p>
+<p>화이트리스트 최초 설정 시, 본인 IP 차단을 방지하기 위한 기능입니다.</p>
+<ol class="arabic simple">
+<li><p>상단 경고 배너 <strong>“현재 접속 중인 IP가 화이트리스트에 없습니다!”</strong> 확인</p></li>
+<li><p><strong>[내 IP 입력하기]</strong> 버튼 클릭</p></li>
+<li><p>자동 입력된 IP 확인 후 <strong>[추가]</strong> 클릭</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="id50">
+<h4>4.13.5.5.2.2 IP 직접 등록<a class="headerlink" href="#id50" title="Link to this heading"><span>#</span></a></h4>
+<ul class="simple">
+<li><p><strong>유형 선택</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">WHITELIST</span></code>: 허용 IP (관리자 PC, 사무실 IP)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BLACKLIST</span></code>: 차단 IP (공격 의심 IP 등)</p></li>
+</ul>
+</li>
+<li><p><strong>IP 주소</strong></p>
+<ul>
+<li><p>단일 IP만 허용</p></li>
+<li><p>예: <code class="docutils literal notranslate"><span class="pre">123.456.0.10</span></code></p></li>
+<li><p>❌ 와일드카드, CIDR(<code class="docutils literal notranslate"><span class="pre">192.168.0.0/24</span></code>) 불가</p></li>
+</ul>
+</li>
+<li><p><strong>메모</strong></p>
+<ul>
+<li><p>식별 가능한 설명 입력</p></li>
+<li><p>예: <code class="docutils literal notranslate"><span class="pre">OOO</span> <span class="pre">팀장</span> <span class="pre">자택</span></code></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="id51">
+<h4>4.13.5.5.2.3 IP 수정 및 삭제<a class="headerlink" href="#id51" title="Link to this heading"><span>#</span></a></h4>
+<p><img alt="관리자 IP 접근 제어 섹션 3" src="../_images/IP_Access_Control_3.png" /></p>
+<ul class="simple">
+<li><p><strong>IP 수정</strong> : 리스트 더블 클릭 혹은 펜슬 아이콘 클릭 시 사용 가능, 수정 방법은 IP 직접 등록과 동일</p></li>
+<li><p><strong>IP 삭제</strong> : 리스트 쓰레기통 아이콘 클릭 시 삭제 가능</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="ips">
+<h4>4.13.5.5.2.4 자동 차단 (IPS)<a class="headerlink" href="#ips" title="Link to this heading"><span>#</span></a></h4>
+<ul class="simple">
+<li><p>짧은 시간 내 반복 로그인 실패 IP는 자동 블랙리스트 등록</p></li>
+<li><p>오차단 시 목록에서 해당 IP를 찾아 <strong>[삭제]</strong> 버튼 클릭 시 즉시 해제</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="lockout">
+<h3>4.13.5.5.3 긴급 조치 가이드 (Lockout 상황)<a class="headerlink" href="#lockout" title="Link to this heading"><span>#</span></a></h3>
+<p>유일한 화이트리스트 IP 삭제 또는<br />
+등록되지 않은 위치에서의 긴급 접속이 필요한 경우 접근이 차단될 수 있습니다.</p>
+<p>이 경우 <strong>DB 관리자에게 직접 연락하여 조치</strong>를 받아야 합니다.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id52">
+<h2>4.13.5.6 세션관리<a class="headerlink" href="#id52" title="Link to this heading"><span>#</span></a></h2>
+<p><img alt="세션" src="../_images/Session.png" /></p>
+<blockquote>
+<div><p>이 기능은 시스템에 로그인한 사용자의 접속 유지 시간과 비활동 세션 관리 및 동시 접속 기기 수를 제어하여, 비인가자의 무단 접근이나 계정 공유로 인한 보안 사고를 방지하는 기능입니다.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>세션 타임아웃:</strong> 사용자가 로그인한 시점부터 계산하여, 설정한 시간이 경과하면 무조건 세션을 만료시키고 강제 로그아웃 처리하는 ‘최대 접속 허용 시간’을 설정합니다.</p></li>
+<li><p><strong>비활동 세션 종료 시간:</strong> 사용자가 활동한 시점부터 계산하여, 설정한 시간이 경과하면 세션을 만료시키고 강제 로그아웃 처리하는 ‘비활동 허용 시간’을 설정합니다.</p>
+<ol class="arabic simple">
+<li><p>활동을 인정하는 항목은 클릭, 키 입력, 포인터, 라우트 이동, 저장 요청, 보호된 API 호출 (단, 폴링 및 자동은 제외)</p></li>
+<li><p>비활동 세션 종료에 대한 불편함을 줄이기 위해 예외 역할 및 권한을 지정할 수 있습니다. 선택된 역할 및 선택된 해당 권한을 하나라도 가진 역할은 제외시킬 수 있습니다.</p></li>
+</ol>
+</li>
+<li><p><strong>동시 접속 세션 수 제한:</strong> 하나의 관리자 계정으로 동시에 여러 기기나 브라우저에서 로그인할 수 있는 최대 개수를 제한합니다.</p></li>
+<li><p>세션 관련 설정은 새로운 세션 기반이므로 바로 적용을 원한다면 <strong>로그아웃 후 다시 로그인</strong> 해주세요.</p></li>
+</ul>
+</section>
+<section id="id53">
+<h2>4.13.6 이메일 알림 설정<a class="headerlink" href="#id53" title="Link to this heading"><span>#</span></a></h2>
+<p><img alt="이메일 페이지 1" src="../_images/mail_setting_page1.png" /></p>
+<p><img alt="이메일 페이지 2" src="../_images/mail_setting_page2.png" /></p>
+<p>VirtOn 시스템에서 발생하는 중요한 보안 이벤트(예: 5회 이상 로그인 실패로 인한 계정 잠금, 디스크 용량 임계치 초과 등)를 즉각적으로 인지할 수 있도록 이메일 알림을 설정하는 공간입니다.</p>
+</section>
+<section id="id54">
+<h2>4.13.6.1 이메일 알림 비활성화 상태<a class="headerlink" href="#id54" title="Link to this heading"><span>#</span></a></h2>
+<p>시스템에 **전역 발송 서버(SMTP)**가 등록되지 않은 초기 상태에서는 개인 알림 이메일을 설정할 수 없도록 입력 폼이 비활성화됩니다.</p>
+<ul class="simple">
+<li><p><strong>조치 방법</strong>: SUPER_ADMIN 또는 ADMIN 권한을 가진 관리자가 하단의 **[전역 메일 발송 서버 (SMTP) 설정]**을 먼저 완료해야 합니다.</p></li>
+</ul>
+</section>
+<section id="id55">
+<h2>4.13.6.2 내 알림 이메일 설정 (모든 사용자 공통)<a class="headerlink" href="#id55" title="Link to this heading"><span>#</span></a></h2>
+<p>관리자에 의해 SMTP 서버가 정상적으로 연동되면, 모든 사용자는 본인의 보안 경고 및 시스템 알림을 수신할 이메일 주소를 등록할 수 있습니다.</p>
+<ol class="arabic simple">
+<li><p><strong>수신 이메일 주소 입력</strong>: 알림을 받을 본인의 실제 이메일 주소를 입력합니다. (예: alert&#64;virton.local)</p></li>
+<li><p><strong>[저장] 버튼 클릭</strong>: 이메일 주소를 시스템에 등록합니다.</p></li>
+<li><p><strong>[내 이메일로 테스트 발송] 클릭</strong>: 설정한 이메일로 알림이 정상적으로 수신되는지 즉시 테스트합니다.</p>
+<ul class="simple">
+<li><p>발송 성공 시 우측 상단에 완료 알림이 표출되며, 메일함에서 VirtOn 발송 테스트 메일을 확인할 수 있습니다.</p></li>
+</ul>
+</li>
+</ol>
+<p>💡 참고 &gt; 테스트 메일이 도착하지 않는다면 스팸 메일함을 먼저 확인해 주시고, 그래도 수신되지 않는다면 사내 메일 방화벽 문제일 수 있으므로 관리자에게 문의하세요.</p>
+</section>
+<section id="smtp">
+<h2>4.13.6.3 전역 메일 발송 서버 (SMTP) 설정 (관리자 전용)<a class="headerlink" href="#smtp" title="Link to this heading"><span>#</span></a></h2>
+<p>VirtOn 시스템이 알림 메일을 발송할 때 사용할 공용 우체국(메일 서버)을 설정하는 기능입니다. 이 구역은 보안을 위해 SUPER_ADMIN 및 ADMIN 권한을 가진 사용자에게만 노출됩니다.</p>
+<section id="id56">
+<h3>4.13.6.3.1 입력 항목 설명<a class="headerlink" href="#id56" title="Link to this heading"><span>#</span></a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>항목</p></th>
+<th class="head"><p>설명</p></th>
+<th class="head"><p>예시</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SMTP 호스트 (주소)</p></td>
+<td><p>이용 중인 메일 서버의 주소 (도메인 또는 IP)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">smtp.gmail.com</span></code>, <code class="docutils literal notranslate"><span class="pre">199.123.10.11</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>포트 (Port)</p></td>
+<td><p>메일 발송 포트 (보안 설정에 따라 다름)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">587</span> <span class="pre">(TLS)</span></code>, <code class="docutils literal notranslate"><span class="pre">465</span> <span class="pre">(SSL)</span></code>, <code class="docutils literal notranslate"><span class="pre">25</span> <span class="pre">등</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>계정 (선택)</p></td>
+<td><p>메일 서버 인증에 필요한 ID (내부망 릴레이의 경우 생략 가능)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">admin&#64;domain.com</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>비밀번호 (선택)</p></td>
+<td><p>메일 서버 인증 비밀번호 또는 앱 비밀번호</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>SSL/TLS 보안 연결</p></td>
+<td><p>암호화 통신 사용 여부 (체크 시 보안 강화)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">체크</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>발신자 표시명 (From)</p></td>
+<td><p>수신자의 메일함에 표시될 보내는 사람의 이름과 주소</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;VirtOn</span> <span class="pre">Alert&quot;</span> <span class="pre">&lt;noreply&#64;domain.com&gt;</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id57">
+<h3>4.13.6.3.2 적용 및 테스트 순서<a class="headerlink" href="#id57" title="Link to this heading"><span>#</span></a></h3>
+<ol class="arabic simple">
+<li><p>SMTP 서버 주소, 포트, 발신 계정, 인증정보를 입력합니다.</p></li>
+<li><p>TLS/STARTTLS 사용 여부를 운영 메일 서버 설정과 동일하게 맞춥니다.</p></li>
+<li><p>테스트 메일을 발송하여 수신 여부를 확인합니다.</p></li>
+<li><p>저장 후 인증 실패, 계정 잠금, 시스템 경고 등 보안 알림이 이메일로 발송되는지 확인합니다.</p></li>
+<li><p>사내 인프라 또는 외부 클라우드 메일 서비스(Google Workspace, AWS SES 등)의 SMTP 정보를 입력합니다.</p></li>
+<li><p>우측 하단의 [전역 서버 설정 저장] 버튼을 클릭하여 DB에 설정을 반영합니다.</p></li>
+<li><p>저장이 완료되면 상단의 [내 알림 이메일 설정] 폼이 즉시 활성화됩니다.</p></li>
+<li><p>상단 폼에 본인의 이메일을 입력하고 **[내 이메일로 테스트 발송]**을 클릭하여 서버 연동이 완벽하게 이루어졌는지 최종 검증합니다.</p></li>
+</ol>
+<p>🚨 주의 &gt; 전역 SMTP 설정을 잘못된 값으로 변경하면 전체 시스템의 보안 알림 발송이 중단됩니다. 설정 변경 시에는 반드시 [내 이메일로 테스트 발송] 기능을 통해 정상 작동 여부를 확인해 주시기 바랍니다.</p>
+</section>
+</section>
+<section id="id58">
+<h2>4.13.7 설정 기능 문제 해결 방법<a class="headerlink" href="#id58" title="Link to this heading"><span>#</span></a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>증상</strong></p></th>
+<th class="head"><p><strong>확인 항목</strong></p></th>
+<th class="head"><p><strong>조치 방법</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Proxmox API 저장 실패</p></td>
+<td><p>Host, Port, Token ID, Secret, 관리자 권한</p></td>
+<td><p>입력 형식과 토큰 권한을 확인하고 관리자 계정으로 다시 저장합니다.</p></td>
+</tr>
+<tr class="row-odd"><td><p>계정 생성 실패</p></td>
+<td><p>계정 ID 중복, 비밀번호 정책, 역할 선택</p></td>
+<td><p>중복 확인을 수행하고 비밀번호 정책을 모두 만족하는지 확인합니다.</p></td>
+</tr>
+<tr class="row-even"><td><p>권한 변경이 적용되지 않음</p></td>
+<td><p>역할 기본 권한, 개별 권한, Pool 범위</p></td>
+<td><p>역할 권한과 Pool 할당을 함께 확인하고 재로그인 후 적용 상태를 확인합니다.</p></td>
+</tr>
+<tr class="row-odd"><td><p>자체시험 실패</p></td>
+<td><p>실패 항목, 시스템 차단 상태, 감사 로그</p></td>
+<td><p>자체시험 결과와 감사 로그를 확인하고 차단 해제 절차를 수행합니다.</p></td>
+</tr>
+<tr class="row-even"><td><p>백업 실행 실패</p></td>
+<td><p>백업 스토리지, 보존 기간, 진행 중 작업</p></td>
+<td><p>스토리지 용량과 진행 중인 백업 작업을 확인합니다.</p></td>
+</tr>
+<tr class="row-odd"><td><p>IP 접근 차단으로 로그인 불가</p></td>
+<td><p>화이트리스트/블랙리스트, 긴급 조치 절차</p></td>
+<td><p>허용 IP를 확인하고 필요 시 긴급 조치 가이드에 따라 복구합니다.</p></td>
+</tr>
+<tr class="row-even"><td><p>이메일 발송 실패</p></td>
+<td><p>SMTP 서버, 포트, 인증정보, TLS 설정</p></td>
+<td><p>테스트 메일을 다시 발송하고 메일 서버 인증 방식과 방화벽을 확인합니다.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+
+
+                </article>
+
+
+
+
+
+
+                <footer class="prev-next-footer d-print-none">
+
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="13-notifications.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">이전</p>
+        <p class="prev-next-title"><strong>4.12 알림 (Notifications)</strong></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="15-troubleshooting.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">다음</p>
+        <p class="prev-next-title"><strong>5. 문제 해결 방법</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+
+            </div>
+
+
+
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 내용
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">사용 전 확인사항</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proxmox-api">4.13.1 Proxmox API 연결 설정</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">4.13.1.1 입력 항목 설명</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4.13.1.2 설정 수정</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#api">4.13.1.3 API 장애 대응</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">4.13.2 계정 관리</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">4.13.2.1 계정 추가</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">4.13.2.2 역할 선택</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">4.13.2.3 비밀번호</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">4.13.2.4 관리</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">4.13.2.4.1 비밀번호 변경</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">4.13.2.4.2 역할 변경</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">4.13.2.4.3 비밀번호 리셋</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">4.13.2.4.4 삭제</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">4.13.3 권한 관리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#role">4.13.3.1 역할(Role)별 기본 권한 리스트(기능 허용범위)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">4.13.3.1.1 각 계정의 역할별 기본 권한 할당</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">4.13.3.2 역할 권한 추가, 삭제</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">4.13.3.2.1 기본 권한 삭제(관리자만)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">4.13.3.2.2 기본 권한 추가(관리자만)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#custom">4.13.3.2.3 CUSTOM 계정</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">4.13.3.3 관리자 외 권한 관리 제어 금지</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pool">4.13.4 Pool 관리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">4.13.4.1 Pool 생성 및 목록</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">4.13.4.1.1 새 Pool 생성</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">4.13.4.1.2 목록에서 확인 가능한 정보</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">4.13.4.2 주요 관리 작업</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">4.13.4.2.1 리소스 연결</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">4.13.4.2.2 리소스 해제</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">4.13.4.2.3 사용자 역할 할당/해제</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">4.13.4.3 Pool 삭제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">4.13.4.4 Pool 역할별 접근 및 제어 범위</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pool-pool-operator">4.13.4.4.1 Pool 운영자 (POOL_OPERATOR)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pool-pool-admin">4.13.4.4.2 Pool 관리자 (POOL_ADMIN)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">4.13.5 보안 관리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">4.13.5.1 식별·인증</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">4.13.5.1.1 패스워드 정책</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id31">4.13.5.1.2 인증 실패 정책</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id32">4.13.5.2 감사관리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id33">4.13.5.3 자체보호</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id34">4.13.5.3.1 보안 기능 자체시험 수행</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id35">4.13.5.3.2 자체시험 실패 시 대응 정책</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id36">4.13.5.3.3 시스템 차단 해제 절차</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id37">1) 복구 시크릿 발급</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id38">2) 시스템 차단 해제</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id39">4.13.5.4 시작하기 전에 (권한 및 접근)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id40">4.13.5.4.1 백업 기능 활성화/비활성화</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">4.13.5.4.2 백업 정책 설정 (Configuration)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#storage">백업 스토리지 선택 (Storage)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#schedule">자동 백업 스케줄 설정 (Schedule)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#retention">백업 보존 기간 설정 (Retention)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id41">4.13.5.4.3 백업 실행하기</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manual-backup">▶ 수동 백업 (Manual Backup)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id42">진행률 모니터링 및 중단</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id43">4.13.5.4.4 백업 목록 관리 및 조회</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id44">필터링 (스토리지별 조회)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id45">테이블 정보</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id46">백업 삭제</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restoration">4.13.5.4.5 시스템 복구 (Restoration)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id47">복구 절차</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting">4.13.5.4.6 문제 해결 (Troubleshooting)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ip-ip-access-control">4.13.5.5 관리자 IP 접근 제어 (IP Access Control)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id48">4.13.5.5.1 보안 정책 (작동 원리)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#open-mode">개방 모드 (Open Mode)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lockdown-mode">잠금 모드 (Lockdown Mode)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id49">4.13.5.5.2 주요 기능 사용법</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ip">4.13.5.5.2.1 내 IP 간편 등록 (권장)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id50">4.13.5.5.2.2 IP 직접 등록</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id51">4.13.5.5.2.3 IP 수정 및 삭제</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ips">4.13.5.5.2.4 자동 차단 (IPS)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lockout">4.13.5.5.3 긴급 조치 가이드 (Lockout 상황)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id52">4.13.5.6 세션관리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id53">4.13.6 이메일 알림 설정</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id54">4.13.6.1 이메일 알림 비활성화 상태</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id55">4.13.6.2 내 알림 이메일 설정 (모든 사용자 공통)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smtp">4.13.6.3 전역 메일 발송 서버 (SMTP) 설정 (관리자 전용)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id56">4.13.6.3.1 입력 항목 설명</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id57">4.13.6.3.2 적용 및 테스트 순서</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id58">4.13.7 설정 기능 문제 해결 방법</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+
+
+          </div>
+          <footer class="bd-footer-content">
+
+<div class="bd-footer-content__inner container">
+
+  <div class="footer-item">
+
+<p class="component-author">
+으로 phum
+</p>
+
+  </div>
+
+  <div class="footer-item">
+
+
+  <p class="copyright">
+
+      © Copyright 2025, phum.
+      <br/>
+
+  </p>
+
+  </div>
+
+  <div class="footer-item">
+
+  </div>
+
+  <div class="footer-item">
+
+  </div>
+
+</div>
+          </footer>
+
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
