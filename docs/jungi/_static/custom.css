@@ -518,6 +518,20 @@ html[data-theme="dark"] {
   color: var(--virton-link);
 }
 
+.bd-content .toctree-wrapper a,
+.bd-content .toctree-wrapper a:visited,
+.bd-content .toctree-wrapper a strong {
+  color: var(--virton-text, #222222) !important;
+}
+
+.bd-content .toctree-wrapper a:hover,
+.bd-content .toctree-wrapper a:hover strong,
+.bd-content .toctree-wrapper a:focus,
+.bd-content .toctree-wrapper a:focus strong {
+  color: var(--link-hover-color, #58a6ff) !important;
+  text-decoration: underline;
+}
+
 .bd-content code {
   color: var(--virton-heading);
   background: var(--virton-code-bg);
