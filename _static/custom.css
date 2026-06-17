@@ -450,3 +450,110 @@ footer a:focus svg {
   font-size: 0.82rem !important;
   line-height: 1.25 !important;
 }
+
+/* =========================
+   Light / dark mode contrast fixes
+   ========================= */
+
+html[data-theme="light"] {
+  --virton-text: #222222;
+  --virton-heading: #111111;
+  --virton-muted: #4b5563;
+  --virton-link: #1f4f9f;
+  --virton-border: #2f3742;
+  --virton-table-bg: #ffffff;
+  --virton-table-head-bg: #f8f8f8;
+  --virton-code-bg: #f5f5f5;
+  --virton-code-border: #eeeeee;
+}
+
+html[data-theme="dark"] {
+  --pst-color-background: #101214;
+  --pst-color-on-background: #e6edf3;
+  --pst-color-surface: #15191d;
+  --pst-color-on-surface: #e6edf3;
+  --pst-color-text-base: #e6edf3;
+  --pst-color-text-muted: #aeb8c5;
+  --pst-color-border: #3b4654;
+  --virton-text: #e6edf3;
+  --virton-heading: #f4f7fb;
+  --virton-muted: #c3ccd8;
+  --virton-link: #7db7ff;
+  --virton-border: #586574;
+  --virton-table-bg: #161b22;
+  --virton-table-head-bg: #202733;
+  --virton-code-bg: #1d2430;
+  --virton-code-border: #3b4654;
+}
+
+.bd-content,
+.bd-article,
+.bd-content p,
+.bd-content li,
+.bd-content span,
+.bd-content strong,
+.bd-content em {
+  color: var(--virton-text);
+}
+
+.bd-content h1,
+.bd-content h2,
+.bd-content h3,
+.bd-content h4,
+.bd-content h5,
+.bd-content h6 {
+  color: var(--virton-heading);
+}
+
+.bd-content h4,
+.bd-content h5,
+.bd-content h6,
+.bd-sidebar-primary,
+.bd-sidebar-secondary,
+.bd-toc-nav {
+  color: var(--virton-muted);
+}
+
+.bd-content a {
+  color: var(--virton-link);
+}
+
+.bd-content code {
+  color: var(--virton-heading);
+  background: var(--virton-code-bg);
+}
+
+.bd-content pre {
+  color: var(--virton-text);
+  background: var(--virton-code-bg);
+  border-color: var(--virton-code-border);
+}
+
+.bd-content table th,
+.bd-content table td {
+  color: var(--virton-text);
+  border-color: var(--virton-border);
+}
+
+.bd-content table th {
+  background: var(--virton-table-head-bg);
+}
+
+.bd-content table td {
+  background-color: var(--virton-table-bg);
+}
+
+html[data-theme="dark"] .bd-content,
+html[data-theme="dark"] .bd-article,
+html[data-theme="dark"] .bd-main,
+html[data-theme="dark"] .bd-page-width {
+  background: var(--pst-color-background);
+}
+
+html[data-theme="dark"] .theme-switch-button .theme-switch[data-mode="auto"] {
+  display: none !important;
+}
+
+html[data-theme="light"] .theme-switch-button .theme-switch[data-mode="auto"] {
+  display: none !important;
+}

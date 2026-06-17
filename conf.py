@@ -30,6 +30,7 @@ language = 'ko'
 html_theme = 'sphinx_book_theme'
 html_static_path = ['_static']
 html_css_files = ['custom.css']
+html_js_files = ['theme-toggle.js']
 html_permalinks_icon = '<span>#</span>'
 html_favicon = "_static/favicon.png"
 html_theme_options = {
