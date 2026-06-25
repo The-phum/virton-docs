@@ -1,11 +1,10 @@
-# **4. 제품 기능 및 사용 방법**
+# **3. VirtOn 사용하기**
 
-본 장은 VirtOn에서 제공하는 주요 기능과 사용 방법을 설명합니다. 각 기능은 관리자 또는 사용자 권한에 따라 표시 범위와 실행 가능 여부가 달라질 수 있습니다.
+대시보드에서 시스템 상태를 확인하고 VM/CT, 클러스터, 스토리지, 네트워크 등 가상화 자원을 관리하는 방법을 안내합니다. 계정과 보안 정책은 [보안 및 계정 관리](security-management.md)에서 확인하세요.
 
 ```{toctree}
 :maxdepth: 2
 
-2-login
 3-dashboard
 4-hostShell
 5-instances
@@ -16,6 +15,4 @@
 10-resources
 11-storage
 12-network
-13-notifications
-14-settings
 ```
