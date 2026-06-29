@@ -8,21 +8,21 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4.11 네트워크 (Network) &#8212; virton 1.1 문서</title>
-
-
-
+    <title>3.10 네트워크 (Network) &#8212; virton 1.1 문서</title>
+  
+  
+  
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-
+  
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 <link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-
+  
   <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
@@ -30,8 +30,8 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=ff96cc0" />
-
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=66027e61" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
@@ -43,39 +43,38 @@
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../_static/translations.js?v=e33e7ba0"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'main/12-network';</script>
-    <script src="../_static/theme-toggle.js?v=036f6176"></script>
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="색인" href="../genindex.html" />
     <link rel="search" title="검색" href="../search.html" />
-    <link rel="next" title="4.12 알림 (Notifications)" href="13-notifications.html" />
-    <link rel="prev" title="4.10 스토리지 (Storage)" href="11-storage.html" />
+    <link rel="next" title="4. 보안 및 계정 관리" href="security-management.html" />
+    <link rel="prev" title="3.9 스토리지 (Storage)" href="11-storage.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ko"/>
   </head>
-
-
+  
+  
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-
-
+  
+  
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-
+  
   <div id="pst-scroll-pixel-helper"></div>
-
+  
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-
+  
   <input type="checkbox"
           class="sidebar-toggle"
           id="pst-primary-sidebar-checkbox"/>
   <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-
+  
   <input type="checkbox"
           class="sidebar-toggle"
           id="pst-secondary-sidebar-checkbox"/>
   <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-
+  
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
     <div class="search-button__search-container">
@@ -101,49 +100,49 @@
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
 
-
+  
     <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
-
+  
 
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
-
-
-
+      
+      
+      
       <div class="bd-sidebar-primary bd-sidebar">
+        
 
-
-
+  
   <div class="sidebar-header-items sidebar-primary__section">
-
-
-
-
+    
+    
+    
+    
   </div>
-
+  
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
-
-
-
+  
+    
+  
 
 <a class="navbar-brand logo" href="../index.html">
-
-
-
-
-
-
-
-
-
-
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
     <img src="../_static/logo.png" class="logo__image only-light" alt="virton 1.1 문서 - Home"/>
     <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="virton 1.1 문서 - Home"/>`);</script>
-
-
+  
+  
 </a></div>
         <div class="sidebar-primary-item">
 
@@ -158,29 +157,44 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">버트온 사용자 매뉴얼 및 제품 설명서</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">버트온 사용자 매뉴얼</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">VirtOn</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="1-introduction.html"><strong>1. 개요</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="2-product-introduction.html"><strong>2. 제품 소개</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="3-installation.html"><strong>3. 설치 및 배포</strong></a></li>
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="4-features.html"><strong>4. 제품 기능 및 사용 방법</strong></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="2-login.html"><strong>4.1 로그인 및 초기 설정 (Login)</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="3-dashboard.html"><strong>4.2 대시보드 (Dashboard)</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="4-hostShell.html"><strong>4.3 셸 (Shell)</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="5-instances.html"><strong>4.4 인스턴스 (Instances)</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="6-cluster.html"><strong>4.5 클러스터 (Cluster)</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="7-ceph.html"><strong>4.6 Ceph</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="8-ha.html"><strong>4.7 고가용성 (HA - High Availability)</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="9-template.html"><strong>4.8 템플릿 (Template)/마이그레이션 (Migrate)</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="10-resources.html"><strong>4.9 리소스 (Resources)</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="11-storage.html"><strong>4.10 스토리지 (Storage)</strong></a></li>
-<li class="toctree-l3 current active"><a class="current reference internal" href="#"><strong>4.11 네트워크 (Network)</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="13-notifications.html"><strong>4.12 알림 (Notifications)</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="14-settings.html"><strong>4.13 설정 (Settings)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="1-introduction.html"><strong>1. 시작하기</strong></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="3-installation.html"><strong>2. 설치 및 초기 설정</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation-preparation.html"><strong>2.1 설치 준비</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="product-installation.html"><strong>2.2 제품 설치</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="post-install-check.html"><strong>2.3 설치 후 정상 동작 확인</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="2-login.html"><strong>2.4 로그인 및 초기 연결</strong></a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="15-troubleshooting.html"><strong>5. 문제 해결 방법</strong></a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="4-features.html"><strong>3. VirtOn 사용하기</strong></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="3-dashboard.html"><strong>3.1 대시보드 (Dashboard)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="4-hostShell.html"><strong>3.2 셸 (Shell)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="5-instances.html"><strong>3.3 인스턴스 (Instances)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="6-cluster.html"><strong>3.4 클러스터 (Cluster)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="7-ceph.html"><strong>3.5 Ceph</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="8-ha.html"><strong>3.6 고가용성 (HA - High Availability)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="9-template.html"><strong>3.7 템플릿 (Template)/마이그레이션 (Migrate)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="10-resources.html"><strong>3.8 리소스 (Resources)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="11-storage.html"><strong>3.9 스토리지 (Storage)</strong></a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#"><strong>3.10 네트워크 (Network)</strong></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="security-management.html"><strong>4. 보안 및 계정 관리</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="13-notifications.html"><strong>4.1 알림 (Notifications)</strong></a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="14-settings.html"><strong>4.2 설정 (Settings)</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="settings/proxmox-api.html">Proxmox API 관리</a></li>
+<li class="toctree-l4"><a class="reference internal" href="settings/accounts.html">계정 관리</a></li>
+<li class="toctree-l4"><a class="reference internal" href="settings/security.html">보안 관리</a></li>
+<li class="toctree-l4"><a class="reference internal" href="settings/smtp.html">SMTP설정</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="15-troubleshooting.html"><strong>5. 문제 해결</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="2-product-introduction.html"><strong>6. 제품 정보 및 사양</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html"><strong>7. 용어 및 개념</strong></a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../pbs/index.html">VirtOn PBS (미적용)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -211,39 +225,39 @@
     </div>
 </nav></div>
     </div>
-
-
+  
+  
   <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
-
+  
   <div id="rtd-footer-container"></div>
 
 
       </div>
-
+      
       <main id="main-content" class="bd-main" role="main">
-
-
+        
+        
 
 <div class="sbt-scroll-pixel-helper"></div>
 
           <div class="bd-content">
             <div class="bd-article-container">
-
+              
               <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
-
+  
     <div class="header-article-items__start">
-
+      
         <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
 </button></div>
-
+      
     </div>
-
-
+  
+  
     <div class="header-article-items__end">
-
+      
         <div class="header-article-item">
 
 <div class="article-header-buttons">
@@ -257,15 +271,15 @@
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
-
-
-
+      
+      
+      
       <li><a href="../_sources/main/12-network.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="소스 파일 다운로드"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
-
+  
 
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
@@ -273,17 +287,17 @@
 <span class="btn__text-container">.md</span>
 </a>
 </li>
-
-
-
-
+      
+      
+      
+      
       <li>
 <button onclick="window.print()"
   class="btn btn-sm btn-download-pdf-button dropdown-item"
   title="PDF로 인쇄"
   data-bs-placement="left" data-bs-toggle="tooltip"
 >
-
+  
 
 <span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
@@ -291,7 +305,7 @@
 <span class="btn__text-container">.pdf</span>
 </button>
 </li>
-
+      
   </ul>
 </div>
 
@@ -303,7 +317,7 @@
   title="전체 화면으로보기"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
-
+  
 
 <span class="btn__icon-container">
   <i class="fas fa-expand"></i>
@@ -335,51 +349,51 @@ document.write(`
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
-
+      
     </div>
-
+  
 </div>
 </div>
-
-
+              
+              
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>4.11 네트워크 (Network)</h1>
+    <h1>3.10 네트워크 (Network)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
-
+            
             <div>
                 <h2> 내용 </h2>
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">사용 전 확인사항</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">4.11.1 네트워크 인터페이스 설정</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4.11.2 인터페이스 관리 - 새 인터페이스(네트워크) 생성</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bridge">4.11.2.1 Bridge 타입</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.10.1 네트워크 인터페이스 설정</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.10.2 인터페이스 관리 - 새 인터페이스(네트워크) 생성</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bridge">3.10.2.1 Bridge 타입</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">공통 입력값 기준</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vlan">4.11.2.2 VLAN 타입</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bond">4.11.2.3 Bond 타입</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vlan">3.10.2.2 VLAN 타입</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bond">3.10.2.3 Bond 타입</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-configuration">4.11.2.4 변경 적용 - Apply Configuration <strong>[ 🔄 변경 적용 ]</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edit">4.11.2.5 네트워크 수정 - Edit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remove">4.11.2.6 네트워크 삭제 - Remove 🗑️</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">4.11.3 문제 해결 방법</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-configuration">3.10.2.4 변경 적용 - Apply Configuration <strong>[ 🔄 변경 적용 ]</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edit">3.10.2.5 네트워크 수정 - Edit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remove">3.10.2.6 네트워크 삭제 - Remove 🗑️</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">3.10.3 문제 해결 방법</a></li>
 </ul>
             </nav>
         </div>
     </div>
 </div>
 
-
-
+              
+                
 <div id="searchbox"></div>
                 <article class="bd-article">
-
+                  
   <section id="network">
-<h1><strong>4.11 네트워크 (Network)</strong><a class="headerlink" href="#network" title="Link to this heading"><span>#</span></a></h1>
+<h1><strong>3.10 네트워크 (Network)</strong><a class="headerlink" href="#network" title="Link to this heading"><span>#</span></a></h1>
 <p>네트워크 관리 기능은 <strong>서버의 물리적 인터페이스와 가상 머신(VM) 간의 통신 경로를 통합적으로 설정하고 제어</strong>하는 도구입니다. 복잡한 리눅스 네트워크 구성을 GUI 환경에서 직관적으로 관리하여 인프라의 통신 안정성을 확보합니다.</p>
 <p><img alt="네트워크 관리" src="../_images/network_main.png" /></p>
 <section id="id1">
@@ -408,7 +422,7 @@ document.write(`
 </div>
 </section>
 <section id="id2">
-<h2>4.11.1 네트워크 인터페이스 설정<a class="headerlink" href="#id2" title="Link to this heading"><span>#</span></a></h2>
+<h2>3.10.1 네트워크 인터페이스 설정<a class="headerlink" href="#id2" title="Link to this heading"><span>#</span></a></h2>
 <ul class="simple">
 <li><p>네트워크 인터페이스는 <strong>구성되어 있는 클러스터의 첫번 째 노드의 인터페이스</strong> 부터 로드 됩니다.</p></li>
 <li><p>**구성되어 있는 클러스터(노드)**를 선택 후 <strong>해당 노드의 네트워크 인터페이스 목록 조회</strong>가 가능합니다.</p></li>
@@ -416,10 +430,10 @@ document.write(`
 </ul>
 </section>
 <section id="id3">
-<h2>4.11.2 인터페이스 관리 - 새 인터페이스(네트워크) 생성<a class="headerlink" href="#id3" title="Link to this heading"><span>#</span></a></h2>
+<h2>3.10.2 인터페이스 관리 - 새 인터페이스(네트워크) 생성<a class="headerlink" href="#id3" title="Link to this heading"><span>#</span></a></h2>
 <p><img alt="네트워크 생성 브릿지" src="../_images/network_bridge.png" /></p>
 <section id="bridge">
-<h3>4.11.2.1 Bridge 타입<a class="headerlink" href="#bridge" title="Link to this heading"><span>#</span></a></h3>
+<h3>3.10.2.1 Bridge 타입<a class="headerlink" href="#bridge" title="Link to this heading"><span>#</span></a></h3>
 <ul class="simple">
 <li><p><strong>인터페이스 이름</strong></p>
 <ul>
@@ -492,7 +506,7 @@ document.write(`
 <p><img alt="네트워크 생성 vlan" src="../_images/network_vlan.png" /></p>
 </section>
 <section id="vlan">
-<h3>4.11.2.2 VLAN 타입<a class="headerlink" href="#vlan" title="Link to this heading"><span>#</span></a></h3>
+<h3>3.10.2.2 VLAN 타입<a class="headerlink" href="#vlan" title="Link to this heading"><span>#</span></a></h3>
 <ul class="simple">
 <li><p><strong>인터페이스 이름</strong></p>
 <ul>
@@ -546,7 +560,7 @@ document.write(`
 <p><img alt="네트워크 생성 본드" src="../_images/network_bond.png" /></p>
 </section>
 <section id="bond">
-<h3>4.11.2.3 Bond 타입<a class="headerlink" href="#bond" title="Link to this heading"><span>#</span></a></h3>
+<h3>3.10.2.3 Bond 타입<a class="headerlink" href="#bond" title="Link to this heading"><span>#</span></a></h3>
 <ul class="simple">
 <li><p><strong>인터페이스 이름</strong></p>
 <ul>
@@ -610,7 +624,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="apply-configuration">
-<h2>4.11.2.4 변경 적용 - Apply Configuration <strong>[ 🔄 변경 적용 ]</strong><a class="headerlink" href="#apply-configuration" title="Link to this heading"><span>#</span></a></h2>
+<h2>3.10.2.4 변경 적용 - Apply Configuration <strong>[ 🔄 변경 적용 ]</strong><a class="headerlink" href="#apply-configuration" title="Link to this heading"><span>#</span></a></h2>
 <p><img alt="네트워크 비활성화" src="../_images/network_deactivate.png" /></p>
 <ul class="simple">
 <li><p><strong>네트워크 생성시 비활성화 상태로 표시됩니다.</strong></p></li>
@@ -632,7 +646,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="edit">
-<h2>4.11.2.5 네트워크 수정 - Edit<a class="headerlink" href="#edit" title="Link to this heading"><span>#</span></a></h2>
+<h2>3.10.2.5 네트워크 수정 - Edit<a class="headerlink" href="#edit" title="Link to this heading"><span>#</span></a></h2>
 <p><img alt="네트워크 수정" src="../_images/network_edit.png" /></p>
 <ul class="simple">
 <li><p><strong>각 네트워크 인터페이스 우측에 수정, 삭제 버튼이 있습니다.</strong></p></li>
@@ -657,7 +671,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="remove">
-<h2>4.11.2.6 네트워크 삭제 - Remove 🗑️<a class="headerlink" href="#remove" title="Link to this heading"><span>#</span></a></h2>
+<h2>3.10.2.6 네트워크 삭제 - Remove 🗑️<a class="headerlink" href="#remove" title="Link to this heading"><span>#</span></a></h2>
 <ol class="arabic">
 <li><p>해당 네트워크의 삭제버튼 클릭 시 확인 알림창이 표시 됩니다.</p>
 <p><img alt="네트워크 삭제" src="../_images/network_remove.png" /></p>
@@ -671,7 +685,7 @@ document.write(`
 </ol>
 </section>
 <section id="id5">
-<h2>4.11.3 문제 해결 방법<a class="headerlink" href="#id5" title="Link to this heading"><span>#</span></a></h2>
+<h2>3.10.3 문제 해결 방법<a class="headerlink" href="#id5" title="Link to this heading"><span>#</span></a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>증상</strong></p></th>
@@ -712,14 +726,14 @@ document.write(`
 
 
                 </article>
+              
 
-
-
-
-
-
+              
+              
+              
+              
                 <footer class="prev-next-footer d-print-none">
-
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="11-storage.html"
@@ -727,25 +741,25 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">이전</p>
-        <p class="prev-next-title"><strong>4.10 스토리지 (Storage)</strong></p>
+        <p class="prev-next-title"><strong>3.9 스토리지 (Storage)</strong></p>
       </div>
     </a>
     <a class="right-next"
-       href="13-notifications.html"
+       href="security-management.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">다음</p>
-        <p class="prev-next-title"><strong>4.12 알림 (Notifications)</strong></p>
+        <p class="prev-next-title"><strong>4. 보안 및 계정 관리</strong></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
-
+              
             </div>
-
-
-
+            
+            
+              
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
@@ -756,65 +770,65 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">사용 전 확인사항</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">4.11.1 네트워크 인터페이스 설정</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">4.11.2 인터페이스 관리 - 새 인터페이스(네트워크) 생성</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bridge">4.11.2.1 Bridge 타입</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.10.1 네트워크 인터페이스 설정</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.10.2 인터페이스 관리 - 새 인터페이스(네트워크) 생성</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bridge">3.10.2.1 Bridge 타입</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">공통 입력값 기준</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vlan">4.11.2.2 VLAN 타입</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bond">4.11.2.3 Bond 타입</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vlan">3.10.2.2 VLAN 타입</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bond">3.10.2.3 Bond 타입</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-configuration">4.11.2.4 변경 적용 - Apply Configuration <strong>[ 🔄 변경 적용 ]</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edit">4.11.2.5 네트워크 수정 - Edit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remove">4.11.2.6 네트워크 삭제 - Remove 🗑️</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">4.11.3 문제 해결 방법</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-configuration">3.10.2.4 변경 적용 - Apply Configuration <strong>[ 🔄 변경 적용 ]</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edit">3.10.2.5 네트워크 수정 - Edit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remove">3.10.2.6 네트워크 삭제 - Remove 🗑️</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">3.10.3 문제 해결 방법</a></li>
 </ul>
   </nav></div>
 
 </div></div>
-
-
+              
+            
           </div>
           <footer class="bd-footer-content">
-
+            
 <div class="bd-footer-content__inner container">
-
+  
   <div class="footer-item">
-
+    
 <p class="component-author">
 으로 phum
 </p>
 
   </div>
-
+  
   <div class="footer-item">
-
+    
 
   <p class="copyright">
-
+    
       © Copyright 2025, phum.
       <br/>
-
+    
   </p>
 
   </div>
-
+  
   <div class="footer-item">
-
+    
   </div>
-
+  
   <div class="footer-item">
-
+    
   </div>
-
+  
 </div>
           </footer>
-
+        
 
       </main>
     </div>
   </div>
-
+  
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
   <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
 <script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>

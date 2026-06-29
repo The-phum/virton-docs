@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1. 시작하기 &#8212; virton 1.1 문서</title>
+    <title>4. 보안 및 계정 관리 &#8212; virton 1.1 문서</title>
   
   
   
@@ -42,12 +42,12 @@
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../_static/translations.js?v=e33e7ba0"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'main/1-introduction';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'main/security-management';</script>
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="색인" href="../genindex.html" />
     <link rel="search" title="검색" href="../search.html" />
-    <link rel="next" title="2. 설치 및 초기 설정" href="3-installation.html" />
-    <link rel="prev" title="VirtOn" href="index.html" />
+    <link rel="next" title="4.1 알림 (Notifications)" href="13-notifications.html" />
+    <link rel="prev" title="3.10 네트워크 (Network)" href="12-network.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ko"/>
   </head>
@@ -160,7 +160,7 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">버트온 사용자 매뉴얼</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">VirtOn</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#"><strong>1. 시작하기</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="1-introduction.html"><strong>1. 시작하기</strong></a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="3-installation.html"><strong>2. 설치 및 초기 설정</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="installation-preparation.html"><strong>2.1 설치 준비</strong></a></li>
 <li class="toctree-l3"><a class="reference internal" href="product-installation.html"><strong>2.2 제품 설치</strong></a></li>
@@ -181,7 +181,7 @@
 <li class="toctree-l3"><a class="reference internal" href="12-network.html"><strong>3.10 네트워크 (Network)</strong></a></li>
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="security-management.html"><strong>4. 보안 및 계정 관리</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#"><strong>4. 보안 및 계정 관리</strong></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="13-notifications.html"><strong>4.1 알림 (Notifications)</strong></a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="14-settings.html"><strong>4.2 설정 (Settings)</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="settings/proxmox-api.html">Proxmox API 관리</a></li>
@@ -274,7 +274,7 @@
       
       
       
-      <li><a href="../_sources/main/1-introduction.md" target="_blank"
+      <li><a href="../_sources/main/security-management.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="소스 파일 다운로드"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -358,7 +358,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>1. 시작하기</h1>
+    <h1>4. 보안 및 계정 관리</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -368,9 +368,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>1.1 처음 사용하는 관리자</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>1.2 기존 사용자</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>1.3 사용 전 확인사항</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>먼저 확인하세요</strong></a></li>
 </ul>
             </nav>
         </div>
@@ -383,62 +381,66 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="id1">
-<h1><strong>1. 시작하기</strong><a class="headerlink" href="#id1" title="Link to this heading"><span>#</span></a></h1>
-<p>VirtOn은 Proxmox VE 기반 가상화 자원을 웹 화면에서 통합 관리하는 소프트웨어입니다. 이 매뉴얼은 사용자가 필요한 작업을 빠르게 찾아 수행할 수 있도록 실제 운영 순서로 구성되어 있습니다.</p>
+<h1><strong>4. 보안 및 계정 관리</strong><a class="headerlink" href="#id1" title="Link to this heading"><span>#</span></a></h1>
+<p>사용자 계정과 역할, 접근 권한, 보안 정책, 알림 및 감사기록을 관리하는 방법을 안내합니다. 일부 메뉴는 SUPER ADMIN 또는 ADMIN 권한이 있는 사용자에게만 표시됩니다.</p>
 <section id="id2">
-<h2><strong>1.1 처음 사용하는 관리자</strong><a class="headerlink" href="#id2" title="Link to this heading"><span>#</span></a></h2>
-<p>다음 순서로 진행하세요.</p>
-<ol class="arabic simple">
-<li><p><a class="reference internal" href="3-installation.html"><span class="std std-doc">설치 및 초기 설정</span></a>에서 서버, 네트워크, 권한을 확인합니다.</p></li>
-<li><p>안내된 제품 설치 절차에 따라 VirtOn을 배포합니다.</p></li>
-<li><p><a class="reference internal" href="2-login.html"><span class="std std-doc">로그인 및 초기 설정</span></a>에서 관리자 비밀번호를 변경하고 Proxmox VE를 연결합니다.</p></li>
-<li><p><a class="reference internal" href="3-dashboard.html"><span class="std std-doc">대시보드</span></a>에서 노드와 가상화 자원의 상태를 확인합니다.</p></li>
-<li><p><a class="reference internal" href="security-management.html"><span class="std std-doc">보안 및 계정 관리</span></a>에서 계정, 권한, 알림 정책을 설정합니다.</p></li>
-</ol>
-</section>
-<section id="id3">
-<h2><strong>1.2 기존 사용자</strong><a class="headerlink" href="#id3" title="Link to this heading"><span>#</span></a></h2>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>하려는 작업</strong></p></th>
-<th class="head"><p><strong>이동할 메뉴</strong></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>VM 또는 컨테이너 생성·관리</p></td>
-<td><p><a class="reference internal" href="5-instances.html"><span class="std std-doc">인스턴스</span></a></p></td>
-</tr>
-<tr class="row-odd"><td><p>클러스터, Ceph, HA 상태 관리</p></td>
-<td><p><a class="reference internal" href="6-cluster.html"><span class="std std-doc">클러스터</span></a>, <a class="reference internal" href="7-ceph.html"><span class="std std-doc">Ceph</span></a>, <a class="reference internal" href="8-ha.html"><span class="std std-doc">고가용성</span></a></p></td>
-</tr>
-<tr class="row-even"><td><p>템플릿 또는 마이그레이션 사용</p></td>
-<td><p><a class="reference internal" href="9-template.html"><span class="std std-doc">템플릿/마이그레이션</span></a></p></td>
-</tr>
-<tr class="row-odd"><td><p>스토리지 또는 네트워크 설정</p></td>
-<td><p><a class="reference internal" href="11-storage.html"><span class="std std-doc">스토리지</span></a>, <a class="reference internal" href="12-network.html"><span class="std std-doc">네트워크</span></a></p></td>
-</tr>
-<tr class="row-even"><td><p>계정, 권한, 보안 정책 설정</p></td>
-<td><p><a class="reference internal" href="14-settings.html"><span class="std std-doc">설정</span></a></p></td>
-</tr>
-<tr class="row-odd"><td><p>알림과 감사기록 확인</p></td>
-<td><p><a class="reference internal" href="13-notifications.html"><span class="std std-doc">알림 및 감사기록</span></a></p></td>
-</tr>
-<tr class="row-even"><td><p>오류 또는 장애 해결</p></td>
-<td><p><a class="reference internal" href="15-troubleshooting.html"><span class="std std-doc">문제 해결</span></a></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="id4">
-<h2><strong>1.3 사용 전 확인사항</strong><a class="headerlink" href="#id4" title="Link to this heading"><span>#</span></a></h2>
+<h2><strong>먼저 확인하세요</strong><a class="headerlink" href="#id2" title="Link to this heading"><span>#</span></a></h2>
 <ul class="simple">
-<li><p>VirtOn 접속 주소와 사용자 계정을 준비합니다.</p></li>
-<li><p>수행하려는 작업에 필요한 관리자 또는 사용자 권한을 확인합니다.</p></li>
-<li><p>Proxmox VE 연결 상태와 대상 노드의 상태를 확인합니다.</p></li>
-<li><p>운영 환경에서 사용하는 실제 비밀번호와 API Token Secret은 문서나 화면 캡처에 노출하지 않습니다.</p></li>
+<li><p>계정과 권한을 변경하기 전에 현재 로그인한 사용자의 역할을 확인합니다.</p></li>
+<li><p>보안 정책 변경 전 운영 중인 사용자와 서비스에 미치는 영향을 검토합니다.</p></li>
+<li><p>비밀번호, 복구 시크릿, SMTP 인증정보는 화면 캡처나 문서에 기록하지 않습니다.</p></li>
 </ul>
-<p>제품 식별정보와 구성요소, 운용 환경은 <a class="reference internal" href="2-product-introduction.html"><span class="std std-doc">제품 정보 및 사양</span></a>에서 확인할 수 있습니다. 문서에서 사용하는 전문 용어는 <a class="reference internal" href="glossary.html"><span class="std std-doc">용어 및 개념</span></a>을 참고하세요.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="13-notifications.html"><strong>4.1 알림 (Notifications)</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="13-notifications.html#id1">사용 전 확인사항</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13-notifications.html#virton">4.1.1 보안 경고 알림 - (VirtOn 알림 및 감사 로그 페이지)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13-notifications.html#id2">4.1.2 감사 로그 - (VirtOn 알림 및 감사 로그 페이지)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13-notifications.html#tasks-proxmox">4.1.3 작업 (tasks) 이력 - (Proxmox 알림 페이지)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13-notifications.html#proxmox">4.1.4 클러스터 로그 이력 - (Proxmox 알림 페이지)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13-notifications.html#id4">4.1.5 상단 및 하단 알림</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13-notifications.html#id5">4.1.6 문제 해결 방법</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="14-settings.html"><strong>4.2 설정 (Settings)</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="settings/proxmox-api.html">Proxmox API 관리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings/accounts.html">계정 관리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings/security.html">보안 관리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings/smtp.html">SMTP설정</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-settings.html#id1">사용 전 확인사항</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-settings.html#proxmox-api">4.2.1 Proxmox API 연결 설정</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-settings.html#id4">4.2.2 계정 관리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-settings.html#id13">4.2.3 권한 관리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-settings.html#role">4.2.3.1 역할(Role)별 기본 권한 리스트(기능 허용범위)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-settings.html#id15">4.2.3.2 역할 권한 추가, 삭제</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-settings.html#id18">4.2.3.3 관리자 외 권한 관리 제어 금지</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-settings.html#pool">4.2.4 Pool 관리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-settings.html#id19">4.2.4.1 Pool 생성 및 목록</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-settings.html#id22">4.2.4.2 주요 관리 작업</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-settings.html#id26">4.2.4.3 Pool 삭제</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-settings.html#id27">4.2.4.4 Pool 역할별 접근 및 제어 범위</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-settings.html#id28">4.2.5 보안 관리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-settings.html#id29">4.2.5.1 식별·인증</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-settings.html#id32">4.2.5.2 감사관리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-settings.html#id33">4.2.5.3 자체보호</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-settings.html#id39">4.2.5.4 시작하기 전에 (권한 및 접근)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-settings.html#id40">4.2.5.4.1 백업 기능 활성화/비활성화</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-settings.html#configuration">4.2.5.4.2 백업 정책 설정 (Configuration)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-settings.html#id41">4.2.5.4.3 백업 실행하기</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-settings.html#id43">4.2.5.4.4 백업 목록 관리 및 조회</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-settings.html#restoration">4.2.5.4.5 시스템 복구 (Restoration)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-settings.html#troubleshooting">4.2.5.4.6 문제 해결 (Troubleshooting)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-settings.html#ip-ip-access-control">4.2.5.5 관리자 IP 접근 제어 (IP Access Control)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-settings.html#id52">4.2.5.6 세션관리</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-settings.html#id53">4.2.6 이메일 알림 설정</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-settings.html#id54">4.2.6.1 이메일 알림 비활성화 상태</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-settings.html#id55">4.2.6.2 내 알림 이메일 설정 (모든 사용자 공통)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-settings.html#smtp">4.2.6.3 전역 메일 발송 서버 (SMTP) 설정 (관리자 전용)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-settings.html#id58">4.2.7 설정 기능 문제 해결 방법</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </section>
 </section>
 
@@ -454,20 +456,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="index.html"
+       href="12-network.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">이전</p>
-        <p class="prev-next-title">VirtOn</p>
+        <p class="prev-next-title"><strong>3.10 네트워크 (Network)</strong></p>
       </div>
     </a>
     <a class="right-next"
-       href="3-installation.html"
+       href="13-notifications.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">다음</p>
-        <p class="prev-next-title"><strong>2. 설치 및 초기 설정</strong></p>
+        <p class="prev-next-title"><strong>4.1 알림 (Notifications)</strong></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -487,9 +489,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>1.1 처음 사용하는 관리자</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>1.2 기존 사용자</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>1.3 사용 전 확인사항</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>먼저 확인하세요</strong></a></li>
 </ul>
   </nav></div>
 
