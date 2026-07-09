@@ -1,0 +1,579 @@
+
+<!DOCTYPE html>
+
+
+<html lang="ko" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3.2 셸 (Shell) &#8212; virton 1.1 문서</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=6a7660f3" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=2dfc782e"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/translations.js?v=e33e7ba0"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'main/4-hostShell';</script>
+    <script src="../_static/theme-toggle.js?v=036f6176"></script>
+    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="index" title="색인" href="../genindex.html" />
+    <link rel="search" title="검색" href="../search.html" />
+    <link rel="next" title="3.3 인스턴스 (Instances)" href="5-instances.html" />
+    <link rel="prev" title="3.1 대시보드 (Dashboard)" href="3-dashboard.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ko"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="virton 1.1 문서 - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="virton 1.1 문서 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="검색" aria-label="검색" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">검색</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">버트온 사용자 매뉴얼</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">VirtOn</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1-introduction.html"><strong>1. 시작하기</strong></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="3-installation.html"><strong>2. 설치 및 초기 설정</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation-preparation.html"><strong>2.1 설치 준비</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="product-installation.html"><strong>2.2 제품 설치</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="post-install-check.html"><strong>2.3 설치 후 정상 동작 확인</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="2-login.html"><strong>2.4 로그인 및 초기 연결</strong></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="4-features.html"><strong>3. VirtOn 사용하기</strong></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="3-dashboard.html"><strong>3.1 대시보드 (Dashboard)</strong></a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#"><strong>3.2 셸 (Shell)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="5-instances.html"><strong>3.3 인스턴스 (Instances)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="6-cluster.html"><strong>3.4 클러스터 (Cluster)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="7-ceph.html"><strong>3.5 Ceph</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="8-ha.html"><strong>3.6 고가용성 (HA - High Availability)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="9-template.html"><strong>3.7 템플릿 (Template)/마이그레이션 (Migrate)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="10-resources.html"><strong>3.8 리소스 (Resources)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="11-storage.html"><strong>3.9 스토리지 (Storage)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="12-network.html"><strong>3.10 네트워크 (Network)</strong></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="security-management.html"><strong>4. 보안 및 계정 관리</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="13-notifications.html"><strong>4.1 알림 (Notifications)</strong></a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="14-settings.html"><strong>4.2 설정 (Settings)</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="settings/proxmox-api.html">Proxmox API 관리</a></li>
+<li class="toctree-l4"><a class="reference internal" href="settings/accounts.html">계정 관리</a></li>
+<li class="toctree-l4"><a class="reference internal" href="settings/security.html">보안 관리</a></li>
+<li class="toctree-l4"><a class="reference internal" href="settings/smtp.html">SMTP설정</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="15-troubleshooting.html"><strong>5. 문제 해결</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="2-product-introduction.html"><strong>6. 제품 정보 및 사양</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html"><strong>7. 용어 및 개념</strong></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pbs/index.html">VirtOn PBS (미적용)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pbs/1-introduction.html"><strong>1. VirtOn PBS 사용법 및 개요</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pbs/2-dashboard.html"><strong>2. 대시보드 (Dashboard)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pbs/3-DR%20Readiness.html"><strong>3. DR (DR Readiness)</strong></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pbs/backup-restore/index.html"><strong>4. 백업 &amp; 복구 (backup &amp; restore)</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pbs/backup-restore/management.html">백업 &amp; 복구 관리</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pbs/backup-restore/policy.html">정기 백업 정책</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pbs/offsite/index.html"><strong>5. 오프사이트 관리 (offsite)</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pbs/offsite/replication-policy.html">복제 정책</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pbs/offsite/backup-list.html">오프사이트 백업 목록</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../pbs/6-prune%26garbagecollection.html"><strong>6. PBS 프룬 &amp; 가비지 컬렉션 (Prune &amp; Garbage Collection)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pbs/7-status.html"><strong>7. 작업 이력 (status)</strong></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pbs/settings/index.html"><strong>8. 설정 (Settings)</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pbs/settings/verify.html">자동 검증 설정</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pbs/settings/server.html">서버 설정</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="이 페이지 다운로드">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/main/4-hostShell.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="소스 파일 다운로드"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="PDF로 인쇄"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="전체 화면으로보기"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="검색" aria-label="검색" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>3.2 셸 (Shell)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 내용 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">사용 전 확인사항</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-based-terminal">3.2.1 실시간 노드 제어 (Web-based Terminal)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.2.1.1 웹 기반 셸 접속</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.2.2 보안 및 편의 기능</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3.2.3 문제 해결 방법</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="shell">
+<h1><strong>3.2 셸 (Shell)</strong><a class="headerlink" href="#shell" title="Link to this heading"><span>#</span></a></h1>
+<blockquote>
+<div><p>VirtOn의 호스트 셸 기능은 관리자가 별도의 SSH 클라이언트(Terminal, PuTTY 등) 설치 없이 웹 브라우저에서 물리적 노드(Proxmox Host)에 직접 접속하여 명령어를 실행하고 시스템을 제어할 수 있는 강력한 관리 도구입니다.</p>
+</div></blockquote>
+<p><img alt="호스트셸 메인 1" src="../_images/host_shell1.png" /></p>
+<section id="id1">
+<h2>사용 전 확인사항<a class="headerlink" href="#id1" title="Link to this heading"><span>#</span></a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>구분</strong></p></th>
+<th class="head"><p><strong>내용</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>필요 권한</strong></p></td>
+<td><p>Host Shell은 물리 노드에 직접 명령을 실행하는 고위험 관리 기능이므로 관리자 권한과 노드 셸 접근 권한이 필요합니다.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>접속 대상</strong></p></td>
+<td><p>Proxmox VE 노드 중 접속할 대상 노드를 선택합니다.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>인증정보</strong></p></td>
+<td><p>접속 시 Proxmox 계정 비밀번호를 입력합니다. 비밀번호는 화면에 마스킹되며 제출문서에는 원문을 기재하지 않습니다.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>감사기록</strong></p></td>
+<td><p>접속 시도, 접속 성공/실패, 주요 관리 행위는 감사 로그 확인 대상입니다.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="web-based-terminal">
+<h2>3.2.1 실시간 노드 제어 (Web-based Terminal)<a class="headerlink" href="#web-based-terminal" title="Link to this heading"><span>#</span></a></h2>
+<section id="id2">
+<h3>3.2.1.1 웹 기반 셸 접속<a class="headerlink" href="#id2" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="호스트셸 메인 3" src="../_images/host_shell3.png" /></p>
+<ul class="simple">
+<li><p><strong>브라우저 터미널</strong>: 별도의 소프트웨어 없이 웹상에서 즉시 호스트 서버의 셸 환경에 접근합니다.</p></li>
+<li><p><strong>실시간 동기화</strong>: 물리적 서버의 터미널과 동일한 속도로 명령어를 입력하고 결과를 확인할 수 있습니다.</p></li>
+</ul>
+</section>
+</section>
+<section id="id3">
+<h2>3.2.2 보안 및 편의 기능<a class="headerlink" href="#id3" title="Link to this heading"><span>#</span></a></h2>
+<p><img alt="호스트셸 메인 2" src="../_images/host_shell2.png" /></p>
+<ul class="simple">
+<li><p><strong>비밀번호 입력</strong>: 호스트(노드) 셸을 사용하기 위해서는 연결 시 Proxmox의 계정 비밀번호가 필요합니다. 보안을 위해 입력 시마다 매번 입력해줘야 합니다.</p></li>
+<li><p><strong>행위 기록</strong>: 셸을 통해 수행된 주요 활동은 VirtOn의 **감사 로그(Audit Log)**에 기록되어, “누가, 언제, 어떤 노드에서” 작업을 수행했는지 투명하게 추적합니다.</p></li>
+<li><p><strong>안전한 세션 관리</strong>: 브라우저를 종료할 경우 세션을 자동으로 만료시켜 무단 접근을 방지합니다.</p></li>
+</ul>
+</section>
+<section id="id4">
+<h2>3.2.3 문제 해결 방법<a class="headerlink" href="#id4" title="Link to this heading"><span>#</span></a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>증상</strong></p></th>
+<th class="head"><p><strong>확인 항목</strong></p></th>
+<th class="head"><p><strong>조치 방법</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>셸 접속 버튼이 보이지 않음</p></td>
+<td><p>계정 역할과 권한</p></td>
+<td><p>관리자에게 Host Shell 접근 권한 부여 여부를 확인합니다.</p></td>
+</tr>
+<tr class="row-odd"><td><p>인증 실패</p></td>
+<td><p>Proxmox 계정 비밀번호</p></td>
+<td><p>비밀번호를 다시 입력하고, Proxmox 계정 잠금 또는 권한 상태를 확인합니다.</p></td>
+</tr>
+<tr class="row-even"><td><p>터미널 연결 끊김</p></td>
+<td><p>브라우저 세션, WebSocket 연결, 노드 상태</p></td>
+<td><p>다시 접속하고 노드 온라인 상태와 네트워크 연결을 확인합니다.</p></td>
+</tr>
+<tr class="row-odd"><td><p>작업 이력 확인 필요</p></td>
+<td><p>감사 로그</p></td>
+<td><p>알림/감사 로그 페이지에서 행위자, 대상 노드, 접속 IP, 결과를 확인합니다.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="3-dashboard.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">이전</p>
+        <p class="prev-next-title"><strong>3.1 대시보드 (Dashboard)</strong></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="5-instances.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">다음</p>
+        <p class="prev-next-title"><strong>3.3 인스턴스 (Instances)</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 내용
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">사용 전 확인사항</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-based-terminal">3.2.1 실시간 노드 제어 (Web-based Terminal)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.2.1.1 웹 기반 셸 접속</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.2.2 보안 및 편의 기능</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3.2.3 문제 해결 방법</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+으로 phum
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, phum.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,773 @@
+
+<!DOCTYPE html>
+
+
+<html lang="ko" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>6. 제품 정보 및 사양 &#8212; virton 1.1 문서</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=6a7660f3" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=2dfc782e"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/translations.js?v=e33e7ba0"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'main/2-product-introduction';</script>
+    <script src="../_static/theme-toggle.js?v=036f6176"></script>
+    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="index" title="색인" href="../genindex.html" />
+    <link rel="search" title="검색" href="../search.html" />
+    <link rel="next" title="7. 용어 및 개념" href="glossary.html" />
+    <link rel="prev" title="5. 문제 해결" href="15-troubleshooting.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ko"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="virton 1.1 문서 - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="virton 1.1 문서 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="검색" aria-label="검색" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">검색</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">버트온 사용자 매뉴얼</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">VirtOn</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1-introduction.html"><strong>1. 시작하기</strong></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="3-installation.html"><strong>2. 설치 및 초기 설정</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation-preparation.html"><strong>2.1 설치 준비</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="product-installation.html"><strong>2.2 제품 설치</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="post-install-check.html"><strong>2.3 설치 후 정상 동작 확인</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="2-login.html"><strong>2.4 로그인 및 초기 연결</strong></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="4-features.html"><strong>3. VirtOn 사용하기</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="3-dashboard.html"><strong>3.1 대시보드 (Dashboard)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="4-hostShell.html"><strong>3.2 셸 (Shell)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="5-instances.html"><strong>3.3 인스턴스 (Instances)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="6-cluster.html"><strong>3.4 클러스터 (Cluster)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="7-ceph.html"><strong>3.5 Ceph</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="8-ha.html"><strong>3.6 고가용성 (HA - High Availability)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="9-template.html"><strong>3.7 템플릿 (Template)/마이그레이션 (Migrate)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="10-resources.html"><strong>3.8 리소스 (Resources)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="11-storage.html"><strong>3.9 스토리지 (Storage)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="12-network.html"><strong>3.10 네트워크 (Network)</strong></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="security-management.html"><strong>4. 보안 및 계정 관리</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="13-notifications.html"><strong>4.1 알림 (Notifications)</strong></a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="14-settings.html"><strong>4.2 설정 (Settings)</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="settings/proxmox-api.html">Proxmox API 관리</a></li>
+<li class="toctree-l4"><a class="reference internal" href="settings/accounts.html">계정 관리</a></li>
+<li class="toctree-l4"><a class="reference internal" href="settings/security.html">보안 관리</a></li>
+<li class="toctree-l4"><a class="reference internal" href="settings/smtp.html">SMTP설정</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="15-troubleshooting.html"><strong>5. 문제 해결</strong></a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#"><strong>6. 제품 정보 및 사양</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html"><strong>7. 용어 및 개념</strong></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pbs/index.html">VirtOn PBS (미적용)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pbs/1-introduction.html"><strong>1. VirtOn PBS 사용법 및 개요</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pbs/2-dashboard.html"><strong>2. 대시보드 (Dashboard)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pbs/3-DR%20Readiness.html"><strong>3. DR (DR Readiness)</strong></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pbs/backup-restore/index.html"><strong>4. 백업 &amp; 복구 (backup &amp; restore)</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pbs/backup-restore/management.html">백업 &amp; 복구 관리</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pbs/backup-restore/policy.html">정기 백업 정책</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pbs/offsite/index.html"><strong>5. 오프사이트 관리 (offsite)</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pbs/offsite/replication-policy.html">복제 정책</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pbs/offsite/backup-list.html">오프사이트 백업 목록</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../pbs/6-prune%26garbagecollection.html"><strong>6. PBS 프룬 &amp; 가비지 컬렉션 (Prune &amp; Garbage Collection)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pbs/7-status.html"><strong>7. 작업 이력 (status)</strong></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pbs/settings/index.html"><strong>8. 설정 (Settings)</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pbs/settings/verify.html">자동 검증 설정</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pbs/settings/server.html">서버 설정</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="이 페이지 다운로드">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/main/2-product-introduction.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="소스 파일 다운로드"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="PDF로 인쇄"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="전체 화면으로보기"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="검색" aria-label="검색" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>6. 제품 정보 및 사양</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 내용 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>6.1 문서 및 제품 식별정보</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>6.2 제품의 구성 및 사양</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>6.2.1 제품의 구성</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><strong>6.2.2 제품의 사양</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><strong>6.2.3 제품의 외관</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><strong>6.3 운용 환경</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><strong>6.3.1 제품의 구성도</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><strong>6.3.2 권장 사양 및 최소 사양</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10"><strong>6.3.3 제품에 포함된 소프트웨어 목록</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#it"><strong>6.3.4 외부 IT실체</strong></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="id1">
+<h1><strong>6. 제품 정보 및 사양</strong><a class="headerlink" href="#id1" title="Link to this heading"><span>#</span></a></h1>
+<p>VirtOn은 관리자에게 웹 기반 대시보드와 관리 화면을 제공하여 Proxmox VE 환경의 VM/CT, 클러스터, Ceph, HA, 템플릿, 스토리지, 네트워크, 알림, 보안 설정을 통합 관리하도록 지원합니다.</p>
+<section id="id2">
+<h2><strong>6.1 문서 및 제품 식별정보</strong><a class="headerlink" href="#id2" title="Link to this heading"><span>#</span></a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>항목</strong></p></th>
+<th class="head"><p><strong>내용</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>제품명</strong></p></td>
+<td><p>VirtOn</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>문서명</strong></p></td>
+<td><p>VirtOn 사용자 매뉴얼</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>문서 버전</strong></p></td>
+<td><p>제출 전 확정 필요</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>작성일자</strong></p></td>
+<td><p>2026-06-17</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>작성/신청기관</strong></p></td>
+<td><p>제출 전 확정 필요</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>문서 파일</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">main/index.md</span></code>, <code class="docutils literal notranslate"><span class="pre">main/*.md</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>제품 형태</strong></p></td>
+<td><p>Proxmox VE 관리용 웹 기반 소프트웨어</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>비밀정보 기재 원칙</strong></p></td>
+<td><p>계정 비밀번호, API Token Secret, SMTP 비밀번호, 암호키 원문은 본문에 고정 기재하지 않고 시험 또는 납품 시 별도 안전 채널로 통보합니다.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id3">
+<h2><strong>6.2 제품의 구성 및 사양</strong><a class="headerlink" href="#id3" title="Link to this heading"><span>#</span></a></h2>
+<section id="id4">
+<h3><strong>6.2.1 제품의 구성</strong><a class="headerlink" href="#id4" title="Link to this heading"><span>#</span></a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>구성요소</strong></p></th>
+<th class="head"><p><strong>형태</strong></p></th>
+<th class="head"><p><strong>주요 역할</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>웹 관리 화면(Frontend)</strong></p></td>
+<td><p>Next.js 기반 웹 애플리케이션</p></td>
+<td><p>로그인, 대시보드, 인스턴스, 클러스터, 스토리지, 네트워크, 설정 등 관리자 화면을 제공합니다.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>보안기능 및 제어 처리 서버(Backend)</strong></p></td>
+<td><p>NestJS 기반 API 서버</p></td>
+<td><p>사용자 인증, 권한검사, 보안정책 적용, 감사기록 생성, Proxmox VE 연동을 처리합니다.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>데이터 저장소(Database)</strong></p></td>
+<td><p>PostgreSQL</p></td>
+<td><p>사용자 정보, 세션, 권한, 정책, 감사기록, 시스템 설정값을 저장합니다.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>접속 보호 및 요청 중계(Nginx)</strong></p></td>
+<td><p>Reverse proxy</p></td>
+<td><p>HTTPS 접속 보호, Frontend 및 Backend 요청 전달을 수행합니다.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>배포 구성</strong></p></td>
+<td><p>Docker Compose 기반 구성</p></td>
+<td><p>제품 실행에 필요한 컨테이너 구성요소를 구동합니다.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id5">
+<h3><strong>6.2.2 제품의 사양</strong><a class="headerlink" href="#id5" title="Link to this heading"><span>#</span></a></h3>
+<p>VirtOn은 별도 전용 하드웨어 없이 서버에 설치하여 운용하는 소프트웨어 제품입니다. 실제 제품 버전, 운영체제 버전, 구성요소 버전은 제출 전 최종 빌드 기준으로 확정합니다.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>구분</strong></p></th>
+<th class="head"><p><strong>사양/식별정보</strong></p></th>
+<th class="head"><p><strong>비고</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>제품 형태</strong></p></td>
+<td><p>웹 기반 관리 소프트웨어</p></td>
+<td><p>브라우저로 접속하여 사용</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Frontend</strong></p></td>
+<td><p>Next.js 기반</p></td>
+<td><p>관리자 웹 화면 제공</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Backend</strong></p></td>
+<td><p>NestJS/Prisma 기반</p></td>
+<td><p>인증, 권한, 정책, 감사, 외부 연동 처리</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Database</strong></p></td>
+<td><p>PostgreSQL</p></td>
+<td><p>제품 운영 데이터 저장</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Reverse Proxy</strong></p></td>
+<td><p>Nginx</p></td>
+<td><p>HTTPS 및 요청 중계</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>배포 방식</strong></p></td>
+<td><p>Docker Compose 기반</p></td>
+<td><p>구성요소 컨테이너 실행</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id6">
+<h3><strong>6.2.3 제품의 외관</strong><a class="headerlink" href="#id6" title="Link to this heading"><span>#</span></a></h3>
+<p>VirtOn은 소프트웨어 제품이므로 전용 하드웨어 외관은 없습니다. 제품 외관은 웹 브라우저에서 제공되는 로그인 화면, 대시보드, 관리 메뉴, 설정 화면으로 확인합니다.</p>
+</section>
+</section>
+<section id="id7">
+<h2><strong>6.3 운용 환경</strong><a class="headerlink" href="#id7" title="Link to this heading"><span>#</span></a></h2>
+<section id="id8">
+<h3><strong>6.3.1 제품의 구성도</strong><a class="headerlink" href="#id8" title="Link to this heading"><span>#</span></a></h3>
+<p>VirtOn의 기본 운용 구성은 다음 흐름으로 동작합니다.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>구간</strong></p></th>
+<th class="head"><p><strong>연결 관계</strong></p></th>
+<th class="head"><p><strong>설명</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>관리자 PC → VirtOn Frontend</strong></p></td>
+<td><p>웹 브라우저 HTTPS 접속</p></td>
+<td><p>관리자는 브라우저로 VirtOn 웹 관리 화면에 접속합니다.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>VirtOn Frontend → Backend</strong></p></td>
+<td><p>API 요청</p></td>
+<td><p>화면에서 수행한 조회/제어 요청이 Backend로 전달됩니다.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>VirtOn Backend → Database</strong></p></td>
+<td><p>내부 데이터 저장/조회</p></td>
+<td><p>계정, 권한, 정책, 감사 로그, 설정 정보를 저장하고 조회합니다.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>VirtOn Backend → Proxmox VE</strong></p></td>
+<td><p>Proxmox API 연동</p></td>
+<td><p>VM/CT, 노드, 클러스터, 스토리지, 네트워크, HA 등 가상화 자원을 제어합니다.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>VirtOn Backend → SMTP 서버</strong></p></td>
+<td><p>메일 발송 연동</p></td>
+<td><p>계정 잠금, 보안 경고, 시스템 알림을 이메일로 발송합니다.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id9">
+<h3><strong>6.3.2 권장 사양 및 최소 사양</strong><a class="headerlink" href="#id9" title="Link to this heading"><span>#</span></a></h3>
+<p>설치 전 아래 항목을 확인합니다. 세부 수치는 운영 환경의 VM/CT 규모, 로그 보관 기간, 동시 사용자 수에 따라 조정합니다.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>대상</strong></p></th>
+<th class="head"><p><strong>최소 확인 항목</strong></p></th>
+<th class="head"><p><strong>권장 확인 항목</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>VirtOn 설치 서버</strong></p></td>
+<td><p>CPU, RAM, 디스크 여유 공간, NIC, 운영체제 버전</p></td>
+<td><p>운영 중인 VM/CT 규모와 감사 로그 보관량을 고려한 CPU/RAM/스토리지 확보</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>관리자 PC</strong></p></td>
+<td><p>최신 웹 브라우저, VirtOn 접속 가능 네트워크</p></td>
+<td><p>업무망에서 HTTPS 접속 가능, 화면 해상도와 브라우저 호환성 확인</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Proxmox VE 환경</strong></p></td>
+<td><p>Proxmox API 접속 가능, 노드/스토리지/네트워크 구성</p></td>
+<td><p>클러스터, HA, Ceph, 공유 스토리지 사용 시 각 기능의 정상 상태 확인</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>메일 환경</strong></p></td>
+<td><p>SMTP 서버 주소, 포트, 인증 방식</p></td>
+<td><p>보안 알림 테스트 메일 수신 확인</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>제품 실행 구성</strong></p></td>
+<td><p>PostgreSQL, Nginx, Docker 런타임 구동 가능 환경</p></td>
+<td><p>상세 버전은 제출 전 최종 빌드 기준으로 확정</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id10">
+<h3><strong>6.3.3 제품에 포함된 소프트웨어 목록</strong><a class="headerlink" href="#id10" title="Link to this heading"><span>#</span></a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>구성요소</strong></p></th>
+<th class="head"><p><strong>용도</strong></p></th>
+<th class="head"><p><strong>비고</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Next.js</strong></p></td>
+<td><p>웹 관리 화면 제공</p></td>
+<td><p>Frontend</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>NestJS</strong></p></td>
+<td><p>API 서버 및 보안기능 처리</p></td>
+<td><p>Backend</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Prisma</strong></p></td>
+<td><p>데이터베이스 접근 계층</p></td>
+<td><p>Backend</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PostgreSQL</strong></p></td>
+<td><p>제품 운영 데이터 저장</p></td>
+<td><p>Database</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Nginx</strong></p></td>
+<td><p>HTTPS 보호 및 요청 중계</p></td>
+<td><p>Reverse proxy</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Docker Compose</strong></p></td>
+<td><p>제품 구성요소 배포 및 실행</p></td>
+<td><p>설치/배포 환경</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="it">
+<h3><strong>6.3.4 외부 IT실체</strong><a class="headerlink" href="#it" title="Link to this heading"><span>#</span></a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>외부 IT실체</strong></p></th>
+<th class="head"><p><strong>용도</strong></p></th>
+<th class="head"><p><strong>설정 위치</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Proxmox VE</strong></p></td>
+<td><p>VM/CT, 노드, 클러스터, 스토리지, 네트워크, HA 제어</p></td>
+<td><p>로그인 후 초기 설정 또는 [설정] &gt; Proxmox API 연결 설정</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>SMTP 서버</strong></p></td>
+<td><p>보안 경고 및 시스템 알림 메일 발송</p></td>
+<td><p>[설정] &gt; 이메일 알림 설정</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>NFS/SMB/iSCSI 서버</strong></p></td>
+<td><p>외부 스토리지 연동</p></td>
+<td><p>[스토리지] &gt; 새 스토리지 생성</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>관리자 PC 브라우저</strong></p></td>
+<td><p>VirtOn 웹 화면 접속</p></td>
+<td><p>HTTPS 접속 환경</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="15-troubleshooting.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">이전</p>
+        <p class="prev-next-title"><strong>5. 문제 해결</strong></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="glossary.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">다음</p>
+        <p class="prev-next-title"><strong>7. 용어 및 개념</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 내용
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>6.1 문서 및 제품 식별정보</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>6.2 제품의 구성 및 사양</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>6.2.1 제품의 구성</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><strong>6.2.2 제품의 사양</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><strong>6.2.3 제품의 외관</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><strong>6.3 운용 환경</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><strong>6.3.1 제품의 구성도</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><strong>6.3.2 권장 사양 및 최소 사양</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10"><strong>6.3.3 제품에 포함된 소프트웨어 목록</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#it"><strong>6.3.4 외부 IT실체</strong></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+으로 phum
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, phum.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

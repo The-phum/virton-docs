@@ -1,0 +1,629 @@
+
+<!DOCTYPE html>
+
+
+<html lang="ko" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3.4 클러스터 (Cluster) &#8212; virton 1.1 문서</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=6a7660f3" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=2dfc782e"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/translations.js?v=e33e7ba0"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'main/6-cluster';</script>
+    <script src="../_static/theme-toggle.js?v=036f6176"></script>
+    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="index" title="색인" href="../genindex.html" />
+    <link rel="search" title="검색" href="../search.html" />
+    <link rel="next" title="3.5 Ceph" href="7-ceph.html" />
+    <link rel="prev" title="3.3 인스턴스 (Instances)" href="5-instances.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ko"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="virton 1.1 문서 - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="virton 1.1 문서 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="검색" aria-label="검색" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">검색</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">버트온 사용자 매뉴얼</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">VirtOn</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1-introduction.html"><strong>1. 시작하기</strong></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="3-installation.html"><strong>2. 설치 및 초기 설정</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation-preparation.html"><strong>2.1 설치 준비</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="product-installation.html"><strong>2.2 제품 설치</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="post-install-check.html"><strong>2.3 설치 후 정상 동작 확인</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="2-login.html"><strong>2.4 로그인 및 초기 연결</strong></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="4-features.html"><strong>3. VirtOn 사용하기</strong></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="3-dashboard.html"><strong>3.1 대시보드 (Dashboard)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="4-hostShell.html"><strong>3.2 셸 (Shell)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="5-instances.html"><strong>3.3 인스턴스 (Instances)</strong></a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#"><strong>3.4 클러스터 (Cluster)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="7-ceph.html"><strong>3.5 Ceph</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="8-ha.html"><strong>3.6 고가용성 (HA - High Availability)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="9-template.html"><strong>3.7 템플릿 (Template)/마이그레이션 (Migrate)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="10-resources.html"><strong>3.8 리소스 (Resources)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="11-storage.html"><strong>3.9 스토리지 (Storage)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="12-network.html"><strong>3.10 네트워크 (Network)</strong></a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="security-management.html"><strong>4. 보안 및 계정 관리</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="13-notifications.html"><strong>4.1 알림 (Notifications)</strong></a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="14-settings.html"><strong>4.2 설정 (Settings)</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="settings/proxmox-api.html">Proxmox API 관리</a></li>
+<li class="toctree-l4"><a class="reference internal" href="settings/accounts.html">계정 관리</a></li>
+<li class="toctree-l4"><a class="reference internal" href="settings/security.html">보안 관리</a></li>
+<li class="toctree-l4"><a class="reference internal" href="settings/smtp.html">SMTP설정</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="15-troubleshooting.html"><strong>5. 문제 해결</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="2-product-introduction.html"><strong>6. 제품 정보 및 사양</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html"><strong>7. 용어 및 개념</strong></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pbs/index.html">VirtOn PBS (미적용)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pbs/1-introduction.html"><strong>1. VirtOn PBS 사용법 및 개요</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pbs/2-dashboard.html"><strong>2. 대시보드 (Dashboard)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pbs/3-DR%20Readiness.html"><strong>3. DR (DR Readiness)</strong></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pbs/backup-restore/index.html"><strong>4. 백업 &amp; 복구 (backup &amp; restore)</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pbs/backup-restore/management.html">백업 &amp; 복구 관리</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pbs/backup-restore/policy.html">정기 백업 정책</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pbs/offsite/index.html"><strong>5. 오프사이트 관리 (offsite)</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pbs/offsite/replication-policy.html">복제 정책</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pbs/offsite/backup-list.html">오프사이트 백업 목록</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../pbs/6-prune%26garbagecollection.html"><strong>6. PBS 프룬 &amp; 가비지 컬렉션 (Prune &amp; Garbage Collection)</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pbs/7-status.html"><strong>7. 작업 이력 (status)</strong></a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pbs/settings/index.html"><strong>8. 설정 (Settings)</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pbs/settings/verify.html">자동 검증 설정</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pbs/settings/server.html">서버 설정</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="이 페이지 다운로드">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/main/6-cluster.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="소스 파일 다운로드"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="PDF로 인쇄"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="전체 화면으로보기"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="검색" aria-label="검색" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>3.4 클러스터 (Cluster)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 내용 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">사용 전 확인사항</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.4.1 클러스터 현황</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.4.2 노드 관리</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3.4.2.1 클러스터가 구성이 안되어 있을 때</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">3.4.2.2 클러스터 생성</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">3.4.2.3 클러스터 조인</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">3.4.3 문제 해결 방법</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="cluster">
+<h1><strong>3.4 클러스터 (Cluster)</strong><a class="headerlink" href="#cluster" title="Link to this heading"><span>#</span></a></h1>
+<p>클러스터(Cluster)는 <strong>여러 대의 서버를 하나로 묶어 단일 시스템처럼 통합 관리하고 가용성을 극대화하는 환경</strong>입니다.</p>
+<p><img alt="클러스터 현황" src="../_images/cluster_status.png" /></p>
+<section id="id1">
+<h2>사용 전 확인사항<a class="headerlink" href="#id1" title="Link to this heading"><span>#</span></a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>구분</strong></p></th>
+<th class="head"><p><strong>내용</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>필요 권한</strong></p></td>
+<td><p>클러스터 생성은 Proxmox 클러스터 구성을 변경하는 관리자 기능입니다. 관리자 권한 계정으로 수행합니다.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>사전 조건</strong></p></td>
+<td><p>각 노드의 네트워크 연결, 시간 동기화, 호스트명/IP 설정, Proxmox 계정 권한을 확인합니다.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>비밀정보 처리</strong></p></td>
+<td><p>Proxmox Password는 화면 입력용 비밀값이며 제출문서에는 원문을 기재하지 않습니다.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>영향 범위</strong></p></td>
+<td><p>클러스터 구성은 대시보드, HA, 마이그레이션, 공유 스토리지 기능에 영향을 줍니다.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id2">
+<h2>3.4.1 클러스터 현황<a class="headerlink" href="#id2" title="Link to this heading"><span>#</span></a></h2>
+<ul class="simple">
+<li><p>클러스터 이름 및 구성 노드 목록을 확인합니다.</p></li>
+<li><p>각 노드의 ID, 온라인 상태, IP 주소(LINK) 를 확인 할 수 있습니다.</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>3.4.2 노드 관리<a class="headerlink" href="#id3" title="Link to this heading"><span>#</span></a></h2>
+<ul class="simple">
+<li><p>클러스터 생성을 합니다.</p></li>
+</ul>
+<section id="id4">
+<h3>3.4.2.1 클러스터가 구성이 안되어 있을 때<a class="headerlink" href="#id4" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="클러스터 구성이 안되어 있을 때" src="../_images/cluster_x1.png" /></p>
+<p><img alt="클러스터 구성이 안되어 있을 때2" src="../_images/cluster_x2.png" /></p>
+<ul class="simple">
+<li><p>클러스터 구성이 안되어 있으면 <strong>클러스터 생성</strong> 섹션이 표시됩니다.</p></li>
+</ul>
+<p><img alt="클러스터 구성이 안되어 있을 때3" src="../_images/cluster_dashboard.png" /></p>
+<ul class="simple">
+<li><p>클러스터 구성이 안되어 있을 때 대시보드에  <strong>클러스터 구성 필요</strong> 메시지와 함께 조회가 불가능합니다.</p></li>
+</ul>
+</section>
+<section id="id5">
+<h3>3.4.2.2 클러스터 생성<a class="headerlink" href="#id5" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="클러스터 생성" src="../_images/cluster_create.png" /></p>
+<ul class="simple">
+<li><p>클러스터 이름: 클러스터의 이름을 입력하며, 한글 입력은 제한됩니다.</p></li>
+<li><p>Proxmox Password : 프록스목스 계정의 비밀번호를 입력합니다.</p></li>
+<li><p>클러스터 네트워크: 현재 서버의 기본 네트워크가 자동으로 할당되며, 추가 할 수 있습니다.</p></li>
+</ul>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>항목</strong></p></th>
+<th class="head"><p><strong>입력/선택 기준</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>클러스터 이름</strong></p></td>
+<td><p>영문, 숫자, 하이픈 등 허용된 문자로 입력합니다. 한글 입력은 제한됩니다.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Proxmox Password</strong></p></td>
+<td><p>클러스터 생성 권한이 있는 Proxmox 계정의 비밀번호를 입력합니다.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>클러스터 네트워크</strong></p></td>
+<td><p>노드 간 통신이 가능한 네트워크를 선택합니다. 복수 링크를 사용할 경우 모든 참여 노드에 동일한 수의 네트워크를 준비합니다.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img alt="클러스터 생성 완료" src="../_images/cluster_create_complete.png" /></p>
+<ul class="simple">
+<li><p>클러스터 생성 후 <strong>새로고침</strong> 하면 클러스터 구성 상태로 변경됩니다.
+<img alt="클러스터 구성 상태" src="../_images/cluster_composition.png" /></p></li>
+</ul>
+</section>
+<section id="id6">
+<h3>3.4.2.3 클러스터 조인<a class="headerlink" href="#id6" title="Link to this heading"><span>#</span></a></h3>
+<p><img alt="클러스터 조인" src="../_images/cluster_join_direct.png" /></p>
+<ul class="simple">
+<li><p>신규 노드 직접 추가 기능을 통해 아직 클러스터에 속하지 않은 노드를 VirtOn에서 등록합니다.</p></li>
+<li><p><strong>신규 노드 접속 &amp; 지문 확인</strong> 영역에서 신규 노드 IP와 포트를 입력한 뒤 <strong>지문 가져오기</strong> 버튼을 클릭합니다.</p></li>
+<li><p>신규 노드의 TLS 지문을 확인하여 연결 대상 노드가 올바른지 검증합니다.</p></li>
+<li><p><strong>신규 노드 API 토큰 등록</strong> 영역에 신규 노드에서 생성한 Token ID와 Token Secret을 입력합니다.</p></li>
+<li><p>API 토큰은 조인 수행 권한이 필요하며, 클러스터 조인 성공 후 자동으로 폐기됩니다.</p></li>
+<li><p>현재 클러스터와 같은 Token ID는 사용할 수 없습니다. 토큰 충돌이 발생하면 VirtOn API 연결이 끊길 수 있으므로 신규 노드 전용 토큰을 사용합니다.</p></li>
+<li><p>입력값 확인 후 <strong>신규 노드 등록</strong> 버튼을 클릭하여 클러스터 가입을 진행합니다.</p></li>
+<li><p>작업 완료 후 우측 상단의 <strong>상태 새로고침</strong> 버튼으로 클러스터 상태와 노드 목록을 다시 확인합니다.</p></li>
+</ul>
+</section>
+</section>
+<section id="id7">
+<h2>3.4.3 문제 해결 방법<a class="headerlink" href="#id7" title="Link to this heading"><span>#</span></a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>증상</strong></p></th>
+<th class="head"><p><strong>확인 항목</strong></p></th>
+<th class="head"><p><strong>조치 방법</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>클러스터 생성 실패</p></td>
+<td><p>클러스터 이름, Proxmox Password, 노드 네트워크</p></td>
+<td><p>입력값을 확인하고 노드 간 통신 가능 여부를 점검합니다.</p></td>
+</tr>
+<tr class="row-odd"><td><p>클러스터 조인 실패</p></td>
+<td><p>신규 노드 IP/포트, TLS 지문, API 토큰 권한</p></td>
+<td><p>신규 노드 접속 정보와 토큰 권한을 확인한 뒤 다시 등록합니다.</p></td>
+</tr>
+<tr class="row-even"><td><p>클러스터 구성 후 조회 실패</p></td>
+<td><p>새로고침, 쿼럼 상태, Proxmox API 연결</p></td>
+<td><p>새로고침 후에도 실패하면 대시보드와 알림 페이지에서 클러스터 로그를 확인합니다.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="5-instances.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">이전</p>
+        <p class="prev-next-title"><strong>3.3 인스턴스 (Instances)</strong></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="7-ceph.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">다음</p>
+        <p class="prev-next-title"><strong>3.5 Ceph</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 내용
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">사용 전 확인사항</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.4.1 클러스터 현황</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.4.2 노드 관리</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3.4.2.1 클러스터가 구성이 안되어 있을 때</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">3.4.2.2 클러스터 생성</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">3.4.2.3 클러스터 조인</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">3.4.3 문제 해결 방법</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+으로 phum
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, phum.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
